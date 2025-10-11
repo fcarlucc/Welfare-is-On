@@ -2,6 +2,9 @@
 
 WellfareIsOn is a challenge that aims to innovate the Wellfare website of Leonardo, and this is our creation: **Well4You**.
 
+📸 Project images and mockups can be found in:
+/Documentazione/immagini/*
+
 ## Project Overview
 
 Well4You is a modernized and scalable web application designed to enhance the welfare services provided by Leonardo. The project utilizes a microservices architecture to ensure flexibility and scalability, with a backend developed in Spring Boot, a PostgreSQL database, and Docker for containerization. The frontend is built using TypeScript and Angular, and the application is designed to be secure and efficient.
