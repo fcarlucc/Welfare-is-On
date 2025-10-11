@@ -1,0 +1,62 @@
+<nav class="sidebar">
+    <div class="logo">
+        <img src="assets/home/logo-well4you.png" alt="logoImage">
+    </div>
+    <div class="menu-elements">
+        <div class="menu-item" (click)="navigateTo('')">
+            <h2>Home</h2>
+        </div>
+        <div class="menu-item" (click)="navigateTo('welfare-coach')">
+            <h2>Coach</h2>
+        </div>
+        <div class="menu-item" (click)="toggleSection($event)">
+            <h2>Pillars</h2>
+            @if (!pillarOn) {
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down" viewBox="0 0 16 16">
+                    <path d="M3.204 5h9.592L8 10.481zm-.753.659 4.796 5.48a1 1 0 0 0 1.506 0l4.796-5.48c.566-.647.106-1.659-.753-1.659H3.204a1 1 0 0 0-.753 1.659"/>
+                </svg>
+            } @else {
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+                    <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+                </svg>
+            }
+            <div class="submenu" [class.expand]="sectionOn">
+                <div class="submenu-item" (click)="navigateTo('economic')">
+                    <div class="submenu-section">
+                        <img class="sidebar-img" src="assets/sidebar/nav-economic.jpg">
+                        <h3 class="sidebar-span">Economic</h3>
+                    </div>
+                </div>
+                <div class="submenu-item" (click)="navigateTo('physical')">
+                    <div class="submenu-section">
+                        <img class="sidebar-img" src="assets/sidebar/nav-physic.jpg">
+                        <h3 class="sidebar-span">Physic</h3>
+                    </div>
+                </div>
+                <div class="submenu-item" (click)="navigateTo('psychological')">
+                    <div class="submenu-section">
+                        <img class="sidebar-img" src="assets/sidebar/nav-psicologic.jpg">
+                        <h3 class="sidebar-span">Psicologic</h3>
+                    </div>
+                </div>
+                <div class="submenu-item" (click)="navigateTo('family')">
+                    <div class="submenu-section">
+                        <img class="sidebar-img" src="assets/sidebar/nav-family.jpg">
+                        <h3 class="sidebar-span">Family</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @if (!sectionOn) {
+            <div class="menu-item" (click)="navigateTo('showcase')">
+                <h2>Showcase</h2>
+            </div>
+            <div class="menu-item" (click)="navigateTo('near-me')">
+                <h2>Near me</h2>
+            </div>
+            <div class="menu-item" (click)="navigateTo('profile')">
+                <h2>Profile</h2>
+            </div>
+        }
+    </div>
+</nav>

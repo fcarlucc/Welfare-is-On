@@ -1,0 +1,10 @@
+com.likeservice.app
+com.likeservice.app.controller
+com.likeservice.app.dto
+com.likeservice.app.exception
+com.likeservice.app.exceptionHandler
+com.likeservice.app.Initializer
+com.likeservice.app.mapper
+com.likeservice.app.model
+com.likeservice.app.repository
+com.likeservice.app.service

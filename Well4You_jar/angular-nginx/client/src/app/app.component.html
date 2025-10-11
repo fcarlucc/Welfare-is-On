@@ -1,0 +1,13 @@
+@if (!isAuth()){
+    <app-pre-header></app-pre-header>
+} @else {
+    @if (isAuthUser()) {
+        <app-header></app-header>
+    } @else if (isAuthCoach()) {
+        <app-header-coach></app-header-coach>
+    } @else if (isAuthAdmin()) {
+        <app-header-admin></app-header-admin>
+    }
+}
+<router-outlet></router-outlet>
+<app-footer></app-footer>

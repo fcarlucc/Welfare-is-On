@@ -1,0 +1,2 @@
+DROP SCHEMA IF EXISTS imageservice CASCADE;
+CREATE SCHEMA IF NOT EXISTS imageservice;

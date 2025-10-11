@@ -1,0 +1,10 @@
+com.commentservice.app
+com.commentservice.app.controller
+com.commentservice.app.dto
+com.commentservice.app.exception
+com.commentservice.app.exceptionHandler
+com.commentservice.app.Initializer
+com.commentservice.app.mapper
+com.commentservice.app.model
+com.commentservice.app.repository
+com.commentservice.app.service

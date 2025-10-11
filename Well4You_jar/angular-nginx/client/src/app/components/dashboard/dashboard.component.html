@@ -1,0 +1,151 @@
+<section id="intro" class="intro">
+    <div class="container">
+      <div class="title">
+          Benvenuto nel <span class="title-red">Portale</span> del <span class="title-red">Welfare aziendale</span>
+      </div>
+      <div class="subtitle">
+        Scopri tutti i servizi e i benefici pensati per il tuo benessere e la tua crescita professionale a tua completa disposizione.
+      </div>
+    </div>
+    <div class="container-service">
+        <div class="content">
+            <h1>Vantaggi con il nostro <span>Welfare Aziendale</span></h1>
+            <p>Il nostro programma di welfare aziendale è progettato per migliorare il benessere dei dipendenti, offrendo una vasta gamma di servizi e benefici che supportano la salute fisica, mentale e finanziaria.</p>
+            <div class="statistics">
+                <div class="stat">
+                    <h2>100%</h2>
+                    <p>Soddisfazione dei dipendenti</p>
+                </div>
+                <div class="stat">
+                    <h2>50+</h2>
+                    <p>Attività di benessere offerte</p>
+                </div>
+            </div>
+            <!-- <button (click)="navigateTo('book-call')">Prenota un appuntamento</button> -->
+        </div>
+        <div class="image">
+            <img src="path_to_your_image.png" alt="Employee enjoying benefits">
+        </div>
+    </div>
+</section>
+
+<!-- <div class="map-container">
+    <gmp-map
+      center="41.901610,12.503200"
+      zoom="15"
+      map-id="DEMO_MAP_ID"
+    ></gmp-map>
+    <div id="map"></div>
+    <script>
+      (g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})({
+        key: "AIzaSyCvVL7YIs_8tSfnVfpFUiv64XPZ1GE8ADg",
+        v: "weekly",
+        // Use the 'v' parameter to indicate the version to use (weekly, beta, alpha, etc.).
+        // Add other bootstrap parameters as needed, using camel case.
+      });
+    </script>
+</div> -->
+
+<!-- dashboard.component.html -->
+<!-- <div #mapContainer id="map" style="height: 500px; width: 100%;"></div> -->
+
+
+
+
+
+      <!-- <script type="module">
+        "use strict";
+
+        // This loads helper components from the Extended Component Library,
+        // https://github.com/googlemaps/extended-component-library.
+        // Please note unpkg.com is unaffiliated with Google Maps Platform.
+        import {APILoader} from 'https://unpkg.com/@googlemaps/extended-component-library@0.6';
+
+        const CONFIGURATION = {
+          "ctaTitle": "submit",
+          "mapOptions": {"center":{"lat":37.4221,"lng":-122.0841},"fullscreenControl":true,"mapTypeControl":false,"streetViewControl":true,"zoom":11,"zoomControl":true,"maxZoom":22,"mapId":""},
+          "mapsApiKey": "AIzaSyBVMxz99JUdnGLDTgUQ9H3ZJCRWGI9uAGg",
+          "capabilities": {"addressAutocompleteControl":true,"mapDisplayControl":true,"ctaControl":true}
+        };
+
+        const SHORT_NAME_ADDRESS_COMPONENT_TYPES =
+            new Set(['street_number', 'administrative_area_level_1', 'postal_code']);
+
+        const ADDRESS_COMPONENT_TYPES_IN_FORM = [
+          'location',
+          'locality',
+          'administrative_area_level_1',
+          'postal_code',
+          'country',
+        ];
+
+        function getFormInputElement(componentType) {
+          return document.getElementById(`${componentType}-input`);
+        }
+
+        function fillInAddress(place) {
+          function getComponentName(componentType) {
+            for (const component of place.address_components || []) {
+              if (component.types[0] === componentType) {
+                return SHORT_NAME_ADDRESS_COMPONENT_TYPES.has(componentType) ?
+                    component.short_name :
+                    component.long_name;
+              }
+            }
+            return '';
+          }
+
+          function getComponentText(componentType) {
+            return (componentType === 'location') ?
+                `${getComponentName('street_number')} ${getComponentName('route')}` :
+                getComponentName(componentType);
+          }
+
+          for (const componentType of ADDRESS_COMPONENT_TYPES_IN_FORM) {
+            getFormInputElement(componentType).value = getComponentText(componentType);
+          }
+        }
+
+        function renderAddress(place) {
+          const mapEl = document.querySelector('gmp-map');
+          const markerEl = document.querySelector('gmp-advanced-marker');
+
+          if (place.geometry && place.geometry.location) {
+            mapEl.center = place.geometry.location;
+            markerEl.position = place.geometry.location;
+          } else {
+            markerEl.position = null;
+          }
+        }
+
+        async function initMap() {
+          const {Autocomplete} = await APILoader.importLibrary('places');
+
+          const mapOptions = CONFIGURATION.mapOptions;
+          mapOptions.mapId = mapOptions.mapId || 'DEMO_MAP_ID';
+          mapOptions.center = mapOptions.center || {lat: 37.4221, lng: -122.0841};
+
+          await customElements.whenDefined('gmp-map');
+          document.querySelector('gmp-map').innerMap.setOptions(mapOptions);
+          const autocomplete = new Autocomplete(getFormInputElement('location'), {
+            fields: ['address_components', 'geometry', 'name'],
+            types: ['address'],
+          });
+
+          autocomplete.addListener('place_changed', () => {
+            const place = autocomplete.getPlace();
+            if (!place.geometry) {
+              // User entered the name of a Place that was not suggested and
+              // pressed the Enter key, or the Place Details request failed.
+              window.alert(`No details available for input: '${place.name}'`);
+              return;
+            }
+            renderAddress(place);
+            fillInAddress(place);
+          });
+        }
+
+        initMap();
+      </script>
+    </head>
+    <body> -->

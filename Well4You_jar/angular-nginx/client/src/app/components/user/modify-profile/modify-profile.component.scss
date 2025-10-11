@@ -1,0 +1,226 @@
+$primary-color: black;
+$secondary-color: white;
+$button-continue: blue;
+$button-cancel: red;
+$input-border-color: blue;
+$input-focus-border-color: red;
+$interest-button-bg: lightgray;
+$interest-button-selected-bg: red;
+$interest-button-color: black;
+$interest-button-selected-color: black;
+
+@mixin color-scheme($primary-color, $secondary-color) {
+    color: $primary-color;
+    background-color: $secondary-color;
+}
+
+@mixin input-colors($border-color, $focus-border-color) {
+    border: 1px solid $border-color;
+
+    &:focus {
+        border-color: $focus-border-color;
+        outline: none;
+    }
+}
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $secondary-color;
+}
+
+.container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    background: linear-gradient(90deg, darken(#a00b16, 15%), #a00b16);
+
+    .background-images {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 1;
+        z-index: -1;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    .section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex: 1;
+        width: 100%;
+
+        .modify-profile-container {
+            @include color-scheme($primary-color, $secondary-color);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            max-height: 80%;
+            max-width: 800px;
+            box-shadow: 0 4px 8px black;
+            transition: transform 0.2s ease;
+
+            .logo {
+                img {
+                    margin-bottom: -30px;
+                    width: 40%;
+                    height: 40%;
+                }
+            }
+
+            &:hover {
+                transform: scale(1.04);
+            }
+
+            h1 {
+                margin-bottom: 1rem;
+                font-family: 'Poppins';
+                color: $primary-color;
+            }
+
+            .main-form {
+                display: flex;
+                flex-direction: column;
+                align-items: center; // Centra il contenuto
+
+                .form-columns {
+                    display: flex;
+                    flex-direction: column;
+                    width: 800px;
+                    align-items: center; // Centra le colonne
+
+                    @media (min-width: 768px) {
+                        flex-direction: column; // Mantiene l'allineamento in colonna su schermi più grandi
+                    }
+                }
+
+                .form-column {
+                    display: flex;
+                    flex-direction: column;
+                    width: 100%;
+                    max-width: 700px; // Limita la larghezza della colonna per centrarla meglio
+                    margin-bottom: 1rem;
+                }
+
+                input {
+                    padding: 0.75rem;
+                    margin-bottom: 1rem;
+                    @include input-colors($input-border-color, $input-focus-border-color);
+                    border-radius: 4px;
+                    font-size: 1rem;
+
+                    &:focus {
+                        border-color: $input-focus-border-color;
+                        outline: none;
+                    }
+                }
+
+                .interest-buttons {
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: center; // Centra i pulsanti di interesse
+                    margin-bottom: 1rem;
+
+                    .interest-button {
+                        margin: 5px;
+                        padding: 10px 20px;
+                        border: none;
+                        border-radius: 20px;
+                        background-color: $interest-button-bg;
+                        color: $interest-button-color;
+                        cursor: pointer;
+                        transition: background-color 0.3s, color 0.3s;
+
+                        &:hover {
+                            background-color: darken($interest-button-bg, 10%);
+                        }
+
+                        &.selected {
+                            background-color: $interest-button-selected-bg;
+                            color: $interest-button-selected-color;
+                        }
+                    }
+                }
+
+                .error-container {
+                    margin-bottom: 10px;
+                }
+
+                .error-message {
+                    color: red;
+                    font-size: 0.9rem;
+                }
+
+                a {
+                    color: black;
+                    text-decoration: underline;
+                    margin-bottom: 1rem;
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+
+            .button-wrapper {
+                display: flex;
+                justify-content: center;
+                width: 100%;
+                margin-top: -20px;
+
+                .btn-send {
+                    padding: 0.75rem;
+                    border: none;
+                    border-radius: 4px;
+                    background-color: $button-continue;
+                    color: white;
+                    font-size: 1rem;
+                    cursor: pointer;
+
+                    &:hover {
+                        background-color: darken($button-continue, 10%);
+                    }
+                }
+
+                .btn-cancel {
+                    padding: 0.75rem;
+                    border: none;
+                    border-radius: 4px;
+                    background-color: $button-cancel;
+                    color: white;
+                    font-size: 1rem;
+                    width: 100px;
+                    cursor: pointer;
+        
+                    &:hover {
+                        background-color: darken($button-cancel, 10%);
+                    }
+                }
+            }
+        }
+    }
+}

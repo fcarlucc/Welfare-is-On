@@ -1,0 +1,2 @@
+DROP SCHEMA IF EXISTS coachservice CASCADE;
+CREATE SCHEMA IF NOT EXISTS coachservice;

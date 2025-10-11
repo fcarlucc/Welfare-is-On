@@ -1,0 +1,34 @@
+<div class="container">
+    <div class="section">
+        <div class="booking-board-container">
+            <div class="logo">
+                <img src="assets/home/logo-well4you.png" alt="logoImage">
+            </div>
+            <h1>Booking Board</h1>
+            <div class="booking-slots">
+                @if (this.isEmpty()) {
+                    <h3>No bookings for now . . .</h3>
+                } @else {
+                    <div class="booking-slot" *ngFor="let booking of bookings">
+                        <table class="booking-details">
+                            <tr>
+                                <td><strong>Day:</strong></td>
+                                <td>{{ booking.day }}</td>
+
+                                <td><strong>Time:</strong></td>
+                                <td>{{ booking.slot.startTime.toString().substring(0, 5) }}</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Duration:</strong></td>
+                                <td>{{ booking.duration }} minutes</td>
+
+                                <td><strong>Notes:</strong></td>
+                                <td>{{ booking.notes }}</td>
+                            </tr>
+                        </table>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

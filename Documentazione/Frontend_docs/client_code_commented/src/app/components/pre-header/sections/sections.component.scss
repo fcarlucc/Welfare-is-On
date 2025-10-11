@@ -1,0 +1,274 @@
+$card-background-color-family: linear-gradient(200deg, #CF9C00, #d4a50c);
+$card-background-color-economic: linear-gradient(1042deg, #ce7b28, #d4950c);
+$card-background-color-physical: linear-gradient(1042deg, #490460, #ae0db6);
+$card-background-color-psychological: linear-gradient(1042deg, #075e5b, #11a9b4);
+$card-background-color-coach: black;
+$background-color: black;
+$card-background-color-intro: white;
+$active-color: #c10f1e;
+$hover-color: #a00b16;
+$text-color: white;
+
+@-webkit-keyframes slideInFromLeft {
+    0% {
+      -webkit-transform: translateX(-100%);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideInFromLeft {
+    0% {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+@mixin section-color($id) {
+    @if $id == 'family' {
+        background: $card-background-color-family;
+    } @else if $id == 'economic' {
+        background: $card-background-color-economic;
+    } @else if $id == 'physic' {
+        background: $card-background-color-physical;
+    } @else if $id == 'psicologic' {
+        background: $card-background-color-psychological;
+    } @else if $id == 'coach' {
+        background: $card-background-color-coach;
+
+        .section-title {
+            color: #c9d51f;
+        }
+    }
+}
+
+@mixin interactive-element {
+    padding: 12px;
+    font-size: 18px;
+    text-align: center;
+    border-radius: 4px;
+    color: $text-color;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+section {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: black;
+    font-size: 100px;
+    color: white;
+    font-weight: 700;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins';
+
+    // &::before {
+    //     content: "";
+    //     display: block;
+    //     margin-top: 20px;
+    // }
+}
+
+.header {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    background-color: $background-color;
+    z-index: 1000;
+    padding: 10px 0;
+    display: flex;
+    justify-content: center;
+    
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      padding: 0 20px;
+      
+      .logo {
+      
+        img {
+          width: 60%;
+          height: 100%;
+        }
+      }
+  
+      nav {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+  
+        a {
+          @include interactive-element;
+          line-height: 25px;
+  
+          &:hover,
+          &.active {
+            background-color: $active-color;
+          }
+        }
+      }
+  
+      .sign-in-button {
+        @include interactive-element;
+        background-color: $active-color;
+        border: none;
+        margin-right: 2%;
+  
+        &:hover {
+          background-color: $hover-color;
+        }
+      }
+    }
+}
+
+.coach {
+    @include section-color('coach');
+}
+
+.economic {
+    @include section-color('economic');
+}
+
+.physic {
+    @include section-color('physic');
+}
+
+.psicologic {
+    @include section-color('psicologic');
+}
+
+.family {
+    @include section-color('family');
+}
+
+.container {
+    height: max-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 100px 20px;
+    text-align: center;
+}
+
+.left-column, .right-column {
+    margin: 10px;
+}
+
+.left-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+}
+
+.title {
+    font-size: 42px;
+    font-weight: bold;
+    color: white;
+
+    .title-red {
+        color: rgb(183, 55, 55);
+    }
+}
+
+
+.subtitle {
+    font-size: 20px;
+    font-weight: normal;
+    color: #626264;
+    margin: 10px 0;
+    line-height: 1.4;
+}
+
+.section-title {
+    font-size: 42px;
+    font-weight: bold;
+    color: white;
+    animation: slideInFromLeft 2.5s ease-out;
+  }
+  
+
+.section-subtitle {
+    font-size: 28px;
+    font-weight: normal;
+    color: #efecfb;
+    margin: 10px 0;
+}
+
+.section-paragraph {
+    font-size: 20px;
+    font-weight: normal;
+    color: #efecfb;
+    margin: 10px 0;
+    line-height: 1.8;
+}
+
+.join-now-button {
+    @include interactive-element;
+    background-color: $active-color;
+    border: none;
+    margin-right: 2%;
+
+    &:hover {
+      background-color: $hover-color;
+    }
+  }
+
+.image {
+    max-width: 65%;
+    max-height: 60%;
+}
+
+@media (min-width: 768px) {
+    .container {
+        flex-direction: row;
+        justify-content: center;
+        text-align: left;
+    }
+    .left-column, .right-column {
+        flex: 1;
+        margin: 20px;
+    }
+    .right-column {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .left-column {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+    }
+}
+
+section img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@media (max-width: 768px) {
+    section {
+        min-height: 20vh;
+    }
+
+    section img {
+        width: 100vw;
+        height: auto;
+        object-fit: cover;
+    }
+}

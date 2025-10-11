@@ -1,0 +1,35 @@
+.footer {
+    background-color: #000;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+  
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .logo img {
+      max-width: 150px;
+    }
+  
+    .footer-details {
+      margin-top: 10px;
+  
+      p {
+        margin: 5px 0;
+  
+        a {
+          color: #fff;
+          text-decoration: none;
+          margin: 0 10px;
+  
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+  

@@ -1,0 +1,1295 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>client documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">client documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  PreHeaderComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/components/pre-header/pre-header.component.ts</code>
+</p>
+
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Componente per la sezione pre-intestazione del sito web.
+Gestisce la navigazione a scorrimento e l&#39;attivazione del link corrente.</p>
+
+    </p>
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>AfterViewInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-pre-header</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>CommonModule</code>
+                                <code><a href="../components/SectionsComponent.html" target="_self" >SectionsComponent</a></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./pre-header.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./pre-header.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#activeSection" >activeSection</a>
+                            </li>
+                            <li>
+                                <a href="#isDropdownOpen" >isDropdownOpen</a>
+                            </li>
+                            <li>
+                                <a href="#isNavbarCollapsed" >isNavbarCollapsed</a>
+                            </li>
+                            <li>
+                                <a href="#navLinks" >navLinks</a>
+                            </li>
+                            <li>
+                                <a href="#redirectChild" >redirectChild</a>
+                            </li>
+                            <li>
+                                <a href="#sections" >sections</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#goBack" >goBack</a>
+                            </li>
+                            <li>
+                                <a href="#isSigning" >isSigning</a>
+                            </li>
+                            <li>
+                                <a href="#navigateTo" >navigateTo</a>
+                            </li>
+                            <li>
+                                <a href="#ngAfterViewInit" >ngAfterViewInit</a>
+                            </li>
+                            <li>
+                                <a href="#updateActiveLink" >updateActiveLink</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(redirectService: <a href="../injectables/RedirectService.html" target="_self">RedirectService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/components/pre-header/pre-header.component.ts:40</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Crea un&#39;istanza di PreHeaderComponent.</p>
+</div>
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>redirectService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/RedirectService.html" target="_self" >RedirectService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <ul>
+<li>Servizio per la gestione della navigazione.</li>
+</ul>
+
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="goBack"></a>
+                    <span class="name">
+                        <span ><b>goBack</b></span>
+                        <a href="#goBack"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>goBack()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="134"
+                                    class="link-to-prism">src/app/components/pre-header/pre-header.component.ts:134</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Torna alla pagina precedente nella cronologia del browser e ricarica la pagina.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isSigning"></a>
+                    <span class="name">
+                        <span ><b>isSigning</b></span>
+                        <a href="#isSigning"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>isSigning()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="116"
+                                    class="link-to-prism">src/app/components/pre-header/pre-header.component.ts:116</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Verifica se l&#39;utente è in una delle pagine di autenticazione.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <ul>
+<li>Indica se l&#39;utente è in una delle pagine di autenticazione.</li>
+</ul>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="navigateTo"></a>
+                    <span class="name">
+                        <span ><b>navigateTo</b></span>
+                        <a href="#navigateTo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>navigateTo(route: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="147"
+                                    class="link-to-prism">src/app/components/pre-header/pre-header.component.ts:147</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Gestisce la navigazione verso una rotta specificata.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>route</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>La rotta verso cui navigare.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngAfterViewInit"></a>
+                    <span class="name">
+                        <span ><b>ngAfterViewInit</b></span>
+                        <a href="#ngAfterViewInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngAfterViewInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="57"
+                                    class="link-to-prism">src/app/components/pre-header/pre-header.component.ts:57</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Metodo chiamato dopo che la vista è stata completamente inizializzata.
+Gestisce l&#39;attivazione del link corrente e l&#39;osservazione delle sezioni nella pagina.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateActiveLink"></a>
+                    <span class="name">
+                        <span ><b>updateActiveLink</b></span>
+                        <a href="#updateActiveLink"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>updateActiveLink()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="100"
+                                    class="link-to-prism">src/app/components/pre-header/pre-header.component.ts:100</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Aggiorna il link attivo nella barra di navigazione.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="activeSection"></a>
+                    <span class="name">
+                        <span ><b>activeSection</b></span>
+                        <a href="#activeSection"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/components/pre-header/pre-header.component.ts:28</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Sezione attualmente attiva nella visualizzazione.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isDropdownOpen"></a>
+                    <span class="name">
+                        <span ><b>isDropdownOpen</b></span>
+                        <a href="#isDropdownOpen"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/components/pre-header/pre-header.component.ts:31</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Indica se il menu a discesa è aperto o meno.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isNavbarCollapsed"></a>
+                    <span class="name">
+                        <span ><b>isNavbarCollapsed</b></span>
+                        <a href="#isNavbarCollapsed"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/components/pre-header/pre-header.component.ts:25</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Indica se la navbar è collassata o meno.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="navLinks"></a>
+                    <span class="name">
+                        <span ><b>navLinks</b></span>
+                        <a href="#navLinks"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>NodeListOf&lt;HTMLElement&gt;</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/components/pre-header/pre-header.component.ts:37</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>NodeList di link di navigazione nell&#39;intestazione.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="redirectChild"></a>
+                    <span class="name">
+                        <span ><b>redirectChild</b></span>
+                        <a href="#redirectChild"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/components/pre-header/pre-header.component.ts:40</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Indica se il reindirizzamento è abilitato.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="sections"></a>
+                    <span class="name">
+                        <span ><b>sections</b></span>
+                        <a href="#sections"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>NodeListOf&lt;HTMLElement&gt;</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/components/pre-header/pre-header.component.ts:34</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>NodeList di elementi di sezione nella pagina.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { AfterViewInit, Component } from &#x27;@angular/core&#x27;;
+import { CommonModule } from &#x27;@angular/common&#x27;;
+
+import { SectionsComponent } from &#x27;./sections/sections.component&#x27;;
+import { RedirectService } from &#x27;../../services/redirect/redirect.service&#x27;;
+
+/**
+ * Componente per la sezione pre-intestazione del sito web.
+ * Gestisce la navigazione a scorrimento e l&#x27;attivazione del link corrente.
+ * 
+ * @export
+ * @class PreHeaderComponent
+ * @implements {AfterViewInit}
+ */
+@Component({
+  selector: &#x27;app-pre-header&#x27;,
+  standalone: true,
+  imports: [CommonModule, SectionsComponent],
+  templateUrl: &#x27;./pre-header.component.html&#x27;,
+  styleUrls: [&#x27;./pre-header.component.scss&#x27;]
+})
+export class PreHeaderComponent implements AfterViewInit {
+
+  /** Indica se la navbar è collassata o meno. */
+  isNavbarCollapsed &#x3D; false;
+
+  /** Sezione attualmente attiva nella visualizzazione. */
+  activeSection &#x3D; &#x27;&#x27;;
+
+  /** Indica se il menu a discesa è aperto o meno. */
+  isDropdownOpen &#x3D; false;
+
+  /** NodeList di elementi di sezione nella pagina. */
+  sections!: NodeListOf&lt;HTMLElement&gt;;
+
+  /** NodeList di link di navigazione nell&#x27;intestazione. */
+  navLinks!: NodeListOf&lt;HTMLElement&gt;;
+
+  /** Indica se il reindirizzamento è abilitato. */
+  redirectChild: boolean &#x3D; false;
+
+  /**
+   * Crea un&#x27;istanza di PreHeaderComponent.
+   * 
+   * @param {RedirectService} redirectService - Servizio per la gestione della navigazione.
+   */
+  constructor(
+    private redirectService: RedirectService
+  ) {}
+
+  /**
+   * Metodo chiamato dopo che la vista è stata completamente inizializzata.
+   * Gestisce l&#x27;attivazione del link corrente e l&#x27;osservazione delle sezioni nella pagina.
+   * 
+   * @memberof PreHeaderComponent
+   */
+  ngAfterViewInit(): void {
+    this.sections &#x3D; document.querySelectorAll(&#x27;section&#x27;);
+    this.navLinks &#x3D; document.querySelectorAll(&#x27;.header a&#x27;); // Aggiornato il selettore
+
+    // Aggiungi event listener ai link di navigazione per eventi di clic
+    this.navLinks.forEach(link &#x3D;&gt; {
+      link.addEventListener(&#x27;click&#x27;, (event) &#x3D;&gt; {
+        event.preventDefault();
+        const targetId &#x3D; link.getAttribute(&#x27;href&#x27;)?.substring(1);
+        if (targetId) {
+          document.getElementById(targetId)?.scrollIntoView({ behavior: &#x27;smooth&#x27; });
+          this.activeSection &#x3D; targetId;
+          this.updateActiveLink();
+        }
+      });
+    });
+
+    // Opzioni per l&#x27;osservatore di intersezione
+    const observerOptions &#x3D; {
+      root: null,
+      rootMargin: &#x27;20px&#x27;,
+      threshold: 0.5 // Regola la soglia come necessario
+    };
+
+    // Callback dell&#x27;osservatore per aggiornare la sezione attiva
+    const observerCallback &#x3D; (entries: IntersectionObserverEntry[]) &#x3D;&gt; {
+      entries.forEach(entry &#x3D;&gt; {
+        if (entry.isIntersecting) {
+          this.activeSection &#x3D; entry.target.id;
+          this.updateActiveLink();
+        }
+      });
+    };
+
+    const observer &#x3D; new IntersectionObserver(observerCallback, observerOptions);
+    this.sections.forEach(section &#x3D;&gt; observer.observe(section));
+  }
+
+  /**
+   * Aggiorna il link attivo nella barra di navigazione.
+   * 
+   * @memberof PreHeaderComponent
+   */
+  updateActiveLink() {
+    this.navLinks.forEach(link &#x3D;&gt; {
+      if (link.getAttribute(&#x27;href&#x27;)?.substring(1) &#x3D;&#x3D;&#x3D; this.activeSection) {
+        link.classList.add(&#x27;active&#x27;);
+      } else {
+        link.classList.remove(&#x27;active&#x27;);
+      }
+    });
+  }
+
+  /**
+   * Verifica se l&#x27;utente è in una delle pagine di autenticazione.
+   * 
+   * @returns {boolean} - Indica se l&#x27;utente è in una delle pagine di autenticazione.
+   * @memberof PreHeaderComponent
+   */
+  isSigning(): boolean {
+    console.log(&#x27;current path:&#x27;, window.location.pathname);
+    return [
+      &#x27;/sign-in&#x27;,
+      &#x27;/sign-in/2FA&#x27;,
+      &#x27;/forgot-password&#x27;,
+      &#x27;/reset-password&#x27;,
+      &#x27;/sign-up&#x27;,
+      &#x27;/sign-up/survey&#x27;,
+      &#x27;/sign-up/2FA&#x27;
+    ].includes(window.location.pathname);
+  }
+
+  /**
+   * Torna alla pagina precedente nella cronologia del browser e ricarica la pagina.
+   * 
+   * @memberof PreHeaderComponent
+   */
+  goBack() {
+    window.history.back();
+    setTimeout(() &#x3D;&gt; {
+      window.location.reload();
+    }, 100);
+  }
+
+  /**
+   * Gestisce la navigazione verso una rotta specificata.
+   * 
+   * @param {string} route - La rotta verso cui navigare.
+   * @memberof PreHeaderComponent
+   */
+  navigateTo(route: string) {
+    this.redirectService.setRedirect(route);
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;header-container&quot;&gt;
+  @if (!isSigning()) {
+    &lt;div class&#x3D;&quot;header&quot;&gt;
+      &lt;div class&#x3D;&quot;nav-container&quot;&gt;
+        &lt;nav&gt;
+          &lt;div class&#x3D;&quot;logo&quot;&gt;
+            &lt;img src&#x3D;&quot;assets/home/logo-well4you.png&quot; alt&#x3D;&quot;logoImage&quot;&gt;
+          &lt;/div&gt;
+          &lt;a href&#x3D;&quot;#intro&quot; class&#x3D;&quot;active&quot;&gt;Welfare&lt;/a&gt;
+          &lt;a href&#x3D;&quot;#economic&quot;  class&#x3D;&quot;active&quot;&gt;Economic&lt;/a&gt;
+          &lt;a href&#x3D;&quot;#physic&quot;  class&#x3D;&quot;active&quot;&gt;Physic&lt;/a&gt;
+          &lt;a href&#x3D;&quot;#psicologic&quot;  class&#x3D;&quot;active&quot;&gt;Psicologic&lt;/a&gt;
+          &lt;a href&#x3D;&quot;#family&quot;  class&#x3D;&quot;active&quot;&gt;Family&lt;/a&gt;
+          &lt;a href&#x3D;&quot;#coach&quot;  class&#x3D;&quot;active&quot;&gt;Coach&lt;/a&gt;
+        &lt;/nav&gt;
+        &lt;button class&#x3D;&quot;sign-in-button&quot; (click)&#x3D;&quot;navigateTo(&#x27;sign-in&#x27;)&quot;&gt;SignIn&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;section id&#x3D;&quot;intro&quot; class&#x3D;&quot;intro&quot;&gt;
+      &lt;div class&#x3D;&quot;container&quot;&gt;
+          &lt;div class&#x3D;&quot;left-column&quot;&gt;
+              &lt;div class&#x3D;&quot;title&quot;&gt;
+                  Migliora il tuo &lt;span class&#x3D;&quot;title-red&quot;&gt;Benessere&lt;/span&gt; con il &lt;span class&#x3D;&quot;title-red&quot;&gt;Welfare aziendale&lt;/span&gt;
+              &lt;/div&gt;
+              &lt;div class&#x3D;&quot;subtitle&quot;&gt;
+                  Scopri come il nostro programma di welfare aziendale può trasformare la tua esperienza lavorativa.&lt;br&gt;Clicca sul pulsante qui sotto per registrarti e iniziare il tuo percorso verso un benessere aziendale senza precedenti.
+              &lt;/div&gt;
+              &lt;button class&#x3D;&quot;join-now-button&quot; (click)&#x3D;&quot;navigateTo(&#x27;sign-up&#x27;)&quot;&gt;Join Now&lt;/button&gt;
+          &lt;/div&gt;
+          &lt;div class&#x3D;&quot;right-column&quot;&gt;
+              &lt;img src&#x3D;&quot;assets/home/mokup.png&quot; alt&#x3D;&quot;Monitor&quot; class&#x3D;&quot;image&quot;&gt;
+          &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/section&gt;
+    &lt;app-sections&gt;&lt;/app-sections&gt;
+  } @else {
+    &lt;div class&#x3D;&quot;header&quot;&gt;
+      &lt;div class&#x3D;&quot;nav-container&quot;&gt;
+        &lt;div class&#x3D;&quot;logo&quot;&gt;
+          &lt;img src&#x3D;&quot;assets/home/logo-well4you.png&quot; alt&#x3D;&quot;logoImage&quot;&gt;
+        &lt;/div&gt;
+        &lt;button class&#x3D;&quot;sign-in-button&quot; (click)&#x3D;&quot;goBack()&quot;&gt;Go Back&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  } 
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./pre-header.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">$background-color: black;
+$active-color: #c10f1e;
+$hover-color: #a00b16;
+$text-color: white;
+
+@mixin interactive-element {
+  padding: 12px;
+  font-size: 18px;
+  text-align: center;
+  border-radius: 4px;
+  color: $text-color;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+body {
+  font-family: &#x27;Poppins&#x27;, sans-serif;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background-color: $background-color;
+  z-index: 1000;
+  padding: 10px 0;
+  display: flex;
+  justify-content: center;
+  
+  .nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0 20px;
+    
+    .logo {
+      img {
+        width: 60%;
+        height: 100%;
+      }
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      a {
+        @include interactive-element;
+        line-height: 25px;
+
+        &amp;:hover,
+        &amp;.active {
+          background-color: $active-color;
+        }
+      }
+    }
+
+    .sign-in-button {
+      @include interactive-element;
+      background-color: $active-color;
+      border: none;
+      width: 10%;
+      margin-right: 2%;
+
+      &amp;:hover {
+        background-color: $hover-color;
+      }
+    }
+  }
+}
+
+.intro {
+  background-color: $background-color;
+
+  .container {
+    height: max-content;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 100px 20px;
+    justify-content: center;
+
+    .left-column, .right-column {
+      margin: 10px;
+      font-family: &#x27;Poppins&#x27;;
+    }
+
+    .left-column {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: left;
+      margin-left: 5%;
+
+      .title {
+        font-size: 42px;
+        font-weight: bold;
+        color: white;
+
+        .title-red {
+          color: rgb(183, 55, 55);
+        }
+      }
+
+      .subtitle {
+        font-size: 18px;
+        font-weight: normal;
+        color: #efecfb;
+        margin: 10px 0;
+        line-height: 1.6;
+        margin-right: 10%;
+      }
+
+      .join-now-button {
+        @include interactive-element;
+        background-color: $active-color;
+        border: none;
+        width: 130px;
+        margin-top: 2%;
+
+    
+        &amp;:hover {
+          background-color: $hover-color;
+        }
+      }
+    }
+
+    .image {
+      margin-left: -10%;
+      max-width: 400px;
+      max-height: 400px;
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .nav-container {
+    flex-direction: column;
+
+    nav {
+      flex-direction: column;
+
+      a {
+        display: block;
+        padding: 10px;
+      }
+    }
+
+    .sign-in-button {
+      display: block;
+      margin: 10px auto;
+    }
+  }
+
+  .intro .container {
+    padding: 50px 10px;
+  }
+
+  .intro .left-column .title {
+    font-size: 36px;
+  }
+
+  .intro .subtitle {
+    font-size: 18px;
+  }
+
+  .intro .join-now-button {
+    padding: 10px;
+    font-size: 16px;
+  }
+
+  .intro .right-column .image {
+    max-width: 80%;
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="header-container">  @if (!isSigning()) {    <div class="header">      <div class="nav-container">        <nav>          <div class="logo">            <img src="assets/home/logo-well4you.png" alt="logoImage">          </div>          <a href="#intro" class="active">Welfare</a>          <a href="#economic"  class="active">Economic</a>          <a href="#physic"  class="active">Physic</a>          <a href="#psicologic"  class="active">Psicologic</a>          <a href="#family"  class="active">Family</a>          <a href="#coach"  class="active">Coach</a>        </nav>        <button class="sign-in-button" (click)="navigateTo(\'sign-in\')">SignIn</button>      </div>    </div>    <section id="intro" class="intro">      <div class="container">          <div class="left-column">              <div class="title">                  Migliora il tuo <span class="title-red">Benessere</span> con il <span class="title-red">Welfare aziendale</span>              </div>              <div class="subtitle">                  Scopri come il nostro programma di welfare aziendale può trasformare la tua esperienza lavorativa.<br>Clicca sul pulsante qui sotto per registrarti e iniziare il tuo percorso verso un benessere aziendale senza precedenti.              </div>              <button class="join-now-button" (click)="navigateTo(\'sign-up\')">Join Now</button>          </div>          <div class="right-column">              <img src="assets/home/mokup.png" alt="Monitor" class="image">          </div>      </div>    </section>    <app-sections></app-sections>  } @else {    <div class="header">      <div class="nav-container">        <div class="logo">          <img src="assets/home/logo-well4you.png" alt="logoImage">        </div>        <button class="sign-in-button" (click)="goBack()">Go Back</button>      </div>    </div>  } </div></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BookCallComponent', 'selector': 'app-book-call'},{'name': 'BookingBoardComponent', 'selector': 'app-booking-board'},{'name': 'CardCoachComponent', 'selector': 'app-card-coach'},{'name': 'CardSectionComponent', 'selector': 'app-card-section'},{'name': 'CardServiceComponent', 'selector': 'app-card-service'},{'name': 'CoachSectionComponent', 'selector': 'app-coach-section'},{'name': 'CreateCoachComponent', 'selector': 'app-create-coach'},{'name': 'CreateServiceComponent', 'selector': 'app-create-service'},{'name': 'DailyAvailabilityComponent', 'selector': 'app-daily-availability'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'EconomicComponent', 'selector': 'app-economic'},{'name': 'FamilyComponent', 'selector': 'app-family'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgotPasswordComponent', 'selector': 'app-reset-password'},{'name': 'HeaderAdminComponent', 'selector': 'app-header-admin'},{'name': 'HeaderCoachComponent', 'selector': 'app-header-coach'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'MapComponent', 'selector': 'app-map'},{'name': 'MeetingBoardComponent', 'selector': 'app-meeting-board'},{'name': 'ModifyProfileComponent', 'selector': 'app-modify-profile'},{'name': 'NearMeComponent', 'selector': 'app-near-me'},{'name': 'NotFoundComponent', 'selector': 'app-not-found'},{'name': 'OtpVerificationComponent', 'selector': 'app-otp-verification'},{'name': 'PhysicalComponent', 'selector': 'app-physical'},{'name': 'PreHeaderComponent', 'selector': 'app-pre-header'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'PsychologicalComponent', 'selector': 'app-psychological'},{'name': 'PurchasedDataComponent', 'selector': 'app-purchased-data'},{'name': 'PurchasedSectionComponent', 'selector': 'app-purchased-section'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'SectionsComponent', 'selector': 'app-sections'},{'name': 'ShowCaseDataComponent', 'selector': 'app-showcase-data'},{'name': 'ShowCaseSectionComponent', 'selector': 'app-show-case-section'},{'name': 'SidebarComponent', 'selector': 'app-sidebar-coach'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'SignInComponent', 'selector': 'app-sign-in'},{'name': 'SignUpComponent', 'selector': 'app-sign-up'},{'name': 'SignUpSurveyComponent', 'selector': 'app-sign-up-survey'},{'name': 'WelfareCoachComponent', 'selector': 'app-welfare-coach'}];
+    var DIRECTIVES = [{'name': 'ErrorMessageApiDirective', 'selector': '[appErrorMessageApi]'},{'name': 'ErrorMsgFormsDirective', 'selector': '[appErrorMsgForms]'}];
+    var ACTUAL_COMPONENT = {'name': 'PreHeaderComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'PreHeaderComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

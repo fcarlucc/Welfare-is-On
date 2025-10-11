@@ -1,0 +1,2 @@
+DROP SCHEMA IF EXISTS servicesservice CASCADE;
+CREATE SCHEMA IF NOT EXISTS servicesservice;

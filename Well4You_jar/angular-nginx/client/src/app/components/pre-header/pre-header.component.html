@@ -1,0 +1,46 @@
+<div class="header-container">
+  @if (!isSigning()) {
+    <div class="header">
+      <div class="nav-container">
+        <nav>
+          <div class="logo">
+            <img src="assets/home/logo-well4you.png" alt="logoImage">
+          </div>
+          <a href="#intro" class="active">Welfare</a>
+          <a href="#economic"  class="active">Economic</a>
+          <a href="#physic"  class="active">Physic</a>
+          <a href="#psicologic"  class="active">Psicologic</a>
+          <a href="#family"  class="active">Family</a>
+          <a href="#coach"  class="active">Coach</a>
+        </nav>
+        <button class="sign-in-button" (click)="navigateTo('sign-in')">SignIn</button>
+      </div>
+    </div>
+    <section id="intro" class="intro">
+      <div class="container">
+          <div class="left-column">
+              <div class="title">
+                  Migliora il tuo <span class="title-red">Benessere</span> con il <span class="title-red">Welfare aziendale</span>
+              </div>
+              <div class="subtitle">
+                  Scopri come il nostro programma di welfare aziendale può trasformare la tua esperienza lavorativa.<br>Clicca sul pulsante qui sotto per registrarti e iniziare il tuo percorso verso un benessere aziendale senza precedenti.
+              </div>
+              <button class="join-now-button" (click)="navigateTo('sign-up')">Join Now</button>
+          </div>
+          <div class="right-column">
+              <img src="assets/home/mokup.png" alt="Monitor" class="image">
+          </div>
+      </div>
+    </section>
+    <app-sections></app-sections>
+  } @else {
+    <div class="header">
+      <div class="nav-container">
+        <div class="logo">
+          <img src="assets/home/logo-well4you.png" alt="logoImage">
+        </div>
+        <button class="sign-in-button" (click)="goBack()">Go Back</button>
+      </div>
+    </div>
+  } 
+</div>

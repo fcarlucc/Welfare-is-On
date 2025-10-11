@@ -1,0 +1,235 @@
+$primary-color: black;
+$secondary-color: white;
+$booking-slot-bg-color: #f9f9f9;
+$booking-slot-border-color: #ccc;
+$button-bookCall-color: green;
+$button-cancel-color: red;
+$input-border-color: blue;
+$input-focus-border-color: red;
+$button-day-color: #007bff;
+$hover-color: #0056b3;
+$selected-color: #004080;
+
+@mixin color-scheme($primary-color, $secondary-color) {
+    color: $primary-color;
+    background-color: $secondary-color;
+}
+
+@mixin button-colors($background-color, $hover-color) {
+    background-color: $background-color;
+
+    &:hover {
+        background-color: darken($hover-color, 10%);
+    }
+}
+
+@mixin input-colors($border-color, $focus-border-color) {
+    border: 1px solid $border-color;
+
+    &:focus {
+        border-color: $focus-border-color;
+        outline: none;
+    }
+}
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $secondary-color;
+}
+
+.container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 90vh;
+    background: linear-gradient(90deg,darken(#c10f1e, 10%), #a00b16);
+
+    .background-images {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 1;
+        z-index: -1;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    .section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex: 1;
+        padding: 20px;
+        overflow-y: auto;
+
+        .book-call-container {
+            @include color-scheme($primary-color, $secondary-color);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            max-width: 600px;
+            box-shadow: 0 4px 8px black;
+            max-height: 80vh;
+            overflow-y: auto;
+            transition: transform 0.2s ease;
+            
+            &:hover {
+              transform: scale(1.04);
+            }
+
+            img {
+                max-width: 150px;
+                margin-bottom: 1rem;
+            }
+
+            h1 {
+                margin-bottom: 1rem;
+                font-family: 'Poppins';
+                color: $primary-color;
+            }
+
+            .booking-slots {
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+
+                .booking-slot {
+                    margin-bottom: 1rem;
+                    background-color: $booking-slot-bg-color;
+                    border: 1px solid $booking-slot-border-color;
+                    border-radius: 8px;
+                    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+                    .booking-details {
+                        width: 100%;
+                        table {
+                            width: 100%;
+                            border-collapse: collapse;
+
+                            tr {
+                                td {
+                                    padding: 0.5rem;
+                                    border-bottom: 1px solid $booking-slot-border-color;
+
+                                    &:first-child {
+                                        width: 30%;
+                                        font-weight: bold;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .main-form {
+                .form-columns {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+
+                    .form-group {
+                        margin-bottom: 20px;
+                        width: 100%;
+
+                        .date-buttons {
+                          display: flex;
+                          flex-wrap: wrap;
+                          justify-content: space-around;
+                          margin-bottom: 20px;
+                          max-width: 400px;
+                      
+                          .date-btn {
+                              background-color: $button-day-color;
+                              border: none;
+                              color: white;
+                              padding: 10px 20px;
+                              text-align: center;
+                              text-decoration: none;
+                              display: inline-block;
+                              font-size: 16px;
+                              margin: 4px 2px;
+                              cursor: pointer;
+                              border-radius: 5px;
+                              transition: background-color 0.3s;
+                      
+                              &:hover {
+                                  background-color: $hover-color;
+                              }
+                      
+                              &.selected {
+                                  background-color: $selected-color;
+                              }
+                          }
+                        }
+
+                        select,
+                        textarea {
+                            max-width: 300px;
+                            min-width: 150px;
+                            max-height: 200px;
+                            min-height: 50px;
+                            padding: 10px;
+                            @include input-colors($input-border-color, $input-focus-border-color);
+                            border-radius: 5px;
+                            font-size: 16px;
+                            transition: border-color 0.3s;
+                        }
+                    }
+                }
+
+                .btn-book-call {
+                    @include button-colors($button-bookCall-color, $button-bookCall-color);
+                    border: none;
+                    color: white;
+                    padding: 10px 20px;
+                    text-align: center;
+                    text-decoration: none;
+                    display: inline-block;
+                    font-size: 16px;
+                    margin: 4px 2px;
+                    cursor: pointer;
+                    border-radius: 5px;
+                    transition: background-color 0.3s;
+                }
+
+                .btn-cancel {
+                    @include button-colors($button-cancel-color, $button-cancel-color);
+                    border: none;
+                    color: white;
+                    padding: 10px 20px;
+                    text-align: center;
+                    text-decoration: none;
+                    display: inline-block;
+                    font-size: 16px;
+                    margin: 4px 2px;
+                    cursor: pointer;
+                    border-radius: 5px;
+                    transition: background-color 0.3s;
+                }
+            }
+        }
+    }
+}

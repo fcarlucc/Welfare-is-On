@@ -1,0 +1,159 @@
+$primary-color: black;
+$secondary-color: white;
+$button-modify-profile-color: rgb(63, 12, 147);
+$input-border-color: blue;
+$input-focus-border-color: red;
+$interest-button-bg: lightgray;
+$interest-button-selected-bg: red;
+$interest-button-color: black;
+$interest-button-selected-color: black;
+$text-color: white;
+
+@mixin color-scheme($primary-color, $secondary-color) {
+    color: $primary-color;
+    background-color: $secondary-color;
+}
+
+@mixin input-colors($border-color, $focus-border-color) {
+    border: 1px solid $border-color;
+
+    &:focus {
+        border-color: $focus-border-color;
+        outline: none;
+    }
+}
+
+.container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 90vh;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: linear-gradient(90deg, darken(#c10f1e, 10%), #a00b16);
+
+    .background-images {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 1;
+        z-index: -1;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    .section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex: 1;
+        width: 100%;
+
+        .profile-container {
+            @include color-scheme($primary-color, $secondary-color);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            max-width: 480px;
+            box-shadow: 0 4px 8px black;
+            transition: transform 0.2s ease;
+
+            &:hover {
+                transform: scale(1.04);
+            }
+
+            img {
+                max-width: 200px;
+            }
+
+            h1 {
+                font-family: 'Poppins';
+                color: $primary-color;
+                font-size: 1.5rem;
+            }
+
+            .main-form {
+                display: flex;
+                flex-direction: column;
+
+                .form-columns {
+                    display: flex;
+                    justify-content: space-between;
+                    flex-direction: row;
+
+                    .form-element {
+                        margin-bottom: 15px;
+                        background: $secondary-color;
+                        border: 1px solid $input-border-color;
+                        border-radius: 8px;
+                        padding: 10px;
+                        min-width: 200px;
+                        text-align: center;
+
+                        label {
+                            font-weight: bold;
+                            display: block;
+                            color: $primary-color;
+                        }
+
+                        .data-value {
+                            padding: 0.5rem;
+                            background-color: $secondary-color;
+                            border-radius: 4px;
+                            font-size: 1rem;
+                            color: $primary-color;
+
+                            &.interests-data-value {
+                                white-space: normal;
+                                word-wrap: break-word;
+                            }
+                        }
+                    }
+
+                }
+
+                button {
+                    padding: 0.5rem;
+                    border: none;
+                    border-radius: 4px;
+                    font-size: 1rem;
+                    cursor: pointer;
+                    background-color: $button-modify-profile-color;
+                        
+                    &:hover {
+                        background-color: rgb(116, 7, 7);
+                        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+                        // transform: translateY(-2px);
+                    }
+            
+                    &:active {
+                        background-color: darken(rgb(93, 6, 6), 10%);
+                        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+                        // transform: translateY(0);
+                    }
+            
+                    svg {
+                        width: 24px;
+                        height: 24px;
+                        fill: $text-color;
+                    }
+                }
+
+            }
+        }
+    }
+}

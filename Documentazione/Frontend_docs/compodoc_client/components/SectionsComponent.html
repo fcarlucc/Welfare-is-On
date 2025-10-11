@@ -1,0 +1,906 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>client documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">client documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  SectionsComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/components/pre-header/sections/sections.component.ts</code>
+</p>
+
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Componente per la gestione delle sezioni all&#39;interno della pagina.
+Include funzionalità per la navigazione e per il controllo dello stato di autenticazione.</p>
+
+    </p>
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-sections</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                                <code><a href="../components/PreHeaderComponent.html" target="_self" >PreHeaderComponent</a></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./sections.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./sections.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#goBack" >goBack</a>
+                            </li>
+                            <li>
+                                <a href="#isSigning" >isSigning</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor()</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/components/pre-header/sections/sections.component.ts:19</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Crea un&#39;istanza di SectionsComponent.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="goBack"></a>
+                    <span class="name">
+                        <span ><b>goBack</b></span>
+                        <a href="#goBack"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>goBack()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="33"
+                                    class="link-to-prism">src/app/components/pre-header/sections/sections.component.ts:33</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Torna alla pagina precedente nella cronologia del browser e ricarica la pagina.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isSigning"></a>
+                    <span class="name">
+                        <span ><b>isSigning</b></span>
+                        <a href="#isSigning"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>isSigning()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="46"
+                                    class="link-to-prism">src/app/components/pre-header/sections/sections.component.ts:46</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Verifica se l&#39;utente è in una delle pagine di autenticazione.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <ul>
+<li>Indica se l&#39;utente è in una delle pagine di autenticazione.</li>
+</ul>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, NO_ERRORS_SCHEMA } from &#x27;@angular/core&#x27;;
+import { PreHeaderComponent } from &#x27;../pre-header.component&#x27;;
+
+/**
+ * Componente per la gestione delle sezioni all&#x27;interno della pagina.
+ * Include funzionalità per la navigazione e per il controllo dello stato di autenticazione.
+ * 
+ * @export
+ * @class SectionsComponent
+ */
+@Component({
+  selector: &#x27;app-sections&#x27;,
+  standalone: true,
+  imports: [PreHeaderComponent],
+  schemas: [NO_ERRORS_SCHEMA],
+  templateUrl: &#x27;./sections.component.html&#x27;,
+  styleUrls: [&#x27;./sections.component.scss&#x27;]
+})
+export class SectionsComponent {
+
+  /**
+   * Crea un&#x27;istanza di SectionsComponent.
+   * 
+   * @memberof SectionsComponent
+   */
+  constructor() {}
+
+  /**
+   * Torna alla pagina precedente nella cronologia del browser e ricarica la pagina.
+   * 
+   * @memberof SectionsComponent
+   */
+  goBack() {
+    window.history.back();
+    setTimeout(() &#x3D;&gt; {
+      window.location.reload();
+    }, 100);
+  }
+
+  /**
+   * Verifica se l&#x27;utente è in una delle pagine di autenticazione.
+   * 
+   * @returns {boolean} - Indica se l&#x27;utente è in una delle pagine di autenticazione.
+   * @memberof SectionsComponent
+   */
+  isSigning(): boolean {
+    console.log(&#x27;current path:&#x27;, window.location.pathname);
+    return [
+      &#x27;/sign-in&#x27;,
+      &#x27;/sign-in/2FA&#x27;,
+      &#x27;/forgot-password&#x27;,
+      &#x27;/reset-password&#x27;,
+      &#x27;/sign-up&#x27;,
+      &#x27;/sign-up/survey&#x27;,
+      &#x27;/sign-up/2FA&#x27;
+    ].includes(window.location.pathname);
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">@if (!this.isSigning()) {
+    &lt;section id&#x3D;&quot;economic&quot; class&#x3D;&quot;economic&quot;&gt;
+        &lt;div class&#x3D;&quot;container&quot;&gt;
+            &lt;div class&#x3D;&quot;left-column&quot;&gt;
+                &lt;div class&#x3D;&quot;section-subtitle&quot;&gt;
+                IL WELFARE IN LEONARDO È
+                &lt;/div&gt;
+                &lt;div class&#x3D;&quot;section-title&quot;&gt;
+                    BENESSERE ECONOMICO
+                &lt;/div&gt;
+                &lt;div class&#x3D;&quot;section-paragraph&quot;&gt;
+                    Promuoviamo il benessere economico attraverso benefit, incentivi e piani di risparmio per aiutare i dipendenti a gestire meglio le proprie finanze.
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;right-column&quot;&gt;
+                &lt;img src&#x3D;&quot;assets/home/economic-img.png&quot; alt&#x3D;&quot;Monitor&quot; class&#x3D;&quot;image&quot;&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+    &lt;section id&#x3D;&quot;physic&quot; class&#x3D;&quot;physic&quot;&gt;
+        &lt;div class&#x3D;&quot;container&quot;&gt;
+            &lt;div class&#x3D;&quot;left-column&quot;&gt;
+                &lt;div class&#x3D;&quot;section-subtitle&quot;&gt;
+                IL WELFARE IN LEONARDO È
+                &lt;/div&gt;
+                &lt;div class&#x3D;&quot;section-title&quot;&gt;
+                    BENESSERE FISICO
+                &lt;/div&gt;
+                &lt;div class&#x3D;&quot;section-paragraph&quot;&gt;
+                    Incentiviamo uno stile di vita sano con programmi di fitness, accesso a palestre e iniziative per migliorare la salute e il benessere fisico dei dipendenti.
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;right-column&quot;&gt;
+                &lt;img src&#x3D;&quot;assets/home/physic-img.png&quot; alt&#x3D;&quot;Monitor&quot; class&#x3D;&quot;image&quot;&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+    &lt;section id&#x3D;&quot;psicologic&quot; class&#x3D;&quot;psicologic&quot;&gt;
+        &lt;div class&#x3D;&quot;container&quot;&gt;
+            &lt;div class&#x3D;&quot;left-column&quot;&gt;
+                &lt;div class&#x3D;&quot;section-subtitle&quot;&gt;
+                IL WELFARE IN LEONARDO È
+                &lt;/div&gt;
+                &lt;div class&#x3D;&quot;section-title&quot;&gt;
+                    BENESSERE PSICOLOGICO
+                &lt;/div&gt;
+                &lt;div class&#x3D;&quot;section-paragraph&quot;&gt;
+                    Offriamo supporto psicologico e programmi di consulenza per garantire il benessere mentale e aiutare i dipendenti a gestire lo stress e le sfide personali.
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;right-column&quot;&gt;
+                &lt;img src&#x3D;&quot;assets/home/psychologic-img.png&quot; alt&#x3D;&quot;Monitor&quot; class&#x3D;&quot;image&quot;&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+    &lt;section id&#x3D;&quot;family&quot; class&#x3D;&quot;family&quot;&gt;
+        &lt;div class&#x3D;&quot;container&quot;&gt;
+            &lt;div class&#x3D;&quot;left-column&quot;&gt;
+                &lt;div class&#x3D;&quot;section-subtitle&quot;&gt;
+                    IL WELFARE IN LEONARDO È
+                &lt;/div&gt;
+                &lt;div class&#x3D;&quot;section-title&quot;&gt;
+                    BENESSERE FAMILIARE
+                &lt;/div&gt;
+                &lt;div class&#x3D;&quot;section-paragraph&quot;&gt;
+                    Supportiamo il benessere familiare con iniziative come congedi parentali estesi, flessibilità oraria e servizi di assistenza per bilanciare vita lavorativa e familiare.
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;right-column&quot;&gt;
+                &lt;img src&#x3D;&quot;assets/home/family-img.png&quot; alt&#x3D;&quot;Monitor&quot; class&#x3D;&quot;image&quot;&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+    &lt;section id&#x3D;&quot;coach&quot; class&#x3D;&quot;coach&quot;&gt;
+        &lt;div class&#x3D;&quot;container&quot;&gt;
+            &lt;div class&#x3D;&quot;left-column&quot;&gt;
+                &lt;div class&#x3D;&quot;section-subtitle&quot;&gt;
+                ORIENTAMENTO SUL WELFARE?
+                &lt;/div&gt;
+                &lt;div class&#x3D;&quot;section-title&quot;&gt;
+                    CHIEDI AL TUO &lt;br&gt; WELFARE COACH
+                &lt;/div&gt;
+                &lt;div class&#x3D;&quot;section-paragraph&quot;&gt;
+                    Attraverso consulenze personalizzate e programmi di supporto, il welfare coach contribuisce a creare un ambiente di lavoro più sano e produttivo.
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;right-column&quot;&gt;
+                &lt;img src&#x3D;&quot;assets/home/coach-img.png&quot; alt&#x3D;&quot;Monitor&quot; class&#x3D;&quot;image&quot;&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./sections.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">$card-background-color-family: linear-gradient(200deg, #CF9C00, #d4a50c);
+$card-background-color-economic: linear-gradient(1042deg, #ce7b28, #d4950c);
+$card-background-color-physical: linear-gradient(1042deg, #490460, #ae0db6);
+$card-background-color-psychological: linear-gradient(1042deg, #075e5b, #11a9b4);
+$card-background-color-coach: black;
+$background-color: black;
+$card-background-color-intro: white;
+$active-color: #c10f1e;
+$hover-color: #a00b16;
+$text-color: white;
+
+@-webkit-keyframes slideInFromLeft {
+    0% {
+      -webkit-transform: translateX(-100%);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideInFromLeft {
+    0% {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+@mixin section-color($id) {
+    @if $id &#x3D;&#x3D; &#x27;family&#x27; {
+        background: $card-background-color-family;
+    } @else if $id &#x3D;&#x3D; &#x27;economic&#x27; {
+        background: $card-background-color-economic;
+    } @else if $id &#x3D;&#x3D; &#x27;physic&#x27; {
+        background: $card-background-color-physical;
+    } @else if $id &#x3D;&#x3D; &#x27;psicologic&#x27; {
+        background: $card-background-color-psychological;
+    } @else if $id &#x3D;&#x3D; &#x27;coach&#x27; {
+        background: $card-background-color-coach;
+
+        .section-title {
+            color: #c9d51f;
+        }
+    }
+}
+
+@mixin interactive-element {
+    padding: 12px;
+    font-size: 18px;
+    text-align: center;
+    border-radius: 4px;
+    color: $text-color;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+section {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: black;
+    font-size: 100px;
+    color: white;
+    font-weight: 700;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    font-family: &#x27;Poppins&#x27;;
+
+    // &amp;::before {
+    //     content: &quot;&quot;;
+    //     display: block;
+    //     margin-top: 20px;
+    // }
+}
+
+.header {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    background-color: $background-color;
+    z-index: 1000;
+    padding: 10px 0;
+    display: flex;
+    justify-content: center;
+    
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      padding: 0 20px;
+      
+      .logo {
+      
+        img {
+          width: 60%;
+          height: 100%;
+        }
+      }
+  
+      nav {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+  
+        a {
+          @include interactive-element;
+          line-height: 25px;
+  
+          &amp;:hover,
+          &amp;.active {
+            background-color: $active-color;
+          }
+        }
+      }
+  
+      .sign-in-button {
+        @include interactive-element;
+        background-color: $active-color;
+        border: none;
+        margin-right: 2%;
+  
+        &amp;:hover {
+          background-color: $hover-color;
+        }
+      }
+    }
+}
+
+.coach {
+    @include section-color(&#x27;coach&#x27;);
+}
+
+.economic {
+    @include section-color(&#x27;economic&#x27;);
+}
+
+.physic {
+    @include section-color(&#x27;physic&#x27;);
+}
+
+.psicologic {
+    @include section-color(&#x27;psicologic&#x27;);
+}
+
+.family {
+    @include section-color(&#x27;family&#x27;);
+}
+
+.container {
+    height: max-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 100px 20px;
+    text-align: center;
+}
+
+.left-column, .right-column {
+    margin: 10px;
+}
+
+.left-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+}
+
+.title {
+    font-size: 42px;
+    font-weight: bold;
+    color: white;
+
+    .title-red {
+        color: rgb(183, 55, 55);
+    }
+}
+
+
+.subtitle {
+    font-size: 20px;
+    font-weight: normal;
+    color: #626264;
+    margin: 10px 0;
+    line-height: 1.4;
+}
+
+.section-title {
+    font-size: 42px;
+    font-weight: bold;
+    color: white;
+    animation: slideInFromLeft 2.5s ease-out;
+  }
+  
+
+.section-subtitle {
+    font-size: 28px;
+    font-weight: normal;
+    color: #efecfb;
+    margin: 10px 0;
+}
+
+.section-paragraph {
+    font-size: 20px;
+    font-weight: normal;
+    color: #efecfb;
+    margin: 10px 0;
+    line-height: 1.8;
+}
+
+.join-now-button {
+    @include interactive-element;
+    background-color: $active-color;
+    border: none;
+    margin-right: 2%;
+
+    &amp;:hover {
+      background-color: $hover-color;
+    }
+  }
+
+.image {
+    max-width: 65%;
+    max-height: 60%;
+}
+
+@media (min-width: 768px) {
+    .container {
+        flex-direction: row;
+        justify-content: center;
+        text-align: left;
+    }
+    .left-column, .right-column {
+        flex: 1;
+        margin: 20px;
+    }
+    .right-column {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .left-column {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+    }
+}
+
+section img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@media (max-width: 768px) {
+    section {
+        min-height: 20vh;
+    }
+
+    section img {
+        width: 100vw;
+        height: auto;
+        object-fit: cover;
+    }
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div>@if (!this.isSigning()) {    <section id="economic" class="economic">        <div class="container">            <div class="left-column">                <div class="section-subtitle">                IL WELFARE IN LEONARDO È                </div>                <div class="section-title">                    BENESSERE ECONOMICO                </div>                <div class="section-paragraph">                    Promuoviamo il benessere economico attraverso benefit, incentivi e piani di risparmio per aiutare i dipendenti a gestire meglio le proprie finanze.                </div>            </div>            <div class="right-column">                <img src="assets/home/economic-img.png" alt="Monitor" class="image">            </div>        </div>    </section>    <section id="physic" class="physic">        <div class="container">            <div class="left-column">                <div class="section-subtitle">                IL WELFARE IN LEONARDO È                </div>                <div class="section-title">                    BENESSERE FISICO                </div>                <div class="section-paragraph">                    Incentiviamo uno stile di vita sano con programmi di fitness, accesso a palestre e iniziative per migliorare la salute e il benessere fisico dei dipendenti.                </div>            </div>            <div class="right-column">                <img src="assets/home/physic-img.png" alt="Monitor" class="image">            </div>        </div>    </section>    <section id="psicologic" class="psicologic">        <div class="container">            <div class="left-column">                <div class="section-subtitle">                IL WELFARE IN LEONARDO È                </div>                <div class="section-title">                    BENESSERE PSICOLOGICO                </div>                <div class="section-paragraph">                    Offriamo supporto psicologico e programmi di consulenza per garantire il benessere mentale e aiutare i dipendenti a gestire lo stress e le sfide personali.                </div>            </div>            <div class="right-column">                <img src="assets/home/psychologic-img.png" alt="Monitor" class="image">            </div>        </div>    </section>    <section id="family" class="family">        <div class="container">            <div class="left-column">                <div class="section-subtitle">                    IL WELFARE IN LEONARDO È                </div>                <div class="section-title">                    BENESSERE FAMILIARE                </div>                <div class="section-paragraph">                    Supportiamo il benessere familiare con iniziative come congedi parentali estesi, flessibilità oraria e servizi di assistenza per bilanciare vita lavorativa e familiare.                </div>            </div>            <div class="right-column">                <img src="assets/home/family-img.png" alt="Monitor" class="image">            </div>        </div>    </section>    <section id="coach" class="coach">        <div class="container">            <div class="left-column">                <div class="section-subtitle">                ORIENTAMENTO SUL WELFARE?                </div>                <div class="section-title">                    CHIEDI AL TUO <br> WELFARE COACH                </div>                <div class="section-paragraph">                    Attraverso consulenze personalizzate e programmi di supporto, il welfare coach contribuisce a creare un ambiente di lavoro più sano e produttivo.                </div>            </div>            <div class="right-column">                <img src="assets/home/coach-img.png" alt="Monitor" class="image">            </div>        </div>    </section>}</div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BookCallComponent', 'selector': 'app-book-call'},{'name': 'BookingBoardComponent', 'selector': 'app-booking-board'},{'name': 'CardCoachComponent', 'selector': 'app-card-coach'},{'name': 'CardSectionComponent', 'selector': 'app-card-section'},{'name': 'CardServiceComponent', 'selector': 'app-card-service'},{'name': 'CoachSectionComponent', 'selector': 'app-coach-section'},{'name': 'CreateCoachComponent', 'selector': 'app-create-coach'},{'name': 'CreateServiceComponent', 'selector': 'app-create-service'},{'name': 'DailyAvailabilityComponent', 'selector': 'app-daily-availability'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'EconomicComponent', 'selector': 'app-economic'},{'name': 'FamilyComponent', 'selector': 'app-family'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgotPasswordComponent', 'selector': 'app-reset-password'},{'name': 'HeaderAdminComponent', 'selector': 'app-header-admin'},{'name': 'HeaderCoachComponent', 'selector': 'app-header-coach'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'MapComponent', 'selector': 'app-map'},{'name': 'MeetingBoardComponent', 'selector': 'app-meeting-board'},{'name': 'ModifyProfileComponent', 'selector': 'app-modify-profile'},{'name': 'NearMeComponent', 'selector': 'app-near-me'},{'name': 'NotFoundComponent', 'selector': 'app-not-found'},{'name': 'OtpVerificationComponent', 'selector': 'app-otp-verification'},{'name': 'PhysicalComponent', 'selector': 'app-physical'},{'name': 'PreHeaderComponent', 'selector': 'app-pre-header'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'PsychologicalComponent', 'selector': 'app-psychological'},{'name': 'PurchasedDataComponent', 'selector': 'app-purchased-data'},{'name': 'PurchasedSectionComponent', 'selector': 'app-purchased-section'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'SectionsComponent', 'selector': 'app-sections'},{'name': 'ShowCaseDataComponent', 'selector': 'app-showcase-data'},{'name': 'ShowCaseSectionComponent', 'selector': 'app-show-case-section'},{'name': 'SidebarComponent', 'selector': 'app-sidebar-coach'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'SignInComponent', 'selector': 'app-sign-in'},{'name': 'SignUpComponent', 'selector': 'app-sign-up'},{'name': 'SignUpSurveyComponent', 'selector': 'app-sign-up-survey'},{'name': 'WelfareCoachComponent', 'selector': 'app-welfare-coach'}];
+    var DIRECTIVES = [{'name': 'ErrorMessageApiDirective', 'selector': '[appErrorMessageApi]'},{'name': 'ErrorMsgFormsDirective', 'selector': '[appErrorMsgForms]'}];
+    var ACTUAL_COMPONENT = {'name': 'SectionsComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'SectionsComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

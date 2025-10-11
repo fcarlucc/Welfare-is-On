@@ -1,0 +1,297 @@
+services:
+  admin:
+    container_name: adminer
+    image: adminer
+    restart: always
+    depends_on:
+      - postgres-apigateway
+      - postgres-otpservice
+      - postgres-notificationservice
+      - postgres-imageservice
+      - postgres-servicesservice
+      - postgres-coachservice
+      - postgres-likeservice
+      - postgres-commentservice
+      - postgres-userservice
+      - postgres-scheduleservice
+    ports:
+      - 8080:8080
+
+  angular-nginx:
+    container_name: angular-nginx
+    build:
+      context: angular-nginx
+      dockerfile: Dockerfile
+      args:
+        SERVER_IP: $SERVER_IP
+        APIGATEWAY_SERVER_PORT: $APIGATEWAY_SERVER_PORT
+        SERVER_PROT: $SERVER_PROT
+        CERT_FILE: $CERT_FILE
+        KEY_FILE: $KEY_FILE
+        CERTS_: $CERTS_
+        KEYS_: $KEYS_
+    env_file: .env
+    ports:
+      - "$CLIENT_PORT:$CLIENT_PORT"
+    restart: on-failure
+
+  postgres-apigateway:
+    image: postgres:alpine
+    container_name: postgres-apigateway
+    env_file: .env
+    volumes:
+      - postgres-apigateway-vol:/var/lib/postgresql/data
+    restart: unless-stopped
+    expose:
+      - "$POSTGRES_PORT"
+
+  postgres-otpservice:
+    image: postgres:alpine
+    container_name: postgres-otpservice
+    env_file: .env
+    volumes:
+      - postgres-otpservice-vol:/var/lib/postgresql/data
+    restart: unless-stopped
+    expose:
+      - "$POSTGRES_PORT"
+
+  postgres-notificationservice:
+    image: postgres:alpine
+    container_name: postgres-notificationservice
+    env_file: .env
+    volumes:
+      - postgres-notificationservice-vol:/var/lib/postgresql/data
+    restart: unless-stopped
+    expose:
+      - "$POSTGRES_PORT"
+
+  postgres-imageservice:
+    image: postgres:alpine
+    container_name: postgres-imageservice
+    env_file: .env
+    volumes:
+      - postgres-imageservice-vol:/var/lib/postgresql/data
+    restart: unless-stopped
+    expose:
+      - "$POSTGRES_PORT"
+
+  postgres-servicesservice:
+    image: postgres:alpine
+    container_name: postgres-servicesservice
+    env_file: .env
+    volumes:
+      - postgres-servicesservice-vol:/var/lib/postgresql/data
+    restart: unless-stopped
+    expose:
+      - "$POSTGRES_PORT"
+
+  postgres-coachservice:
+    image: postgres:alpine
+    container_name: postgres-coachservice
+    env_file: .env
+    volumes:
+      - postgres-coachservice-vol:/var/lib/postgresql/data
+    restart: unless-stopped
+    expose:
+      - "$POSTGRES_PORT"
+
+  postgres-likeservice:
+    image: postgres:alpine
+    container_name: postgres-likeservice
+    env_file: .env
+    volumes:
+      - postgres-likeservice-vol:/var/lib/postgresql/data
+    restart: unless-stopped
+    expose:
+      - "$POSTGRES_PORT"
+
+  postgres-commentservice:
+    image: postgres:alpine
+    container_name: postgres-commentservice
+    env_file: .env
+    volumes:
+      - postgres-commentservice-vol:/var/lib/postgresql/data
+    restart: unless-stopped
+    expose:
+      - "$POSTGRES_PORT"
+
+  postgres-shopservice:
+    image: postgres:alpine
+    container_name: postgres-shopservice
+    env_file: .env
+    volumes:
+      - postgres-shopservice-vol:/var/lib/postgresql/data
+    restart: unless-stopped
+    expose:
+      - "$POSTGRES_PORT"
+
+  postgres-userservice:
+    image: postgres:alpine
+    container_name: postgres-userservice
+    env_file: .env
+    volumes:
+      - postgres-userservice-vol:/var/lib/postgresql/data
+    restart: unless-stopped
+    expose:
+      - "$POSTGRES_PORT"
+
+  postgres-scheduleservice:
+    image: postgres:alpine
+    container_name: postgres-scheduleservice
+    env_file: .env
+    volumes:
+      - postgres-scheduleservice-vol:/var/lib/postgresql/data
+    restart: unless-stopped
+    expose:
+      - "$POSTGRES_PORT"
+
+  api-gateway:
+    container_name: api-gateway
+    depends_on:
+      - postgres-apigateway
+    build:
+      context: microservices/api-gateway
+      dockerfile: Dockerfile
+    env_file: .env
+    restart: on-failure
+    ports:
+      - "$APIGATEWAY_SERVER_PORT:$APIGATEWAY_SERVER_PORT"
+
+  otp-service:
+    container_name: otp-service
+    depends_on:
+      - postgres-otpservice
+    build:
+      context: microservices/otp-service
+      dockerfile: Dockerfile
+    env_file: .env
+    restart: on-failure
+    expose:
+      - "$OTP_SERVICE_PORT"
+
+  notification-service:
+    container_name: notification-service
+    depends_on:
+      - postgres-notificationservice
+    build:
+      context: microservices/notification-service
+      dockerfile: Dockerfile
+    env_file: .env
+    restart: on-failure
+    expose:
+      - "$NOTIFICATION_SERVICE_PORT"
+
+  image-service:
+    container_name: image-service
+    depends_on:
+      - postgres-imageservice
+    build:
+      context: microservices/image-service
+      dockerfile: Dockerfile
+    env_file: .env
+    restart: on-failure
+    volumes:
+      - images-vol:/uploads
+    expose:
+      - "$IMAGE_SERVICE_PORT"
+#    ports:
+#      - "8083:$IMAGE_SERVICE_PORT"
+
+  services-service:
+    container_name: services-service
+    depends_on:
+      - postgres-servicesservice
+    build:
+      context: microservices/services-service
+      dockerfile: Dockerfile
+    env_file: .env
+    restart: on-failure
+    expose:
+      - "$SERVICES_SERVICE_PORT"
+
+  coach-service:
+    container_name: coach-service
+    depends_on:
+      - postgres-coachservice
+    build:
+      context: microservices/coach-service
+      dockerfile: Dockerfile
+    env_file: .env
+    restart: on-failure
+    expose:
+      - "$COACH_SERVICE_PORT"
+
+  like-service:
+    container_name: like-service
+    depends_on:
+      - postgres-likeservice
+    build:
+      context: microservices/like-service
+      dockerfile: Dockerfile
+    env_file: .env
+    restart: on-failure
+    expose:
+      - "$LIKE_SERVICE_PORT"
+
+  comment-service:
+    container_name: comment-service
+    depends_on:
+      - postgres-commentservice
+    build:
+      context: microservices/comment-service
+      dockerfile: Dockerfile
+    env_file: .env
+    restart: on-failure
+    expose:
+      - "$COMMENT_SERVICE_PORT"
+
+  shop-service:
+    container_name: shop-service
+    depends_on:
+      - postgres-shopservice
+    build:
+      context: microservices/shop-service
+      dockerfile: Dockerfile
+    env_file: .env
+    restart: on-failure
+    expose:
+      - "$SHOP_SERVICE_PORT"
+
+  user-service:
+    container_name: user-service
+    depends_on:
+      - postgres-userservice
+    build:
+      context: microservices/user-service
+      dockerfile: Dockerfile
+    env_file: .env
+    restart: on-failure
+    expose:
+      - "$USER_SERVICE_PORT"
+
+  schedule-service:
+    container_name: schedule-service
+    depends_on:
+      - postgres-scheduleservice
+    build:
+      context: microservices/schedule-service
+      dockerfile: Dockerfile
+    env_file: .env
+    restart: on-failure
+    expose:
+      - "$SCHEDULE_SERVICE_PORT"
+
+volumes:
+  postgres-apigateway-vol:
+  postgres-otpservice-vol:
+  postgres-notificationservice-vol:
+  postgres-imageservice-vol:
+  postgres-servicesservice-vol:
+  postgres-coachservice-vol:
+  postgres-likeservice-vol:
+  postgres-commentservice-vol:
+  postgres-shopservice-vol:
+  postgres-userservice-vol:
+  postgres-scheduleservice-vol:
+  images-vol:
+  adminer-vol:

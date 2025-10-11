@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="section">
+        <div class="signin-container">
+            <div class="logo">
+                <img src="assets/home/logo-well4you.png" alt="logoImage">
+            </div>
+            <h1>Sign In</h1>
+            <form [formGroup]="signInForm" class="main-form" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                    <input type="email" id="email" formControlName="email" placeholder="Email">
+                </div>
+                <div class="form-group">
+                    <input type="password" id="password" formControlName="password" placeholder="Password">
+                </div>
+                <div class="error-container">
+                    <small appErrorMessageApi class="error-message"></small>
+                </div>
+                <a (click)="navigateTo('forgot-password')">I forgot my password?</a>
+                <button class="btn-signin" type="submit" [disabled]="signInForm.invalid">Sign In</button>
+                <button class="btn-signup" type="button" (click)="navigateTo('sign-up')">Sign Up</button>
+            </form>
+            <button class="login-with-google-btn" (click)="redirectToGoogle()">Sign In with Google</button>
+        </div>
+    </div>
+</div>

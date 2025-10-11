@@ -1,0 +1,222 @@
+$primary-color: black;
+$secondary-color: white;
+$card-background-color-family: orange;
+$card-background-color-economical: yellow;
+$card-background-color-physical: green;
+$card-background-color-psychological: purple;
+$overlay-background: rgb(90, 78, 78);
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #FFFFFF44;
+  backdrop-filter: blur(8px);
+  z-index: 999;
+}
+
+.coach-card {
+  color: $primary-color;
+  background-color: #000;
+  text-align: center;
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  max-width: 190px;
+  max-height: 350px;
+  box-shadow: 0 4px 8px rgba(2, 2, 2, 0.333);
+  transition: transform 0.2s ease;
+  border-radius: 20px;
+  width: 100%;
+  padding: 0px 10px;
+  font-family: 'Poppins';
+
+  &:hover {
+    transform: scale(1.04);
+  }
+
+  &.family {
+    background-color: $card-background-color-family;
+    color: $card-background-color-family;
+
+    &:hover {
+      background-color: lighten($card-background-color-family, 5%);
+    }
+  }
+
+  &.economical {
+    background-color: $card-background-color-economical;
+    color: $card-background-color-economical;
+
+    &:hover {
+      background-color: lighten($card-background-color-economical, 5%);
+    }
+  }
+
+  &.physical {
+    background-color: $card-background-color-physical;
+    color: $card-background-color-physical;
+
+    &:hover {
+      background-color: lighten($card-background-color-physical, 5%);
+    }
+  }
+
+  &.psychological {
+    background-color: $card-background-color-psychological;
+    color: $card-background-color-psychological;
+
+    &:hover {
+      background-color: lighten($card-background-color-psychological, 5%);
+    }
+  }
+
+  .coach-card-image {
+    width: 80%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 9px;
+    margin-top: -5px;
+  
+    &.expanded {
+      max-width: 90%;
+      max-height: 800px;
+      height: auto;
+      object-fit: contain;
+      margin: 5px auto;
+      border-radius: 30px;
+      border: 6px solid $primary-color;
+    }
+  }
+
+  h1 {
+    background-color: $primary-color;
+    padding: 5px;
+    border-radius: 9px;
+    display: inline-block;
+
+    &.expanded {
+      font-size: 52px;
+      color: black;
+      padding: 5px 10px;
+      border-radius: 5px;
+      background-color: white;
+      display: inline-block;
+      margin: 5px 0;
+    }
+  }
+
+  h2 {
+    background-color: $primary-color;
+    padding: 5px;
+    border-radius: 9px;
+    display: block;
+
+    &.expanded {
+      font-size: 32px;
+      color: white;
+      margin: 10px 0;
+      font-weight: bold;
+      padding: 5px 10px;
+      border-radius: 5px;
+    }
+  }
+
+  h3 {
+    color: #c9d51f;
+    font-weight: 700;
+    display: inline-block;
+    margin-bottom: -80px;
+    text-align: left;
+
+    span {
+      color: #c9d51f;
+    }
+
+    &.expanded {
+      font-size: 26px;
+      color: white;
+      margin: 10px 0;
+      text-align: left;
+      font-weight: bold;
+      padding: 5px 10px;
+      border-radius: 5px;
+    }
+  }
+
+  h4 {
+    color: white;
+    font-weight: 700;
+    display: inline-block;
+
+  }
+
+  .button-container {
+    display: flex;
+    justify-content: space-around;
+
+    button {
+      background-color: #c9d51f;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 10px;
+      margin: 10px;
+      margin-left: -35px;
+      cursor: pointer;
+      font-size: 16px;
+      max-width: 150px;
+      max-height: 50px;
+      display: flex;
+      align-items: center;
+      transition: background-color 0.3s, transform 0.2s;
+
+      svg {
+        max-width: 70px;
+        max-height: 30px;
+      }
+
+      h4 {
+        color: $primary-color;
+      }
+
+      a {
+        color: $secondary-color;
+      }
+
+      &:hover {
+        background-color: darken(#c9d51f, 10%);
+        transform: scale(1.05);
+      }
+
+      &:active {
+        transform: scale(1);
+      }
+    }
+  }
+
+  &.expanded {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #000;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    max-width: 700px;
+    max-height: 375px;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    border-radius: 30px;
+    border: 6px solid $primary-color;
+    padding: 20px;
+    text-align: left;
+
+    .card-details {
+      max-width: 55%;
+      text-align: center;
+    }
+  }
+}

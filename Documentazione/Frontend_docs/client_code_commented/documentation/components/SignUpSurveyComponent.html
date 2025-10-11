@@ -1,0 +1,1446 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>client documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">client documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  SignUpSurveyComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/components/auth/sign-up-survey/sign-up-survey.component.ts</code>
+</p>
+
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Componente per la pagina del sondaggio durante la registrazione dell&#39;utente.
+Gestisce la visualizzazione del modulo di sondaggio e l&#39;invio delle risposte.</p>
+
+    </p>
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-sign-up-survey</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>ReactiveFormsModule</code>
+                                <code><a href="../directives/ErrorMsgFormsDirective.html" target="_self" >ErrorMsgFormsDirective</a></code>
+                                <code><a href="../directives/ErrorMessageApiDirective.html" target="_self" >ErrorMessageApiDirective</a></code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./sign-up-survey.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./sign-up-survey.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#selectedInterests" >selectedInterests</a>
+                            </li>
+                            <li>
+                                <a href="#survey" >survey</a>
+                            </li>
+                            <li>
+                                <a href="#surveyForm" >surveyForm</a>
+                            </li>
+                            <li>
+                                <a href="#user" >user</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#canDeactivate" >canDeactivate</a>
+                            </li>
+                            <li>
+                                <a href="#navigateTo" >navigateTo</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#onSubmit" >onSubmit</a>
+                            </li>
+                            <li>
+                                <a href="#toggleInterest" >toggleInterest</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(fb: FormBuilder, route: ActivatedRoute, apiService: <a href="../injectables/ApiService.html" target="_self">ApiService</a>, mapsService: <a href="../injectables/MapsService.html" target="_self">MapsService</a>, authService: <a href="../injectables/AuthService.html" target="_self">AuthService</a>, redirectService: <a href="../injectables/RedirectService.html" target="_self">RedirectService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="59" class="link-to-prism">src/app/components/auth/sign-up-survey/sign-up-survey.component.ts:59</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Crea un&#39;istanza di SignUpSurveyComponent.</p>
+</div>
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>fb</td>
+                                                  
+                                                        <td>
+                                                                    <code>FormBuilder</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>route</td>
+                                                  
+                                                        <td>
+                                                                    <code>ActivatedRoute</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>apiService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ApiService.html" target="_self" >ApiService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>mapsService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/MapsService.html" target="_self" >MapsService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>authService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AuthService.html" target="_self" >AuthService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>redirectService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/RedirectService.html" target="_self" >RedirectService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="canDeactivate"></a>
+                    <span class="name">
+                        <span ><b>canDeactivate</b></span>
+                        <a href="#canDeactivate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>canDeactivate()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="218"
+                                    class="link-to-prism">src/app/components/auth/sign-up-survey/sign-up-survey.component.ts:218</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Verifica se il modulo può essere disattivato, basandosi sulla validità del modulo.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="navigateTo"></a>
+                    <span class="name">
+                        <span ><b>navigateTo</b></span>
+                        <a href="#navigateTo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>navigateTo(route: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="229"
+                                    class="link-to-prism">src/app/components/auth/sign-up-survey/sign-up-survey.component.ts:229</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Naviga verso una determinata route.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>route</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="85"
+                                    class="link-to-prism">src/app/components/auth/sign-up-survey/sign-up-survey.component.ts:85</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Metodo iniziale chiamato al caricamento del componente.
+Inizializza il form del sondaggio e gestisce il recupero del token di accesso di Google.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onSubmit"></a>
+                    <span class="name">
+                        <span ><b>onSubmit</b></span>
+                        <a href="#onSubmit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onSubmit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="110"
+                                    class="link-to-prism">src/app/components/auth/sign-up-survey/sign-up-survey.component.ts:110</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Metodo chiamato alla sottomissione del modulo di sondaggio.
+Verifica la validità del form e, a seconda della disponibilità del token di Google o delle informazioni dell&#39;utente,
+invia i dati al server e gestisce la risposta.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggleInterest"></a>
+                    <span class="name">
+                        <span ><b>toggleInterest</b></span>
+                        <a href="#toggleInterest"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>toggleInterest(interest: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="202"
+                                    class="link-to-prism">src/app/components/auth/sign-up-survey/sign-up-survey.component.ts:202</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Aggiunge o rimuove un interesse dalla lista degli interessi selezionati.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>interest</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectedInterests"></a>
+                    <span class="name">
+                        <span ><b>selectedInterests</b></span>
+                        <a href="#selectedInterests"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="59" class="link-to-prism">src/app/components/auth/sign-up-survey/sign-up-survey.component.ts:59</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Lista degli interessi selezionati dall&#39;utente.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="survey"></a>
+                    <span class="name">
+                        <span ><b>survey</b></span>
+                        <a href="#survey"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Survey.html" target="_self" >Survey</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/app/components/auth/sign-up-survey/sign-up-survey.component.ts:45</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Oggetto sondaggio contenente le risposte del sondaggio.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="surveyForm"></a>
+                    <span class="name">
+                        <span ><b>surveyForm</b></span>
+                        <a href="#surveyForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>FormGroup</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">src/app/components/auth/sign-up-survey/sign-up-survey.component.ts:52</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Form per la pagina del sondaggio.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="user"></a>
+                    <span class="name">
+                        <span ><b>user</b></span>
+                        <a href="#user"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/User.html" target="_self" >User</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/components/auth/sign-up-survey/sign-up-survey.component.ts:38</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Oggetto utente contenente le informazioni dell&#39;utente.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { ActivatedRoute } from &#x27;@angular/router&#x27;;
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from &#x27;@angular/forms&#x27;;
+
+import { User } from &#x27;../../../interfaces/user&#x27;;
+import { Survey } from &#x27;../../../interfaces/survey&#x27;;
+
+import { ApiService } from &#x27;../../../services/api/api.service&#x27;;
+import { RedirectService } from &#x27;../../../services/redirect/redirect.service&#x27;;
+import { ValidatorService } from &#x27;../../../services/validator/validator.service&#x27;;
+import { MapsService } from &#x27;../../../services/maps/maps.service&#x27;;
+import { AuthService } from &#x27;../../../services/auth/auth.service&#x27;;
+
+import { ErrorMsgFormsDirective } from &#x27;../../../directives/error-msg-forms/error-msg-forms.directive&#x27;;
+import { ErrorMessageApiDirective } from &#x27;../../../directives/error-msg-api/error-msg-api.directive&#x27;;
+
+/**
+ * Componente per la pagina del sondaggio durante la registrazione dell&#x27;utente.
+ * Gestisce la visualizzazione del modulo di sondaggio e l&#x27;invio delle risposte.
+ * @export
+ * @class SignUpSurveyComponent
+ * @implements {OnInit}
+ */
+@Component({
+  selector: &#x27;app-sign-up-survey&#x27;,
+  standalone: true,
+  imports: [ReactiveFormsModule, ErrorMsgFormsDirective, ErrorMessageApiDirective],
+  templateUrl: &#x27;./sign-up-survey.component.html&#x27;,
+  styleUrls: [&#x27;./sign-up-survey.component.scss&#x27;]
+})
+export class SignUpSurveyComponent implements OnInit {
+
+  /**
+   * Oggetto utente contenente le informazioni dell&#x27;utente.
+   * @type {User}
+   * @memberof SignUpSurveyComponent
+   */
+  user!: User;
+
+  /**
+   * Oggetto sondaggio contenente le risposte del sondaggio.
+   * @type {Survey}
+   * @memberof SignUpSurveyComponent
+   */
+  survey!: Survey;
+
+  /**
+   * Form per la pagina del sondaggio.
+   * @type {FormGroup}
+   * @memberof SignUpSurveyComponent
+   */
+  surveyForm!: FormGroup;
+
+  /**
+   * Lista degli interessi selezionati dall&#x27;utente.
+   * @type {string[]}
+   * @memberof SignUpSurveyComponent
+   */
+  selectedInterests: string[] &#x3D; [];
+
+  /**
+   * Crea un&#x27;istanza di SignUpSurveyComponent.
+   * @param {FormBuilder} fb
+   * @param {ActivatedRoute} route
+   * @param {ApiService} apiService
+   * @param {MapsService} mapsService
+   * @param {AuthService} authService
+   * @param {RedirectService} redirectService
+   * @memberof SignUpSurveyComponent
+   */
+  constructor(
+    private fb: FormBuilder,
+    private route: ActivatedRoute,
+    private apiService: ApiService,
+    private mapsService: MapsService,
+    private authService: AuthService,
+    private redirectService: RedirectService
+  ) {}
+
+  /**
+   * Metodo iniziale chiamato al caricamento del componente.
+   * Inizializza il form del sondaggio e gestisce il recupero del token di accesso di Google.
+   * @memberof SignUpSurveyComponent
+   */
+  ngOnInit(): void {
+    this.surveyForm &#x3D; this.fb.group({
+      title: [&#x27;&#x27;, Validators.required],
+      maritalStatusName: [&#x27;&#x27;, Validators.required],
+      children: [false, Validators.required],
+      elderlyParents: [&#x27;&#x27;, Validators.required],
+      interests: [&#x27;&#x27;]
+    });
+
+    // Recupera il token di accesso di Google dai parametri della query.
+    this.route.queryParams
+      .subscribe(params &#x3D;&gt; {
+        if (params[&quot;token&quot;] !&#x3D;&#x3D; undefined) {
+          sessionStorage.setItem(&#x27;google_access_token&#x27;, params[&quot;token&quot;]);
+          console.log(sessionStorage.getItem(&#x27;google_access_token&#x27;)); 
+        }
+      });
+  }
+
+  /**
+   * Metodo chiamato alla sottomissione del modulo di sondaggio.
+   * Verifica la validità del form e, a seconda della disponibilità del token di Google o delle informazioni dell&#x27;utente,
+   * invia i dati al server e gestisce la risposta.
+   * @memberof SignUpSurveyComponent
+   */
+  onSubmit(): void {
+    const jsonString &#x3D; sessionStorage.getItem(&#x27;user&#x27;);
+    if (jsonString) {
+      this.user &#x3D; JSON.parse(jsonString);
+      console.log(&#x27;User from session storage &#x27;, this.user);
+    }
+
+    if (this.surveyForm.valid) {
+      this.survey &#x3D; {
+        title: this.surveyForm.value.title,
+        maritalStatusName: this.surveyForm.value.maritalStatusName,
+        children: this.surveyForm.value.children,
+        elderlyParents: this.surveyForm.value.elderlyParents,
+        interests: this.surveyForm.value.interests
+      };
+
+      console.log(&#x27;Ultimate user&#x27;, this.user, sessionStorage.getItem(&#x27;google_access_token&#x27;));
+
+      if (sessionStorage.getItem(&#x27;google_access_token&#x27;) !&#x3D;&#x3D; null) {
+        console.log(&#x27;Google token found&#x27;);
+        const googleAccessToken &#x3D; sessionStorage.getItem(&#x27;google_access_token&#x27;);
+        if (googleAccessToken) {
+          const payload &#x3D; JSON.parse(atob(googleAccessToken.split(&#x27;.&#x27;)[1]));
+          const email &#x3D; payload.sub;
+          console.log(email);
+
+          this.apiService.post(&#x27;api/user/survey-google&#x27;, 
+            {
+              email: email,
+              titleName: this.survey.title.toUpperCase(),
+              maritalStatusName: this.survey.maritalStatusName.toUpperCase(),
+              hasChildren: this.survey.children,
+              hasElderlyParents: this.survey.elderlyParents,
+              interests: this.selectedInterests
+            }
+          ).subscribe({
+            next: (response) &#x3D;&gt; {
+              console.log(&#x27;Survey submitted successfully&#x27;, response);
+              this.surveyForm.reset();
+              sessionStorage.setItem(&#x27;access_token&#x27;, googleAccessToken);
+              sessionStorage.removeItem(&#x27;google_access_token&#x27;);
+              this.authService.setTokenInfo(googleAccessToken);
+              this.mapsService.getUserPosition(email);
+              this.navigateTo(&#x27;&#x27;);
+            },
+            error: (error) &#x3D;&gt; {
+              console.error(&#x27;Error submitting survey&#x27;, error);
+            }
+          });
+        }
+      } else if (this.user) {
+        console.log(&#x27;User found&#x27;);
+        this.user.survey &#x3D; this.survey;
+        this.apiService.post(&#x27;api/auth/sign-up&#x27;,
+          {
+            firstName: this.user.firstName,
+            lastName: this.user.lastName,
+            dob: this.user.dob,
+            email: this.user.email,
+            password: this.user.password,
+            titleName: this.user.survey.title.toUpperCase(),
+            maritalStatusName: this.user.survey.maritalStatusName.toUpperCase(),
+            hasChildren: this.user.survey.children,
+            hasElderlyParents: this.user.survey.elderlyParents,
+            interests: this.selectedInterests
+          }
+        ).subscribe({
+          next: (response) &#x3D;&gt; {
+            sessionStorage.setItem(&#x27;email&#x27;, this.user.email);
+            sessionStorage.removeItem(&#x27;user&#x27;);
+            console.log(&#x27;SignUp successful&#x27;, response, &#x27;email&#x27;, sessionStorage.getItem(&#x27;email&#x27;));
+            this.surveyForm.reset();
+            this.navigateTo(&#x27;sign-up/2FA&#x27;);
+          },
+          error: (error) &#x3D;&gt; {
+            console.error(&#x27;SignUp error&#x27;, error);
+          }
+        });
+      } else {
+        console.error(&#x27;User is undefined&#x27;);
+        this.navigateTo(&#x27;sign-in&#x27;);
+      }
+    } else {
+      console.error(&#x27;Form is invalid:&#x27;, this.surveyForm.errors);
+    }
+  }
+
+  /**
+   * Aggiunge o rimuove un interesse dalla lista degli interessi selezionati.
+   * @param {string} interest
+   * @memberof SignUpSurveyComponent
+   */
+  toggleInterest(interest: string): void {
+    const index &#x3D; this.selectedInterests.indexOf(interest);
+    
+    if (index &#x3D;&#x3D;&#x3D; -1) {
+      this.selectedInterests.push(interest);
+    } else {
+      this.selectedInterests.splice(index, 1);
+    }
+    this.surveyForm.controls[&#x27;interests&#x27;].setValue(this.selectedInterests.join(&#x27;, &#x27;));
+  }
+
+  /**
+   * Verifica se il modulo può essere disattivato, basandosi sulla validità del modulo.
+   * @returns {boolean}
+   * @memberof SignUpSurveyComponent
+   */
+  canDeactivate(): boolean {
+    console.log(&#x27;canDeactivate called&#x27;);
+    console.log(&#x27;Form status:&#x27;, this.surveyForm.valid);
+    return this.surveyForm.valid;
+  }
+
+  /**
+   * Naviga verso una determinata route.
+   * @param {string} route
+   * @memberof SignUpSurveyComponent
+   */
+  navigateTo(route: string): void {
+    this.redirectService.setRedirect(route);
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;container&quot;&gt;
+    &lt;div class&#x3D;&quot;section&quot;&gt;
+        &lt;div class&#x3D;&quot;survey-container&quot;&gt;
+            &lt;div class&#x3D;&quot;logo&quot;&gt;
+                &lt;img src&#x3D;&quot;assets/home/logo-well4you.png&quot; alt&#x3D;&quot;logoImage&quot;&gt;
+            &lt;/div&gt;
+            &lt;h1&gt;Survey&lt;/h1&gt;
+            &lt;form [formGroup]&#x3D;&quot;surveyForm&quot; class&#x3D;&quot;main-form&quot; (ngSubmit)&#x3D;&quot;onSubmit()&quot;&gt;
+                &lt;div class&#x3D;&quot;form-columns&quot;&gt;
+                    &lt;div class&#x3D;&quot;form-column&quot;&gt;
+                        &lt;div&gt;
+                            &lt;label for&#x3D;&quot;title&quot;&gt;Title: &lt;/label&gt;
+                            &lt;input type&#x3D;&quot;radio&quot; id&#x3D;&quot;signor&quot; formControlName&#x3D;&quot;title&quot; value&#x3D;&quot;signor&quot;&gt; Mr
+                            &lt;input type&#x3D;&quot;radio&quot; id&#x3D;&quot;signora&quot; formControlName&#x3D;&quot;title&quot; value&#x3D;&quot;signora&quot;&gt; Mrs
+                        &lt;/div&gt;
+                        &lt;!-- &lt;input type&#x3D;&quot;radio&quot; id&#x3D;&quot;other&quot; formControlName&#x3D;&quot;title&quot; value&#x3D;&quot;other&quot;&gt; Other
+                        @if (surveyForm.get(&#x27;title&#x27;)?.value &#x3D;&#x3D;&#x3D; &#x27;other&#x27;) {
+                            &lt;div&gt;
+                                &lt;label for&#x3D;&quot;otherTitle&quot;&gt;Please specify: &lt;/label&gt;
+                                &lt;input type&#x3D;&quot;text&quot; id&#x3D;&quot;otherTitle&quot; formControlName&#x3D;&quot;otherTitle&quot;&gt;
+                                &lt;div class&#x3D;&quot;error-container&quot;&gt;
+                                    &lt;small appErrorMsgForms [formGroup]&#x3D;&quot;surveyForm&quot; [fields]&#x3D;&quot;[&#x27;otherTitle&#x27;]&quot; class&#x3D;&quot;error-message&quot;&gt;&lt;/small&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        } --&gt;
+                        &lt;div&gt;
+                            &lt;label for&#x3D;&quot;maritalStatusName&quot;&gt;Marital Status: &lt;/label&gt;
+                            &lt;input type&#x3D;&quot;radio&quot; id&#x3D;&quot;married&quot; formControlName&#x3D;&quot;maritalStatusName&quot; value&#x3D;&quot;married&quot;&gt; Married
+                            &lt;input type&#x3D;&quot;radio&quot; id&#x3D;&quot;unmarried&quot; formControlName&#x3D;&quot;maritalStatusName&quot; value&#x3D;&quot;single&quot;&gt; Single
+                        &lt;/div&gt;
+                        &lt;!-- @if (surveyForm.get(&#x27;maritalStatusName&#x27;)?.value &#x3D;&#x3D;&#x3D; &#x27;married&#x27;) { --&gt;
+                        &lt;div&gt;
+                            &lt;label for&#x3D;&quot;children&quot;&gt;Children: &lt;/label&gt;
+                            &lt;input type&#x3D;&quot;radio&quot; id&#x3D;&quot;yes&quot; formControlName&#x3D;&quot;children&quot; value&#x3D;true&gt; Yes
+                            &lt;input type&#x3D;&quot;radio&quot; id&#x3D;&quot;no&quot; formControlName&#x3D;&quot;children&quot; value&#x3D;false&gt; No
+                        &lt;/div&gt;
+                        &lt;div&gt;
+                            &lt;label for&#x3D;&quot;elderlyParents&quot;&gt;Elderly Parents: &lt;/label&gt;
+                            &lt;input type&#x3D;&quot;radio&quot; id&#x3D;&quot;yes&quot; formControlName&#x3D;&quot;elderlyParents&quot; value&#x3D;true&gt; Yes
+                            &lt;input type&#x3D;&quot;radio&quot; id&#x3D;&quot;no&quot; formControlName&#x3D;&quot;elderlyParents&quot; value&#x3D;false&gt; No
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class&#x3D;&quot;form-column&quot;&gt;
+                        &lt;div&gt;
+                            &lt;label&gt;Interests: &lt;/label&gt;
+                            &lt;div class&#x3D;&quot;interest-buttons&quot;&gt;
+                                &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;interest-button&quot; [class.selected]&#x3D;&quot;selectedInterests.includes(&#x27;TRAVEL&#x27;)&quot; (click)&#x3D;&quot;toggleInterest(&#x27;TRAVEL&#x27;)&quot;&gt;Travel&lt;/button&gt;
+                                &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;interest-button&quot; [class.selected]&#x3D;&quot;selectedInterests.includes(&#x27;SPORT&#x27;)&quot; (click)&#x3D;&quot;toggleInterest(&#x27;SPORT&#x27;)&quot;&gt;Sport&lt;/button&gt;
+                                &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;interest-button&quot; [class.selected]&#x3D;&quot;selectedInterests.includes(&#x27;READING&#x27;)&quot; (click)&#x3D;&quot;toggleInterest(&#x27;READING&#x27;)&quot;&gt;Reading&lt;/button&gt;
+                                &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;interest-button&quot; [class.selected]&#x3D;&quot;selectedInterests.includes(&#x27;LEISURE&#x27;)&quot; (click)&#x3D;&quot;toggleInterest(&#x27;LEISURE&#x27;)&quot;&gt;Leisure&lt;/button&gt;
+                                &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;interest-button&quot; [class.selected]&#x3D;&quot;selectedInterests.includes(&#x27;PREVENTION&#x27;)&quot; (click)&#x3D;&quot;toggleInterest(&#x27;PREVENTION&#x27;)&quot;&gt;Prevention&lt;/button&gt;
+                                &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;interest-button&quot; [class.selected]&#x3D;&quot;selectedInterests.includes(&#x27;HEALTH_AND_WELLNESS&#x27;)&quot; (click)&#x3D;&quot;toggleInterest(&#x27;HEALTH_AND_WELLNESS&#x27;)&quot;&gt;Health and Wellness&lt;/button&gt;
+                                &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;interest-button&quot; [class.selected]&#x3D;&quot;selectedInterests.includes(&#x27;TECHNOLOGY&#x27;)&quot; (click)&#x3D;&quot;toggleInterest(&#x27;TECHNOLOGY&#x27;)&quot;&gt;Technology&lt;/button&gt;
+                                &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;interest-button&quot; [class.selected]&#x3D;&quot;selectedInterests.includes(&#x27;FOOD_AND_COOKING&#x27;)&quot; (click)&#x3D;&quot;toggleInterest(&#x27;FOOD_AND_COOKING&#x27;)&quot;&gt;Food and Cooking&lt;/button&gt;
+                                &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;interest-button&quot; [class.selected]&#x3D;&quot;selectedInterests.includes(&#x27;ARTS_AND_CULTURE&#x27;)&quot; (click)&#x3D;&quot;toggleInterest(&#x27;ARTS_AND_CULTURE&#x27;)&quot;&gt;Arts and Culture&lt;/button&gt;
+                                &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;interest-button&quot; [class.selected]&#x3D;&quot;selectedInterests.includes(&#x27;FITNESS&#x27;)&quot; (click)&#x3D;&quot;toggleInterest(&#x27;FITNESS&#x27;)&quot;&gt;Fitness&lt;/button&gt;
+                                &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;interest-button&quot; [class.selected]&#x3D;&quot;selectedInterests.includes(&#x27;MUSIC&#x27;)&quot; (click)&#x3D;&quot;toggleInterest(&#x27;MUSIC&#x27;)&quot;&gt;Music&lt;/button&gt;
+                                &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;interest-button&quot; [class.selected]&#x3D;&quot;selectedInterests.includes(&#x27;VOLUNTEERING&#x27;)&quot; (click)&#x3D;&quot;toggleInterest(&#x27;VOLUNTEERING&#x27;)&quot;&gt;Volunteering&lt;/button&gt;
+                                &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;interest-button&quot; [class.selected]&#x3D;&quot;selectedInterests.includes(&#x27;EDUCATION_AND_LEARNING&#x27;)&quot; (click)&#x3D;&quot;toggleInterest(&#x27;EDUCATION_AND_LEARNING&#x27;)&quot;&gt;Education and Learning&lt;/button&gt;
+                                &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;interest-button&quot; [class.selected]&#x3D;&quot;selectedInterests.includes(&#x27;FINANCIAL_PLANNING&#x27;)&quot; (click)&#x3D;&quot;toggleInterest(&#x27;FINANCIAL_PLANNING&#x27;)&quot;&gt;Financial Planning&lt;/button&gt;
+                                &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;interest-button&quot; [class.selected]&#x3D;&quot;selectedInterests.includes(&#x27;FAMILY_AND_PARENTING&#x27;)&quot; (click)&#x3D;&quot;toggleInterest(&#x27;FAMILY_AND_PARENTING&#x27;)&quot;&gt;Family and Parenting&lt;/button&gt;
+                                &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;interest-button&quot; [class.selected]&#x3D;&quot;selectedInterests.includes(&#x27;GARDENING&#x27;)&quot; (click)&#x3D;&quot;toggleInterest(&#x27;GARDENING&#x27;)&quot;&gt;Gardening&lt;/button&gt;
+                                &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;interest-button&quot; [class.selected]&#x3D;&quot;selectedInterests.includes(&#x27;PETS&#x27;)&quot; (click)&#x3D;&quot;toggleInterest(&#x27;PETS&#x27;)&quot;&gt;Pets&lt;/button&gt;
+                                &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;interest-button&quot; [class.selected]&#x3D;&quot;selectedInterests.includes(&#x27;DIY_AND_CRAFTS&#x27;)&quot; (click)&#x3D;&quot;toggleInterest(&#x27;DIY_AND_CRAFTS&#x27;)&quot;&gt;DIY and Crafts&lt;/button&gt;
+                                &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;interest-button&quot; [class.selected]&#x3D;&quot;selectedInterests.includes(&#x27;MOVIES_AND_ENTERTAINMENT&#x27;)&quot; (click)&#x3D;&quot;toggleInterest(&#x27;MOVIES_AND_ENTERTAINMENT&#x27;)&quot;&gt;Movies and Entertainment&lt;/button&gt;                                                        
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class&#x3D;&quot;error-container&quot;&gt;
+                    &lt;small appErrorMessageApi class&#x3D;&quot;error-message&quot;&gt;&lt;/small&gt;
+                &lt;/div&gt;
+                &lt;div class&#x3D;&quot;button-wrapper&quot;&gt;
+                    &lt;button class&#x3D;&quot;btn-send&quot; type&#x3D;&quot;submit&quot; [disabled]&#x3D;&quot;surveyForm.invalid&quot;&gt;Complete&lt;/button&gt;
+                &lt;/div&gt;
+            &lt;/form&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./sign-up-survey.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">$primary-color: black;
+$secondary-color: white;
+$button-continue: blue;
+$input-border-color: blue;
+$input-focus-border-color: red;
+$interest-button-bg: lightgray;
+$interest-button-selected-bg: red;
+$interest-button-color: black;
+$interest-button-selected-color: black;
+
+@mixin color-scheme($primary-color, $secondary-color) {
+    color: $primary-color;
+    background-color: $secondary-color;
+}
+
+@mixin input-colors($border-color, $focus-border-color) {
+    border: 1px solid $border-color;
+
+    &amp;:focus {
+        border-color: $focus-border-color;
+        outline: none;
+    }
+}
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $secondary-color;
+}
+
+.container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    background: linear-gradient(90deg, darken(#a00b16, 15%), #a00b16);
+
+    .background-images {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 1;
+        z-index: -1;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    .section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex: 1;
+        width: 100%;
+
+        .survey-container {
+            @include color-scheme($primary-color, $secondary-color);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            max-height: 80%;
+            max-width: 800px;
+            box-shadow: 0 4px 8px black;
+            transition: transform 0.2s ease;
+
+            .logo {
+                img {
+                    margin-bottom: -30px;
+                    width: 40%;
+                    height: 40%;
+                }
+            }
+
+            &amp;:hover {
+                transform: scale(1.04);
+            }
+
+            h1 {
+                margin-bottom: 1rem;
+                font-family: &#x27;Poppins&#x27;;
+                color: $primary-color;
+            }
+
+            .main-form {
+                display: flex;
+                flex-direction: column;
+                align-items: center; // Centra il contenuto
+
+                .form-columns {
+                    display: flex;
+                    flex-direction: column;
+                    width: 800px;
+                    align-items: center; // Centra le colonne
+
+                    @media (min-width: 768px) {
+                        flex-direction: column; // Mantiene l&#x27;allineamento in colonna su schermi più grandi
+                    }
+                }
+
+                .form-column {
+                    display: flex;
+                    flex-direction: column;
+                    width: 100%;
+                    max-width: 700px; // Limita la larghezza della colonna per centrarla meglio
+                    margin-bottom: 1rem;
+                }
+
+                input {
+                    padding: 0.75rem;
+                    margin-bottom: 1rem;
+                    @include input-colors($input-border-color, $input-focus-border-color);
+                    border-radius: 4px;
+                    font-size: 1rem;
+
+                    &amp;:focus {
+                        border-color: $input-focus-border-color;
+                        outline: none;
+                    }
+                }
+
+                .interest-buttons {
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: center; // Centra i pulsanti di interesse
+                    margin-bottom: 1rem;
+
+                    .interest-button {
+                        margin: 5px;
+                        padding: 10px 20px;
+                        border: none;
+                        border-radius: 20px;
+                        background-color: $interest-button-bg;
+                        color: $interest-button-color;
+                        cursor: pointer;
+                        transition: background-color 0.3s, color 0.3s;
+
+                        &amp;:hover {
+                            background-color: darken($interest-button-bg, 10%);
+                        }
+
+                        &amp;.selected {
+                            background-color: $interest-button-selected-bg;
+                            color: $interest-button-selected-color;
+                        }
+                    }
+                }
+
+                .error-container {
+                    margin-bottom: 10px;
+                }
+
+                .error-message {
+                    color: red;
+                    font-size: 0.9rem;
+                }
+
+                a {
+                    color: black;
+                    text-decoration: underline;
+                    margin-bottom: 1rem;
+
+                    &amp;:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+
+            .button-wrapper {
+                display: flex;
+                justify-content: center;
+                width: 100%;
+                margin-top: -20px;
+
+                .btn-send {
+                    padding: 0.75rem;
+                    border: none;
+                    border-radius: 4px;
+                    background-color: $button-continue;
+                    color: white;
+                    font-size: 1rem;
+                    cursor: pointer;
+
+                    &amp;:hover {
+                        background-color: darken($button-continue, 10%);
+                    }
+                }
+            }
+        }
+    }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="container">    <div class="section">        <div class="survey-container">            <div class="logo">                <img src="assets/home/logo-well4you.png" alt="logoImage">            </div>            <h1>Survey</h1>            <form [formGroup]="surveyForm" class="main-form" (ngSubmit)="onSubmit()">                <div class="form-columns">                    <div class="form-column">                        <div>                            <label for="title">Title: </label>                            <input type="radio" id="signor" formControlName="title" value="signor"> Mr                            <input type="radio" id="signora" formControlName="title" value="signora"> Mrs                        </div>                        <!-- <input type="radio" id="other" formControlName="title" value="other"> Other                        @if (surveyForm.get(\'title\')?.value === \'other\') {                            <div>                                <label for="otherTitle">Please specify: </label>                                <input type="text" id="otherTitle" formControlName="otherTitle">                                <div class="error-container">                                    <small appErrorMsgForms [formGroup]="surveyForm" [fields]="[\'otherTitle\']" class="error-message"></small>                                </div>                            </div>                        } -->                        <div>                            <label for="maritalStatusName">Marital Status: </label>                            <input type="radio" id="married" formControlName="maritalStatusName" value="married"> Married                            <input type="radio" id="unmarried" formControlName="maritalStatusName" value="single"> Single                        </div>                        <!-- @if (surveyForm.get(\'maritalStatusName\')?.value === \'married\') { -->                        <div>                            <label for="children">Children: </label>                            <input type="radio" id="yes" formControlName="children" value=true> Yes                            <input type="radio" id="no" formControlName="children" value=false> No                        </div>                        <div>                            <label for="elderlyParents">Elderly Parents: </label>                            <input type="radio" id="yes" formControlName="elderlyParents" value=true> Yes                            <input type="radio" id="no" formControlName="elderlyParents" value=false> No                        </div>                    </div>                    <div class="form-column">                        <div>                            <label>Interests: </label>                            <div class="interest-buttons">                                <button type="button" class="interest-button" [class.selected]="selectedInterests.includes(\'TRAVEL\')" (click)="toggleInterest(\'TRAVEL\')">Travel</button>                                <button type="button" class="interest-button" [class.selected]="selectedInterests.includes(\'SPORT\')" (click)="toggleInterest(\'SPORT\')">Sport</button>                                <button type="button" class="interest-button" [class.selected]="selectedInterests.includes(\'READING\')" (click)="toggleInterest(\'READING\')">Reading</button>                                <button type="button" class="interest-button" [class.selected]="selectedInterests.includes(\'LEISURE\')" (click)="toggleInterest(\'LEISURE\')">Leisure</button>                                <button type="button" class="interest-button" [class.selected]="selectedInterests.includes(\'PREVENTION\')" (click)="toggleInterest(\'PREVENTION\')">Prevention</button>                                <button type="button" class="interest-button" [class.selected]="selectedInterests.includes(\'HEALTH_AND_WELLNESS\')" (click)="toggleInterest(\'HEALTH_AND_WELLNESS\')">Health and Wellness</button>                                <button type="button" class="interest-button" [class.selected]="selectedInterests.includes(\'TECHNOLOGY\')" (click)="toggleInterest(\'TECHNOLOGY\')">Technology</button>                                <button type="button" class="interest-button" [class.selected]="selectedInterests.includes(\'FOOD_AND_COOKING\')" (click)="toggleInterest(\'FOOD_AND_COOKING\')">Food and Cooking</button>                                <button type="button" class="interest-button" [class.selected]="selectedInterests.includes(\'ARTS_AND_CULTURE\')" (click)="toggleInterest(\'ARTS_AND_CULTURE\')">Arts and Culture</button>                                <button type="button" class="interest-button" [class.selected]="selectedInterests.includes(\'FITNESS\')" (click)="toggleInterest(\'FITNESS\')">Fitness</button>                                <button type="button" class="interest-button" [class.selected]="selectedInterests.includes(\'MUSIC\')" (click)="toggleInterest(\'MUSIC\')">Music</button>                                <button type="button" class="interest-button" [class.selected]="selectedInterests.includes(\'VOLUNTEERING\')" (click)="toggleInterest(\'VOLUNTEERING\')">Volunteering</button>                                <button type="button" class="interest-button" [class.selected]="selectedInterests.includes(\'EDUCATION_AND_LEARNING\')" (click)="toggleInterest(\'EDUCATION_AND_LEARNING\')">Education and Learning</button>                                <button type="button" class="interest-button" [class.selected]="selectedInterests.includes(\'FINANCIAL_PLANNING\')" (click)="toggleInterest(\'FINANCIAL_PLANNING\')">Financial Planning</button>                                <button type="button" class="interest-button" [class.selected]="selectedInterests.includes(\'FAMILY_AND_PARENTING\')" (click)="toggleInterest(\'FAMILY_AND_PARENTING\')">Family and Parenting</button>                                <button type="button" class="interest-button" [class.selected]="selectedInterests.includes(\'GARDENING\')" (click)="toggleInterest(\'GARDENING\')">Gardening</button>                                <button type="button" class="interest-button" [class.selected]="selectedInterests.includes(\'PETS\')" (click)="toggleInterest(\'PETS\')">Pets</button>                                <button type="button" class="interest-button" [class.selected]="selectedInterests.includes(\'DIY_AND_CRAFTS\')" (click)="toggleInterest(\'DIY_AND_CRAFTS\')">DIY and Crafts</button>                                <button type="button" class="interest-button" [class.selected]="selectedInterests.includes(\'MOVIES_AND_ENTERTAINMENT\')" (click)="toggleInterest(\'MOVIES_AND_ENTERTAINMENT\')">Movies and Entertainment</button>                                                                                    </div>                        </div>                    </div>                </div>                <div class="error-container">                    <small appErrorMessageApi class="error-message"></small>                </div>                <div class="button-wrapper">                    <button class="btn-send" type="submit" [disabled]="surveyForm.invalid">Complete</button>                </div>            </form>        </div>    </div></div></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BookCallComponent', 'selector': 'app-book-call'},{'name': 'BookingBoardComponent', 'selector': 'app-booking-board'},{'name': 'CardCoachComponent', 'selector': 'app-card-coach'},{'name': 'CardSectionComponent', 'selector': 'app-card-section'},{'name': 'CardServiceComponent', 'selector': 'app-card-service'},{'name': 'CoachSectionComponent', 'selector': 'app-coach-section'},{'name': 'CreateCoachComponent', 'selector': 'app-create-coach'},{'name': 'CreateServiceComponent', 'selector': 'app-create-service'},{'name': 'DailyAvailabilityComponent', 'selector': 'app-daily-availability'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'EconomicComponent', 'selector': 'app-economic'},{'name': 'FamilyComponent', 'selector': 'app-family'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgotPasswordComponent', 'selector': 'app-reset-password'},{'name': 'HeaderAdminComponent', 'selector': 'app-header-admin'},{'name': 'HeaderCoachComponent', 'selector': 'app-header-coach'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'MapComponent', 'selector': 'app-map'},{'name': 'MeetingBoardComponent', 'selector': 'app-meeting-board'},{'name': 'ModifyProfileComponent', 'selector': 'app-modify-profile'},{'name': 'NearMeComponent', 'selector': 'app-near-me'},{'name': 'NotFoundComponent', 'selector': 'app-not-found'},{'name': 'OtpVerificationComponent', 'selector': 'app-otp-verification'},{'name': 'PhysicalComponent', 'selector': 'app-physical'},{'name': 'PreHeaderComponent', 'selector': 'app-pre-header'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'PsychologicalComponent', 'selector': 'app-psychological'},{'name': 'PurchasedDataComponent', 'selector': 'app-purchased-data'},{'name': 'PurchasedSectionComponent', 'selector': 'app-purchased-section'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'SectionsComponent', 'selector': 'app-sections'},{'name': 'ShowCaseDataComponent', 'selector': 'app-showcase-data'},{'name': 'ShowCaseSectionComponent', 'selector': 'app-show-case-section'},{'name': 'SidebarComponent', 'selector': 'app-sidebar-coach'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'SignInComponent', 'selector': 'app-sign-in'},{'name': 'SignUpComponent', 'selector': 'app-sign-up'},{'name': 'SignUpSurveyComponent', 'selector': 'app-sign-up-survey'},{'name': 'WelfareCoachComponent', 'selector': 'app-welfare-coach'}];
+    var DIRECTIVES = [{'name': 'ErrorMessageApiDirective', 'selector': '[appErrorMessageApi]'},{'name': 'ErrorMsgFormsDirective', 'selector': '[appErrorMsgForms]'}];
+    var ACTUAL_COMPONENT = {'name': 'SignUpSurveyComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'SignUpSurveyComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

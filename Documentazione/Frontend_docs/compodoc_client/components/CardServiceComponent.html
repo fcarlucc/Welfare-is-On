@@ -1,0 +1,2646 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>client documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">client documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  CardServiceComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/components/user/card-service/card-service.component.ts</code>
+</p>
+
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Componente per la visualizzazione dei dettagli di un servizio.
+Gestisce l&#39;espansione della scheda, i commenti, i like e l&#39;acquisto del servizio.</p>
+
+    </p>
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-card-service</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>CommonModule</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./card-service.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./card-service.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Optional</span>
+                                <a href="#commentInput" >commentInput</a>
+                            </li>
+                            <li>
+                                <a href="#expanded" >expanded</a>
+                            </li>
+                            <li>
+                                <a href="#newComment" >newComment</a>
+                            </li>
+                            <li>
+                                <a href="#purchasedOn" >purchasedOn</a>
+                            </li>
+                            <li>
+                                <a href="#showCartButton" >showCartButton</a>
+                            </li>
+                            <li>
+                                <a href="#showComments" >showComments</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#addComment" >addComment</a>
+                            </li>
+                            <li>
+                                <a href="#calculatePrice" >calculatePrice</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                <a href="#clickOutside" >clickOutside</a>
+                            </li>
+                            <li>
+                                <a href="#getGoogleMapsLink" >getGoogleMapsLink</a>
+                            </li>
+                            <li>
+                                <a href="#isSpecificEndpoint" >isSpecificEndpoint</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#likeCard" >likeCard</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#purchaseService" >purchaseService</a>
+                            </li>
+                            <li>
+                                <a href="#stopPropagation" >stopPropagation</a>
+                            </li>
+                            <li>
+                                <a href="#toggleComments" >toggleComments</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#toggleExpand" >toggleExpand</a>
+                            </li>
+                            <li>
+                                <a href="#updateNewComment" >updateNewComment</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#card" >card</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>HostListeners</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#document:click" >document:click</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(apiService: <a href="../injectables/ApiService.html" target="_self">ApiService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/components/user/card-service/card-service.component.ts:32</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Crea un&#39;istanza di CardServiceComponent.</p>
+</div>
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>apiService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ApiService.html" target="_self" >ApiService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <ul>
+<li>Servizio per le chiamate API.</li>
+</ul>
+
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section data-compodoc="block-inputs">
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="card"></a>
+                        <b>card</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/CardService.html" target="_self" >CardService</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/components/user/card-service/card-service.component.ts:26</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+
+
+    <section data-compodoc="block-methods">
+    <h3>HostListeners</h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="document:click"></a>
+                    <span class="name">
+                        <span ><b>document:click</b></span>
+                        <a href="#document:click"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <i>Arguments : </i><code>'$event' </code>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>document:click(event: Event)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="80"
+                                    class="link-to-prism">src/app/components/user/card-service/card-service.component.ts:80</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Gestisce il clic al di fuori della scheda del servizio per chiudere l&#39;espansione.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>event</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>Evento di clic.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addComment"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>addComment</b></span>
+                        <a href="#addComment"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>addComment(event: Event)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="168"
+                                    class="link-to-prism">src/app/components/user/card-service/card-service.component.ts:168</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Aggiunge un nuovo commento alla scheda del servizio.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>event</td>
+                                            <td>
+                                                        <code>Event</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>Evento di clic.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="calculatePrice"></a>
+                    <span class="name">
+                        <span ><b>calculatePrice</b></span>
+                        <a href="#calculatePrice"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>calculatePrice()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="95"
+                                    class="link-to-prism">src/app/components/user/card-service/card-service.component.ts:95</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Calcola il prezzo del servizio tenendo conto dello sconto.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <ul>
+<li>Prezzo finale dopo lo sconto.</li>
+</ul>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="clickOutside"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                        <span ><b>clickOutside</b></span>
+                        <a href="#clickOutside"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>clickOutside(event: Event)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@HostListener(&#x27;document:click&#x27;, [&#x27;$event&#x27;])<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="80"
+                                    class="link-to-prism">src/app/components/user/card-service/card-service.component.ts:80</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Gestisce il clic al di fuori della scheda del servizio per chiudere l&#39;espansione.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>event</td>
+                                            <td>
+                                                        <code>Event</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>Evento di clic.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getGoogleMapsLink"></a>
+                    <span class="name">
+                        <span ><b>getGoogleMapsLink</b></span>
+                        <a href="#getGoogleMapsLink"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getGoogleMapsLink(lat: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, lng: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="221"
+                                    class="link-to-prism">src/app/components/user/card-service/card-service.component.ts:221</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Crea un link per Google Maps basato su latitudine e longitudine.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>lat</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>Latitudine.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>lng</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>Longitudine.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <ul>
+<li>Link a Google Maps.</li>
+</ul>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isSpecificEndpoint"></a>
+                    <span class="name">
+                        <span ><b>isSpecificEndpoint</b></span>
+                        <a href="#isSpecificEndpoint"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>isSpecificEndpoint()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="231"
+                                    class="link-to-prism">src/app/components/user/card-service/card-service.component.ts:231</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Verifica se la pagina corrente è l&#39;endpoint specifico per gli acquisti.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <ul>
+<li>Indica se la pagina corrente è &#39;/purchased&#39;.</li>
+</ul>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="likeCard"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>likeCard</b></span>
+                        <a href="#likeCard"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>likeCard(event: Event)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="108"
+                                    class="link-to-prism">src/app/components/user/card-service/card-service.component.ts:108</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Gestisce l&#39;azione di like sul servizio.
+Aumenta o diminuisce il numero di like a seconda dello stato corrente.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>event</td>
+                                            <td>
+                                                        <code>Event</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>Evento di clic.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="48"
+                                    class="link-to-prism">src/app/components/user/card-service/card-service.component.ts:48</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Metodo chiamato all&#39;inizializzazione del componente.
+Attualmente non implementa logica aggiuntiva.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="purchaseService"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>purchaseService</b></span>
+                        <a href="#purchaseService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>purchaseService(event: Event)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="196"
+                                    class="link-to-prism">src/app/components/user/card-service/card-service.component.ts:196</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Gestisce l&#39;acquisto del servizio.
+Aggiorna lo stato dell&#39;acquisto e invia la richiesta al server.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>event</td>
+                                            <td>
+                                                        <code>Event</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>Evento di clic.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="stopPropagation"></a>
+                    <span class="name">
+                        <span ><b>stopPropagation</b></span>
+                        <a href="#stopPropagation"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>stopPropagation(event: Event)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="158"
+                                    class="link-to-prism">src/app/components/user/card-service/card-service.component.ts:158</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Impedisce la propagazione dell&#39;evento.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>event</td>
+                                            <td>
+                                                        <code>Event</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>Evento di clic.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggleComments"></a>
+                    <span class="name">
+                        <span ><b>toggleComments</b></span>
+                        <a href="#toggleComments"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>toggleComments(event: Event)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="136"
+                                    class="link-to-prism">src/app/components/user/card-service/card-service.component.ts:136</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Mostra o nasconde la sezione dei commenti.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>event</td>
+                                            <td>
+                                                        <code>Event</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>Evento di clic.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggleExpand"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>toggleExpand</b></span>
+                        <a href="#toggleExpand"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>toggleExpand(event: Event)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="56"
+                                    class="link-to-prism">src/app/components/user/card-service/card-service.component.ts:56</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Gestisce l&#39;espansione della scheda del servizio e carica i dettagli del servizio se necessario.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>event</td>
+                                            <td>
+                                                        <code>Event</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>Evento di clic.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateNewComment"></a>
+                    <span class="name">
+                        <span ><b>updateNewComment</b></span>
+                        <a href="#updateNewComment"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>updateNewComment(event: Event)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="147"
+                                    class="link-to-prism">src/app/components/user/card-service/card-service.component.ts:147</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Aggiorna il valore del nuovo commento.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>event</td>
+                                            <td>
+                                                        <code>Event</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>Evento di input.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="commentInput"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier">Optional</span>
+                        <span ><b>commentInput</b></span>
+                        <a href="#commentInput"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>ElementRef&lt;HTMLTextAreaElement&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ViewChild(&#x27;commentInput&#x27;)<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/components/user/card-service/card-service.component.ts:25</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="expanded"></a>
+                    <span class="name">
+                        <span ><b>expanded</b></span>
+                        <a href="#expanded"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/components/user/card-service/card-service.component.ts:28</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="newComment"></a>
+                    <span class="name">
+                        <span ><b>newComment</b></span>
+                        <a href="#newComment"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/components/user/card-service/card-service.component.ts:30</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="purchasedOn"></a>
+                    <span class="name">
+                        <span ><b>purchasedOn</b></span>
+                        <a href="#purchasedOn"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/components/user/card-service/card-service.component.ts:32</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showCartButton"></a>
+                    <span class="name">
+                        <span ><b>showCartButton</b></span>
+                        <a href="#showCartButton"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>true</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/components/user/card-service/card-service.component.ts:31</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showComments"></a>
+                    <span class="name">
+                        <span ><b>showComments</b></span>
+                        <a href="#showComments"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/components/user/card-service/card-service.component.ts:29</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, HostListener, ViewChild, ElementRef, Input, OnInit } from &#x27;@angular/core&#x27;;
+import { CommonModule } from &#x27;@angular/common&#x27;;
+import { HttpParams } from &#x27;@angular/common/http&#x27;;
+
+import { CardService } from &#x27;../../../interfaces/card-service&#x27;;
+import { ApiService } from &#x27;../../../services/api/api.service&#x27;;
+
+/**
+ * Componente per la visualizzazione dei dettagli di un servizio.
+ * Gestisce l&#x27;espansione della scheda, i commenti, i like e l&#x27;acquisto del servizio.
+ * 
+ * @export
+ * @class CardServiceComponent
+ * @implements {OnInit}
+ */
+@Component({
+  selector: &#x27;app-card-service&#x27;,
+  standalone: true,
+  imports: [CommonModule],
+  templateUrl: &#x27;./card-service.component.html&#x27;,
+  styleUrls: [&#x27;./card-service.component.scss&#x27;]
+})
+export class CardServiceComponent implements OnInit {
+
+  @ViewChild(&#x27;commentInput&#x27;) commentInput?: ElementRef&lt;HTMLTextAreaElement&gt;;
+  @Input() card!: CardService;
+
+  expanded &#x3D; false; // Indica se la scheda è espansa
+  showComments &#x3D; false; // Indica se i commenti sono visibili
+  newComment &#x3D; &#x27;&#x27;; // Contenuto del nuovo commento
+  showCartButton: boolean &#x3D; true; // Indica se il pulsante del carrello deve essere mostrato
+  purchasedOn: boolean &#x3D; false; // Indica se il servizio è stato acquistato
+
+  /**
+   * Crea un&#x27;istanza di CardServiceComponent.
+   * @param {ApiService} apiService - Servizio per le chiamate API.
+   */
+  constructor(
+    private apiService: ApiService,
+  ) {}
+
+  /**
+   * Metodo chiamato all&#x27;inizializzazione del componente.
+   * Attualmente non implementa logica aggiuntiva.
+   * 
+   * @memberof CardServiceComponent
+   */
+  ngOnInit(): void { }
+
+  /**
+   * Gestisce l&#x27;espansione della scheda del servizio e carica i dettagli del servizio se necessario.
+   * 
+   * @param {Event} event - Evento di clic.
+   * @memberof CardServiceComponent
+   */
+  async toggleExpand(event: Event) {
+    event.stopPropagation();
+    this.expanded &#x3D; !this.expanded;
+    this.showComments &#x3D; false;
+    if (this.expanded &#x3D;&#x3D;&#x3D; true) {
+      try {
+        const userId &#x3D; sessionStorage.getItem(&#x27;user_id&#x27;);
+        const serviceId &#x3D; this.card.id;
+        const params &#x3D; new HttpParams().set(&#x27;userId&#x27;, userId!).set(&#x27;serviceId&#x27;, serviceId!);
+        const response: any &#x3D; await this.apiService.get(&#x27;api/services/get-service&#x27;, params).toPromise();
+        this.card.full &#x3D; response;
+      } catch (error) {
+        console.error(&#x27;Showcase error&#x27;, error);
+      }
+    }
+  }
+
+  /**
+   * Gestisce il clic al di fuori della scheda del servizio per chiudere l&#x27;espansione.
+   * 
+   * @param {Event} event - Evento di clic.
+   * @memberof CardServiceComponent
+   */
+  @HostListener(&#x27;document:click&#x27;, [&#x27;$event&#x27;])
+  clickOutside(event: Event) {
+    if (this.expanded) {
+      const target &#x3D; event.target as HTMLElement;
+      if (!target.closest(&#x27;.service-card&#x27;)) {
+        this.expanded &#x3D; false;
+      }
+    }
+  }
+
+  /**
+   * Calcola il prezzo del servizio tenendo conto dello sconto.
+   * 
+   * @returns {number} - Prezzo finale dopo lo sconto.
+   * @memberof CardServiceComponent
+   */
+  calculatePrice(): number {
+    const price &#x3D; this.card.full!.price;
+    const discount &#x3D; this.card.full!.discount;
+    return price - (price * (discount / 100));
+  }
+
+  /**
+   * Gestisce l&#x27;azione di like sul servizio.
+   * Aumenta o diminuisce il numero di like a seconda dello stato corrente.
+   * 
+   * @param {Event} event - Evento di clic.
+   * @memberof CardServiceComponent
+   */
+  async likeCard(event: Event) {
+    event.stopPropagation();
+    const userId &#x3D; sessionStorage.getItem(&#x27;user_id&#x27;);
+    const serviceId &#x3D; this.card.id;
+    if (this.card.full!.liked) {
+      try {
+        await this.apiService.post(&#x27;api/like/delete&#x27;, { &#x27;userId&#x27;: userId, &#x27;serviceId&#x27;: serviceId }).toPromise();
+      } catch (error) {
+        console.error(&#x27;Showcase error&#x27;, error);
+      }
+      this.card.full!.likes--;
+    } else {
+      try {
+        await this.apiService.post(&#x27;api/like/create&#x27;, { &#x27;userId&#x27;: userId, &#x27;serviceId&#x27;: serviceId }).toPromise();
+      } catch (error) {
+        console.error(&#x27;Showcase error&#x27;, error);
+      }
+      this.card.full!.likes++;
+    }
+    this.card.full!.liked &#x3D; !this.card.full!.liked;
+  }
+
+  /**
+   * Mostra o nasconde la sezione dei commenti.
+   * 
+   * @param {Event} event - Evento di clic.
+   * @memberof CardServiceComponent
+   */
+  toggleComments(event: Event) {
+    event.stopPropagation();
+    this.showComments &#x3D; !this.showComments;
+  }
+
+  /**
+   * Aggiorna il valore del nuovo commento.
+   * 
+   * @param {Event} event - Evento di input.
+   * @memberof CardServiceComponent
+   */
+  updateNewComment(event: Event) {
+    const target &#x3D; event.target as HTMLTextAreaElement;
+    this.newComment &#x3D; target.value;
+  }
+
+  /**
+   * Impedisce la propagazione dell&#x27;evento.
+   * 
+   * @param {Event} event - Evento di clic.
+   * @memberof CardServiceComponent
+   */
+  stopPropagation(event: Event) {
+    event.stopPropagation();
+  }
+
+  /**
+   * Aggiunge un nuovo commento alla scheda del servizio.
+   * 
+   * @param {Event} event - Evento di clic.
+   * @memberof CardServiceComponent
+   */
+  async addComment(event: Event) {
+    event.stopPropagation();
+    if (this.newComment.trim()) {
+      this.card.full!.comments.unshift({
+        id: this.card.full!.comments.length + 1,
+        serviceId: this.card.id,
+        userId: +sessionStorage.getItem(&#x27;user_id&#x27;)!,
+        fullName: sessionStorage.getItem(&#x27;full_name&#x27;)!,
+        content: this.newComment,
+        commentedAt: new Date()
+      });
+      try {
+        await this.apiService.post(&#x27;api/comment/create&#x27;, this.card.full!.comments[0]).toPromise();
+      } catch (error) {
+        console.error(&#x27;Showcase error&#x27;, error);
+      }
+      this.commentInput!.nativeElement.value &#x3D; &#x27;&#x27;;
+      this.newComment &#x3D; &#x27;&#x27;;
+    }
+  }
+
+  /**
+   * Gestisce l&#x27;acquisto del servizio.
+   * Aggiorna lo stato dell&#x27;acquisto e invia la richiesta al server.
+   * 
+   * @param {Event} event - Evento di clic.
+   * @memberof CardServiceComponent
+   */
+  async purchaseService(event: Event) {
+    event.stopPropagation();
+
+    if (this.card.full!.purchased) {
+      event.preventDefault();
+      return;
+    }
+    const userId &#x3D; sessionStorage.getItem(&#x27;user_id&#x27;);
+    const serviceId &#x3D; this.card.id;
+    try {
+      await this.apiService.post(&#x27;api/shop/make-purchase&#x27;, { &#x27;userId&#x27;: userId, &#x27;serviceId&#x27;: serviceId }).toPromise();
+      this.purchasedOn &#x3D; true;
+    } catch (error) {
+      console.error(&#x27;Showcase error&#x27;, error);
+    }
+  }
+
+  /**
+   * Crea un link per Google Maps basato su latitudine e longitudine.
+   * 
+   * @param {number} lat - Latitudine.
+   * @param {number} lng - Longitudine.
+   * @returns {string} - Link a Google Maps.
+   * @memberof CardServiceComponent
+   */
+  getGoogleMapsLink(lat: number, lng: number): string {
+    return &#x60;https://www.google.com/maps/search/?api&#x3D;1&amp;query&#x3D;${lat},${lng}&#x60;;
+  }
+
+  /**
+   * Verifica se la pagina corrente è l&#x27;endpoint specifico per gli acquisti.
+   * 
+   * @returns {boolean} - Indica se la pagina corrente è &#x27;/purchased&#x27;.
+   * @memberof CardServiceComponent
+   */
+  isSpecificEndpoint(): boolean {
+    return window.location.pathname &#x3D;&#x3D;&#x3D; &#x27;/purchased&#x27;;
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;overlay&quot; *ngIf&#x3D;&quot;expanded&quot; (click)&#x3D;&quot;toggleExpand($event)&quot;&gt;&lt;/div&gt;
+&lt;div class&#x3D;&quot;service-card&quot; [ngClass]&#x3D;&quot;card.pillarName.toLowerCase()&quot; [class.expanded]&#x3D;&quot;expanded&quot; (click)&#x3D;&quot;toggleExpand($event)&quot;&gt;
+    &lt;h3 [class.expanded]&#x3D;&quot;expanded&quot;&gt;{{ card.pillarName }}&lt;/h3&gt;
+    &lt;img [src]&#x3D;&quot;card.imgUrl&quot; alt&#x3D;&quot;{{ card.title }}&quot; class&#x3D;&quot;service-card-image&quot; [class.expanded]&#x3D;&quot;expanded&quot;&gt;
+    &lt;h4 [class.expanded]&#x3D;&quot;expanded&quot;&gt;{{ card.title }}&lt;/h4&gt;
+    &lt;div class&#x3D;&quot;card-details&quot; *ngIf&#x3D;&quot;expanded &amp;&amp; card.full&quot;&gt;
+        &lt;div class&#x3D;&quot;description&quot;&gt;
+            &lt;span&gt;{{ card.full.description }}&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;price-section&quot;&gt;
+            &lt;div class&#x3D;&quot;original-price-box&quot;&gt;
+                &lt;span class&#x3D;&quot;original-price&quot;&gt;{{ card.full.price }}€&lt;/span&gt;
+                &lt;div class&#x3D;&quot;discount-box&quot;&gt;
+                    &lt;span class&#x3D;&quot;discount-percentage&quot;&gt;{{ card.full.discount }}%&lt;/span&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;our-price-box&quot;&gt;
+                &lt;span class&#x3D;&quot;our-price&quot;&gt;{{ calculatePrice() }}€&lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div&gt;
+            &lt;a class&#x3D;&quot;portal-button&quot; (click)&#x3D;&quot;stopPropagation($event)&quot; [href]&#x3D;&quot;card.full.url&quot; target&#x3D;&quot;_blank&quot;&gt;Go to Portal&lt;/a&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;button-container&quot;&gt;
+            &lt;button class&#x3D;&quot;like-button&quot; (click)&#x3D;&quot;likeCard($event)&quot;&gt; &lt;!--riempire se liked true--&gt;
+                @if (!this.card.full!.liked) {
+                    &lt;svg xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot; width&#x3D;&quot;16&quot; height&#x3D;&quot;16&quot; fill&#x3D;&quot;currentColor&quot; class&#x3D;&quot;bi bi-hand-thumbs-up&quot; viewBox&#x3D;&quot;0 0 16 16&quot;&gt;
+                        &lt;path d&#x3D;&quot;M8.864.046C7.908-.193 7.02.53 6.956 1.466c-.072 1.051-.23 2.016-.428 2.59-.125.36-.479 1.013-1.04 1.639-.557.623-1.282 1.178-2.131 1.41C2.685 7.288 2 7.87 2 8.72v4.001c0 .845.682 1.464 1.448 1.545 1.07.114 1.564.415 2.068.723l.048.03c.272.165.578.348.97.484.397.136.861.217 1.466.217h3.5c.937 0 1.599-.477 1.934-1.064a1.86 1.86 0 0 0 .254-.912c0-.152-.023-.312-.077-.464.201-.263.38-.578.488-.901.11-.33.172-.762.004-1.149.069-.13.12-.269.159-.403.077-.27.113-.568.113-.857 0-.288-.036-.585-.113-.856a2 2 0 0 0-.138-.362 1.9 1.9 0 0 0 .234-1.734c-.206-.592-.682-1.1-1.2-1.272-.847-.282-1.803-.276-2.516-.211a10 10 0 0 0-.443.05 9.4 9.4 0 0 0-.062-4.509A1.38 1.38 0 0 0 9.125.111zM11.5 14.721H8c-.51 0-.863-.069-1.14-.164-.281-.097-.506-.228-.776-.393l-.04-.024c-.555-.339-1.198-.731-2.49-.868-.333-.036-.554-.29-.554-.55V8.72c0-.254.226-.543.62-.65 1.095-.3 1.977-.996 2.614-1.708.635-.71 1.064-1.475 1.238-1.978.243-.7.407-1.768.482-2.85.025-.362.36-.594.667-.518l.262.066c.16.04.258.143.288.255a8.34 8.34 0 0 1-.145 4.725.5.5 0 0 0 .595.644l.003-.001.014-.003.058-.014a9 9 0 0 1 1.036-.157c.663-.06 1.457-.054 2.11.164.175.058.45.3.57.65.107.308.087.67-.266 1.022l-.353.353.353.354c.043.043.105.141.154.315.048.167.075.37.075.581 0 .212-.027.414-.075.582-.05.174-.111.272-.154.315l-.353.353.353.354c.047.047.109.177.005.488a2.2 2.2 0 0 1-.505.805l-.353.353.353.354c.006.005.041.05.041.17a.9.9 0 0 1-.121.416c-.165.288-.503.56-1.066.56z&quot;/&gt;
+                    &lt;/svg&gt;
+                    &lt;h5&gt;{{ card.full.likes }}&lt;/h5&gt;
+                } @else {
+                    &lt;svg xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot; width&#x3D;&quot;16&quot; height&#x3D;&quot;16&quot; fill&#x3D;&quot;currentColor&quot; class&#x3D;&quot;bi bi-hand-thumbs-up-fill&quot; viewBox&#x3D;&quot;0 0 16 16&quot;&gt;
+                        &lt;path d&#x3D;&quot;M6.956 1.745C7.021.81 7.908.087 8.864.325l.261.066c.463.116.874.456 1.012.965.22.816.533 2.511.062 4.51a10 10 0 0 1 .443-.051c.713-.065 1.669-.072 2.516.21.518.173.994.681 1.2 1.273.184.532.16 1.162-.234 1.733q.086.18.138.363c.077.27.113.567.113.856s-.036.586-.113.856c-.039.135-.09.273-.16.404.169.387.107.819-.003 1.148a3.2 3.2 0 0 1-.488.901c.054.152.076.312.076.465 0 .305-.089.625-.253.912C13.1 15.522 12.437 16 11.5 16H8c-.605 0-1.07-.081-1.466-.218a4.8 4.8 0 0 1-.97-.484l-.048-.03c-.504-.307-.999-.609-2.068-.722C2.682 14.464 2 13.846 2 13V9c0-.85.685-1.432 1.357-1.615.849-.232 1.574-.787 2.132-1.41.56-.627.914-1.28 1.039-1.639.199-.575.356-1.539.428-2.59z&quot;/&gt;
+                    &lt;/svg&gt;
+                    &lt;h5&gt;{{ card.full.likes }}&lt;/h5&gt;
+                }
+            &lt;/button&gt;
+            &lt;button (click)&#x3D;&quot;toggleComments($event)&quot;&gt;
+                &lt;svg xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot; width&#x3D;&quot;16&quot; height&#x3D;&quot;16&quot; fill&#x3D;&quot;currentColor&quot; class&#x3D;&quot;bi bi-chat-dots-fill&quot; viewBox&#x3D;&quot;0 0 16 16&quot;&gt;
+                    &lt;path d&#x3D;&quot;M16 8c0 3.866-3.582 7-8 7a9 9 0 0 1-2.347-.306c-.584.296-1.925.864-4.181 1.234-.2.032-.352-.176-.273-.362.354-.836.674-1.95.77-2.966C.744 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7m-11 0a1 1 0 1 0-2 0 1 1 0 0 0 2 0m4 0a1 1 0 1 0-2 0 1 1 0 0 0 2 0m3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2&quot;/&gt;
+                &lt;/svg&gt;
+            &lt;/button&gt;
+            @if (card.full.distance! &gt; 0 &amp;&amp; card.full.position!) {
+                &lt;button&gt;
+                    &lt;svg xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot; width&#x3D;&quot;16&quot; height&#x3D;&quot;16&quot; fill&#x3D;&quot;currentColor&quot; class&#x3D;&quot;bi bi-geo-alt-fill&quot; viewBox&#x3D;&quot;0 0 16 16&quot;&gt;
+                        &lt;path d&#x3D;&quot;M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6&quot;/&gt;
+                    &lt;/svg&gt;
+                    &lt;h5&gt;&lt;a [href]&#x3D;&quot;getGoogleMapsLink(card.full.position.latitude!, card.full.position.longitude!)&quot; target&#x3D;&quot;_blank&quot;&gt;{{ card.full.distance?.toFixed(2) }} Km&lt;/a&gt;&lt;/h5&gt;
+                &lt;/button&gt;
+            }
+            @if (showCartButton &amp;&amp; !isSpecificEndpoint()) {
+                &lt;button [disabled]&#x3D;&quot;card.full.purchased&quot; (click)&#x3D;&quot;purchaseService($event)&quot;&gt;
+                    @if (purchasedOn) {
+                        &lt;svg xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot; width&#x3D;&quot;16&quot; height&#x3D;&quot;16&quot; fill&#x3D;&quot;currentColor&quot; class&#x3D;&quot;bi bi-cart-check-fill&quot; viewBox&#x3D;&quot;0 0 16 16&quot;&gt;
+                            &lt;path d&#x3D;&quot;M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0m7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0m-1.646-7.646-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L8 8.293l2.646-2.647a.5.5 0 0 1 .708.708&quot;/&gt;
+                        &lt;/svg&gt;
+                    } @else if (!card.full.purchased) {
+                        &lt;svg xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot; width&#x3D;&quot;16&quot; height&#x3D;&quot;16&quot; fill&#x3D;&quot;currentColor&quot; class&#x3D;&quot;bi bi-cart-plus&quot; viewBox&#x3D;&quot;0 0 16 16&quot;&gt;
+                            &lt;path d&#x3D;&quot;M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9z&quot;/&gt;
+                            &lt;path d&#x3D;&quot;M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1zm3.915 10L3.102 4h10.796l-1.313 7zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0m7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0&quot;/&gt;
+                        &lt;/svg&gt;
+                    } @else {
+                        &lt;svg xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot; width&#x3D;&quot;16&quot; height&#x3D;&quot;16&quot; fill&#x3D;&quot;currentColor&quot; class&#x3D;&quot;bi bi-cart-check-fill&quot; viewBox&#x3D;&quot;0 0 16 16&quot;&gt;
+                            &lt;path d&#x3D;&quot;M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0m7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0m-1.646-7.646-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L8 8.293l2.646-2.647a.5.5 0 0 1 .708.708&quot;/&gt;
+                        &lt;/svg&gt;
+                    }
+                &lt;/button&gt;
+            }
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;comments-section&quot; *ngIf&#x3D;&quot;showComments&quot;&gt;
+            &lt;div class&#x3D;&quot;comments-list&quot;&gt;
+                &lt;div *ngFor&#x3D;&quot;let comment of card.full.comments&quot; class&#x3D;&quot;comment&quot;&gt;
+                    &lt;p class&#x3D;&quot;username&quot;&gt;{{ comment.fullName }}&lt;/p&gt;
+                    &lt;p class&#x3D;&quot;content&quot;&gt;{{ comment.content }}&lt;/p&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;comment-input&quot;&gt;
+                &lt;textarea #commentInput placeholder&#x3D;&quot;Add a comment&quot; (input)&#x3D;&quot;updateNewComment($event)&quot; (click)&#x3D;&quot;stopPropagation($event)&quot;&gt;&lt;/textarea&gt;
+                &lt;button (click)&#x3D;&quot;addComment($event)&quot;&gt;Submit&lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+  </code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./card-service.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">$primary-color: black;
+$secondary-color: white;
+$card-background-color-family:linear-gradient(1042deg, #CF9C00, #d4a50c);
+$card-background-color-economic:linear-gradient(1042deg, #ce7b28, #d4950c);
+$card-background-color-physical: linear-gradient(1042deg, #490460, #ae0db6);
+$card-background-color-psychological: linear-gradient(1042deg, #075e5b, #11a9b4);
+$card-hover-color-family: linear-gradient(1042deg, lighten(#CF9C00, 5%), lighten(#d4a50c, 5%));
+$card-hover-color-economic: linear-gradient(1042deg, lighten(#ce7b28, 5%), lighten(#d4950c, 5%));
+$card-hover-color-physical: linear-gradient(1042deg, lighten(#490460, 5%), lighten(#ae0db6, 5%));
+$card-hover-color-psychological: linear-gradient(1042deg, lighten(#075e5b, 5%), lighten(#11a9b4, 5%));
+$overlay-background: rgb(90, 78, 78);
+
+$comment-bg-color: #f0f0f0;
+$comment-border-color: #ccc;
+$comment-username-color: #007bff;
+$comment-textarea-bg-color: #fff;
+$comment-button-bg-color: #007bff;
+$comment-button-hover-bg-color: darken($comment-button-bg-color, 10%);
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #FFFFFF44;
+  backdrop-filter: blur(8px);
+  z-index: 999;
+}
+
+.service-card {
+  color: $primary-color;
+  padding: 20px;
+  text-align: center;
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 170px;
+  max-height: 220px;
+  box-shadow: 0 4px 8px rgba(2, 2, 2, 0.333);
+  transition: transform 0.2s ease;
+  border-radius: 20px;
+  width: 100%;
+
+  &amp;:hover {
+    transform: scale(1.04);
+  }
+
+  &amp;.family {
+    background: $card-background-color-family;
+    color: $card-background-color-family;
+
+    &amp;:hover {
+      background: $card-hover-color-family;
+    }
+  }
+
+  &amp;.economic {
+    background: $card-background-color-economic;
+    color: $card-background-color-economic;
+
+    &amp;:hover {
+      background: $card-hover-color-economic;
+    }
+  }
+
+  &amp;.physical {
+    background: $card-background-color-physical;
+    color: $card-background-color-physical;
+
+    &amp;:hover {
+      background: $card-hover-color-physical;
+    }
+  }
+
+  &amp;.psychological {
+    background: $card-background-color-psychological;
+    color: $card-background-color-psychological;
+
+    &amp;:hover {
+      background: $card-hover-color-psychological;
+    }
+  }
+
+  .service-card-image {
+    width: 80%;
+    border-radius: 9px;
+    margin-top: -10px;
+
+    &amp;.expanded {
+      max-width: 280px;
+      max-height: 280px;
+      border-radius: 30px;
+      margin-top: -35px;
+      margin-bottom: 15px;
+    }
+  }
+
+  h4 {
+    color: $primary-color;
+    margin-top: 15px;
+    font-family: &#x27;Poppins&#x27;;
+    color: $secondary-color;
+
+    &amp;.expanded {
+      font-size: 24px;
+      margin-top: -5px;
+    }
+  }
+
+  h3 {
+    padding: 5px;
+    display: inline-block;
+    margin-top: -10px;
+    font-family: &#x27;Poppins&#x27;;
+    color: $secondary-color;
+
+    &amp;.expanded {
+      font-size: 32px;
+      margin-bottom: 40px;
+    }
+  }
+
+  .description {
+    color: $secondary-color;
+    font-weight: bold;
+    margin-top: -35px;
+    padding: 10px;
+  }
+
+  .price-section {
+    display: flex;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+    .original-price-box {
+      background-color: black;
+      color: white;
+      text-decoration: line-through;
+      padding: 8px 15px;
+      border-radius: 8px;
+      display: flex;
+      left: 50px;
+      align-items: center;
+      position: relative;
+
+      .discount-box {
+        background-color: red;
+        color: white;
+        padding: 8px 15px;
+        border-radius: 8px;
+        position: absolute;
+        top: 0;
+        right: -45px;
+        display: flex;
+        align-items: center;
+      }
+    }
+
+    .our-price-box {
+      background-color: blue;
+      color: white;
+      text-align: center;
+      font-weight: bold;
+      padding: 8px 15px;
+      border-radius: 8px;
+      margin-left: 200px;
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  .portal-button {
+    background-color: $primary-color;
+    color: $secondary-color;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    margin: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    justify-content: center;
+    transition: background-color 0.3s, transform 0.2s;
+
+    &amp;:hover {
+      background-color: darken($primary-color, 10%);
+      transform: scale(1.05);
+    }
+
+    &amp;:active {
+      transform: scale(1);
+    }
+  }
+
+  .button-container {
+    display: flex;
+    justify-content: space-around;
+
+    button {
+      background-color: $primary-color;
+      color: $secondary-color;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 10px;
+      margin: 10px;
+      cursor: pointer;
+      font-size: 16px;
+      max-width: 100px;
+      max-height: 50px;
+      display: flex;
+      align-items: center;
+      transition: background-color 0.3s, transform 0.2s;
+
+      svg {
+        max-width: 70px;
+        max-height: 30px;
+      }
+
+      h4 {
+        color: $secondary-color;
+      }
+
+      a {
+        color: $secondary-color;
+      }
+
+      &amp;:hover {
+        background-color: darken($primary-color, 10%);
+        transform: scale(1.05);
+      }
+
+      &amp;:active {
+        transform: scale(1);
+      }
+    }
+  }
+
+  &amp;.expanded {
+    position: fixed;
+    top: 55%;
+    left: 50%;
+    max-width: 400px;
+    max-height: 600px;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    border-radius: 30px;
+    
+  }
+
+  .comments-section {
+    position: absolute;
+    top: 2%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 20;
+    background-color: $secondary-color;
+    border: 3px solid $primary-color;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 4px 8px $primary-color;
+    height: 80%;
+    max-height: 500px;
+    width: 90%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  
+    .comments-list {
+      overflow-y: auto;
+      padding-bottom: 10px;
+  
+      .comment {
+        background-color: $comment-bg-color;
+        border: 1px solid $comment-border-color;
+        border-radius: 5px;
+        padding: 5px;
+        margin-bottom: 10px;
+  
+        .username {
+          color: $comment-username-color;
+          font-weight: bold;
+        }
+  
+        .content {
+          margin-top: 5px;
+        }
+      }
+    }
+  
+    .comment-input {
+      display: flex;
+      flex-direction: row;
+      background-color: $secondary-color;
+      padding: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+  
+      textarea {
+        flex: 1;
+        background-color: $comment-textarea-bg-color;
+        border: 1px solid $comment-border-color;
+        border-radius: 5px;
+        padding: 10px;
+        margin-right: 10px;
+        resize: none;
+      }
+  
+      button {
+        background-color: $comment-button-bg-color;
+        color: $secondary-color;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s;
+  
+        &amp;:hover {
+          background-color: $comment-button-hover-bg-color;
+        }
+      }
+    }
+  }
+}
+
+
+
+
+// $primary-color: black;
+// $secondary-color: white;
+// $card-background-color-family:linear-gradient(1042deg, #CF9C00, #d4a50c);
+// $card-background-color-economic:linear-gradient(1042deg, #ce7b28, #d4950c);
+// $card-background-color-physical: linear-gradient(1042deg, #490460, #ae0db6);
+// $card-background-color-psychological: linear-gradient(1042deg, #075e5b, #11a9b4);
+// $card-hover-color-family: linear-gradient(1042deg, lighten(#CF9C00, 5%), lighten(#d4a50c, 5%));
+// $card-hover-color-economic: linear-gradient(1042deg, lighten(#ce7b28, 5%), lighten(#d4950c, 5%));
+// $card-hover-color-physical: linear-gradient(1042deg, lighten(#490460, 5%), lighten(#ae0db6, 5%));
+// $card-hover-color-psychological: linear-gradient(1042deg, lighten(#075e5b, 5%), lighten(#11a9b4, 5%));
+// $overlay-background: rgb(90, 78, 78);
+
+// $comment-bg-color: #f0f0f0;
+// $comment-border-color: #ccc;
+// $comment-username-color: #007bff;
+// $comment-textarea-bg-color: #fff;
+// $comment-button-bg-color: #007bff;
+// $comment-button-hover-bg-color: darken($comment-button-bg-color, 10%);
+
+// .overlay {
+//   position: fixed;
+//   top: 0;
+//   left: 0;
+//   width: 100%;
+//   height: 100%;
+//   background-color: #FFFFFF44;
+//   backdrop-filter: blur(8px);
+//   z-index: 999;
+// }
+
+// .service-card {
+//   color: $primary-color;
+//   padding: 20px;
+//   text-align: center;
+//   position: relative;
+//   z-index: 10;
+//   width: 100%;
+//   max-width: 170px;
+//   max-height: 220px;
+//   box-shadow: 0 4px 8px $primary-color;
+//   transition: transform 0.2s ease;
+//   border-radius: 20px;
+//   border: 3px solid $primary-color;
+//   width: 100%;
+
+//   &amp;:hover {
+//     transform: scale(1.04);
+//   }
+
+//   &amp;.family {
+//     background: $card-background-color-family;
+//     color: $card-background-color-family;
+
+//     &amp;:hover {
+//       background: $card-hover-color-family;
+//     }
+//   }
+
+//   &amp;.economic {
+//     background: $card-background-color-economic;
+//     color: $card-background-color-economic;
+
+//     &amp;:hover {
+//       background: $card-hover-color-economic;
+//     }
+//   }
+
+//   &amp;.physical {
+//     background: $card-background-color-physical;
+//     color: $card-background-color-physical;
+
+//     &amp;:hover {
+//       background: $card-hover-color-physical;
+//     }
+//   }
+
+//   &amp;.psychological {
+//     background: $card-background-color-psychological;
+//     color: $card-background-color-psychological;
+
+//     &amp;:hover {
+//       background: $card-hover-color-psychological;
+//     }
+//   }
+
+//   .service-card-image {
+//     width: 80%;
+//     border-radius: 9px;
+//     border: 3px solid $primary-color;
+//     margin-top: -10px;
+
+//     &amp;.expanded {
+//       max-width: 80%;
+//       max-height: 300px;
+//       margin: 5px auto;
+//       border-radius: 30px;
+//       margin-top: -15px;
+//       border: 6px solid $primary-color;
+//     }
+//   }
+
+//   h4 {
+//     color: $primary-color;
+//     border-radius: 9px;
+//     border: 3px solid $primary-color;
+//     margin-top: 5px;
+
+//     &amp;.expanded {
+//       font-size: 24px;
+//       margin-top: -5px;
+//     }
+//   }
+
+//   h3 {
+//     background-color: $primary-color;
+//     padding: 5px;
+//     border-radius: 9px;
+//     border: 3px solid $primary-color;
+//     display: inline-block;
+//     margin-top: -5px;
+
+//     &amp;.expanded {
+//       font-size: 24px;
+//       margin-top: -15px;
+//     }
+//   }
+
+//   .description {
+//     color: $primary-color;
+//     font-weight: bold;
+//     margin-top: -10px;
+//   }
+
+//   .price-section {
+//     display: flex;
+//     margin-top: 10px;
+//     margin-bottom: 10px;
+
+//     .original-price-box {
+//       background-color: black;
+//       color: white;
+//       text-decoration: line-through;
+//       padding: 8px 15px;
+//       border-radius: 8px;
+//       display: flex;
+//       left: 50px;
+//       align-items: center;
+//       position: relative;
+
+//       .discount-box {
+//         background-color: red;
+//         color: white;
+//         padding: 8px 15px;
+//         border-radius: 8px;
+//         position: absolute;
+//         top: 0;
+//         right: -45px;
+//         display: flex;
+//         align-items: center;
+//       }
+//     }
+
+//     .our-price-box {
+//       background-color: blue;
+//       color: white;
+//       text-align: center;
+//       font-weight: bold;
+//       padding: 8px 15px;
+//       border-radius: 8px;
+//       margin-left: 200px;
+//       display: flex;
+//       align-items: center;
+//     }
+//   }
+
+//   .portal-button {
+//     background-color: $primary-color;
+//     color: $secondary-color;
+//     border: none;
+//     padding: 10px 20px;
+//     border-radius: 10px;
+//     margin: 10px;
+//     cursor: pointer;
+//     font-size: 16px;
+//     display: flex;
+//     align-items: center;
+//     text-decoration: none;
+//     justify-content: center;
+//     transition: background-color 0.3s, transform 0.2s;
+
+//     &amp;:hover {
+//       background-color: darken($primary-color, 10%);
+//       transform: scale(1.05);
+//     }
+
+//     &amp;:active {
+//       transform: scale(1);
+//     }
+//   }
+
+//   .button-container {
+//     display: flex;
+//     justify-content: space-around;
+
+//     button {
+//       background-color: $primary-color;
+//       color: $secondary-color;
+//       border: none;
+//       padding: 10px 20px;
+//       border-radius: 10px;
+//       margin: 10px;
+//       cursor: pointer;
+//       font-size: 16px;
+//       max-width: 100px;
+//       max-height: 50px;
+//       display: flex;
+//       align-items: center;
+//       transition: background-color 0.3s, transform 0.2s;
+
+//       svg {
+//         max-width: 70px;
+//         max-height: 30px;
+//       }
+
+//       h4 {
+//         color: $secondary-color;
+//       }
+
+//       a {
+//         color: $secondary-color;
+//       }
+
+//       &amp;:hover {
+//         background-color: darken($primary-color, 10%);
+//         transform: scale(1.05);
+//       }
+
+//       &amp;:active {
+//         transform: scale(1);
+//       }
+//     }
+//   }
+
+//   &amp;.expanded {
+//     position: fixed;
+//     top: 50%;
+//     left: 50%;
+//     max-width: 400px;
+//     max-height: 800px;
+//     transform: translate(-50%, -50%);
+//     z-index: 1000;
+//     border-radius: 30px;
+//     border: 6px solid $primary-color;
+//   }
+
+//   .comments-section {
+//     position: absolute;
+//     top: 2%;
+//     left: 50%;
+//     transform: translateX(-50%);
+//     z-index: 20;
+//     background-color: $secondary-color;
+//     border: 3px solid $primary-color;
+//     border-radius: 10px;
+//     padding: 10px;
+//     box-shadow: 0 4px 8px $primary-color;
+//     height: 80%;
+//     max-height: 500px;
+//     width: 90%;
+//     max-width: 400px;
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: space-between;
+  
+//     .comments-list {
+//       overflow-y: auto;
+//       padding-bottom: 10px;
+  
+//       .comment {
+//         background-color: $comment-bg-color;
+//         border: 1px solid $comment-border-color;
+//         border-radius: 5px;
+//         padding: 5px;
+//         margin-bottom: 10px;
+  
+//         .username {
+//           color: $comment-username-color;
+//           font-weight: bold;
+//         }
+  
+//         .content {
+//           margin-top: 5px;
+//         }
+//       }
+//     }
+  
+//     .comment-input {
+//       display: flex;
+//       flex-direction: row;
+//       background-color: $secondary-color;
+//       padding: 10px;
+//       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+//       border-radius: 10px;
+  
+//       textarea {
+//         flex: 1;
+//         background-color: $comment-textarea-bg-color;
+//         border: 1px solid $comment-border-color;
+//         border-radius: 5px;
+//         padding: 10px;
+//         margin-right: 10px;
+//         resize: none;
+//       }
+  
+//       button {
+//         background-color: $comment-button-bg-color;
+//         color: $secondary-color;
+//         border: none;
+//         padding: 10px 20px;
+//         border-radius: 5px;
+//         cursor: pointer;
+//         font-size: 16px;
+//         transition: background-color 0.3s;
+  
+//         &amp;:hover {
+//           background-color: $comment-button-hover-bg-color;
+//         }
+//       }
+//     }
+//   }
+// }
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="overlay" *ngIf="expanded" (click)="toggleExpand($event)"></div><div class="service-card" [ngClass]="card.pillarName.toLowerCase()" [class.expanded]="expanded" (click)="toggleExpand($event)">    <h3 [class.expanded]="expanded">{{ card.pillarName }}</h3>    <img [src]="card.imgUrl" alt="{{ card.title }}" class="service-card-image" [class.expanded]="expanded">    <h4 [class.expanded]="expanded">{{ card.title }}</h4>    <div class="card-details" *ngIf="expanded && card.full">        <div class="description">            <span>{{ card.full.description }}</span>        </div>        <div class="price-section">            <div class="original-price-box">                <span class="original-price">{{ card.full.price }}€</span>                <div class="discount-box">                    <span class="discount-percentage">{{ card.full.discount }}%</span>                </div>            </div>            <div class="our-price-box">                <span class="our-price">{{ calculatePrice() }}€</span>            </div>        </div>        <div>            <a class="portal-button" (click)="stopPropagation($event)" [href]="card.full.url" target="_blank">Go to Portal</a>        </div>        <div class="button-container">            <button class="like-button" (click)="likeCard($event)"> <!--riempire se liked true-->                @if (!this.card.full!.liked) {                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-hand-thumbs-up" viewBox="0 0 16 16">                        <path d="M8.864.046C7.908-.193 7.02.53 6.956 1.466c-.072 1.051-.23 2.016-.428 2.59-.125.36-.479 1.013-1.04 1.639-.557.623-1.282 1.178-2.131 1.41C2.685 7.288 2 7.87 2 8.72v4.001c0 .845.682 1.464 1.448 1.545 1.07.114 1.564.415 2.068.723l.048.03c.272.165.578.348.97.484.397.136.861.217 1.466.217h3.5c.937 0 1.599-.477 1.934-1.064a1.86 1.86 0 0 0 .254-.912c0-.152-.023-.312-.077-.464.201-.263.38-.578.488-.901.11-.33.172-.762.004-1.149.069-.13.12-.269.159-.403.077-.27.113-.568.113-.857 0-.288-.036-.585-.113-.856a2 2 0 0 0-.138-.362 1.9 1.9 0 0 0 .234-1.734c-.206-.592-.682-1.1-1.2-1.272-.847-.282-1.803-.276-2.516-.211a10 10 0 0 0-.443.05 9.4 9.4 0 0 0-.062-4.509A1.38 1.38 0 0 0 9.125.111zM11.5 14.721H8c-.51 0-.863-.069-1.14-.164-.281-.097-.506-.228-.776-.393l-.04-.024c-.555-.339-1.198-.731-2.49-.868-.333-.036-.554-.29-.554-.55V8.72c0-.254.226-.543.62-.65 1.095-.3 1.977-.996 2.614-1.708.635-.71 1.064-1.475 1.238-1.978.243-.7.407-1.768.482-2.85.025-.362.36-.594.667-.518l.262.066c.16.04.258.143.288.255a8.34 8.34 0 0 1-.145 4.725.5.5 0 0 0 .595.644l.003-.001.014-.003.058-.014a9 9 0 0 1 1.036-.157c.663-.06 1.457-.054 2.11.164.175.058.45.3.57.65.107.308.087.67-.266 1.022l-.353.353.353.354c.043.043.105.141.154.315.048.167.075.37.075.581 0 .212-.027.414-.075.582-.05.174-.111.272-.154.315l-.353.353.353.354c.047.047.109.177.005.488a2.2 2.2 0 0 1-.505.805l-.353.353.353.354c.006.005.041.05.041.17a.9.9 0 0 1-.121.416c-.165.288-.503.56-1.066.56z"/>                    </svg>                    <h5>{{ card.full.likes }}</h5>                } @else {                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-hand-thumbs-up-fill" viewBox="0 0 16 16">                        <path d="M6.956 1.745C7.021.81 7.908.087 8.864.325l.261.066c.463.116.874.456 1.012.965.22.816.533 2.511.062 4.51a10 10 0 0 1 .443-.051c.713-.065 1.669-.072 2.516.21.518.173.994.681 1.2 1.273.184.532.16 1.162-.234 1.733q.086.18.138.363c.077.27.113.567.113.856s-.036.586-.113.856c-.039.135-.09.273-.16.404.169.387.107.819-.003 1.148a3.2 3.2 0 0 1-.488.901c.054.152.076.312.076.465 0 .305-.089.625-.253.912C13.1 15.522 12.437 16 11.5 16H8c-.605 0-1.07-.081-1.466-.218a4.8 4.8 0 0 1-.97-.484l-.048-.03c-.504-.307-.999-.609-2.068-.722C2.682 14.464 2 13.846 2 13V9c0-.85.685-1.432 1.357-1.615.849-.232 1.574-.787 2.132-1.41.56-.627.914-1.28 1.039-1.639.199-.575.356-1.539.428-2.59z"/>                    </svg>                    <h5>{{ card.full.likes }}</h5>                }            </button>            <button (click)="toggleComments($event)">                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-dots-fill" viewBox="0 0 16 16">                    <path d="M16 8c0 3.866-3.582 7-8 7a9 9 0 0 1-2.347-.306c-.584.296-1.925.864-4.181 1.234-.2.032-.352-.176-.273-.362.354-.836.674-1.95.77-2.966C.744 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7m-11 0a1 1 0 1 0-2 0 1 1 0 0 0 2 0m4 0a1 1 0 1 0-2 0 1 1 0 0 0 2 0m3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2"/>                </svg>            </button>            @if (card.full.distance! > 0 && card.full.position!) {                <button>                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">                        <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6"/>                    </svg>                    <h5><a [href]="getGoogleMapsLink(card.full.position.latitude!, card.full.position.longitude!)" target="_blank">{{ card.full.distance?.toFixed(2) }} Km</a></h5>                </button>            }            @if (showCartButton && !isSpecificEndpoint()) {                <button [disabled]="card.full.purchased" (click)="purchaseService($event)">                    @if (purchasedOn) {                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-check-fill" viewBox="0 0 16 16">                            <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0m7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0m-1.646-7.646-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L8 8.293l2.646-2.647a.5.5 0 0 1 .708.708"/>                        </svg>                    } @else if (!card.full.purchased) {                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-plus" viewBox="0 0 16 16">                            <path d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9z"/>                            <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1zm3.915 10L3.102 4h10.796l-1.313 7zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0m7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0"/>                        </svg>                    } @else {                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-check-fill" viewBox="0 0 16 16">                            <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0m7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0m-1.646-7.646-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L8 8.293l2.646-2.647a.5.5 0 0 1 .708.708"/>                        </svg>                    }                </button>            }        </div>        <div class="comments-section" *ngIf="showComments">            <div class="comments-list">                <div *ngFor="let comment of card.full.comments" class="comment">                    <p class="username">{{ comment.fullName }}</p>                    <p class="content">{{ comment.content }}</p>                </div>            </div>            <div class="comment-input">                <textarea #commentInput placeholder="Add a comment" (input)="updateNewComment($event)" (click)="stopPropagation($event)"></textarea>                <button (click)="addComment($event)">Submit</button>            </div>        </div>    </div></div>  </div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BookCallComponent', 'selector': 'app-book-call'},{'name': 'BookingBoardComponent', 'selector': 'app-booking-board'},{'name': 'CardCoachComponent', 'selector': 'app-card-coach'},{'name': 'CardSectionComponent', 'selector': 'app-card-section'},{'name': 'CardServiceComponent', 'selector': 'app-card-service'},{'name': 'CoachSectionComponent', 'selector': 'app-coach-section'},{'name': 'CreateCoachComponent', 'selector': 'app-create-coach'},{'name': 'CreateServiceComponent', 'selector': 'app-create-service'},{'name': 'DailyAvailabilityComponent', 'selector': 'app-daily-availability'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'EconomicComponent', 'selector': 'app-economic'},{'name': 'FamilyComponent', 'selector': 'app-family'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgotPasswordComponent', 'selector': 'app-reset-password'},{'name': 'HeaderAdminComponent', 'selector': 'app-header-admin'},{'name': 'HeaderCoachComponent', 'selector': 'app-header-coach'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'MapComponent', 'selector': 'app-map'},{'name': 'MeetingBoardComponent', 'selector': 'app-meeting-board'},{'name': 'ModifyProfileComponent', 'selector': 'app-modify-profile'},{'name': 'NearMeComponent', 'selector': 'app-near-me'},{'name': 'NotFoundComponent', 'selector': 'app-not-found'},{'name': 'OtpVerificationComponent', 'selector': 'app-otp-verification'},{'name': 'PhysicalComponent', 'selector': 'app-physical'},{'name': 'PreHeaderComponent', 'selector': 'app-pre-header'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'PsychologicalComponent', 'selector': 'app-psychological'},{'name': 'PurchasedDataComponent', 'selector': 'app-purchased-data'},{'name': 'PurchasedSectionComponent', 'selector': 'app-purchased-section'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'SectionsComponent', 'selector': 'app-sections'},{'name': 'ShowCaseDataComponent', 'selector': 'app-showcase-data'},{'name': 'ShowCaseSectionComponent', 'selector': 'app-show-case-section'},{'name': 'SidebarComponent', 'selector': 'app-sidebar-coach'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'SignInComponent', 'selector': 'app-sign-in'},{'name': 'SignUpComponent', 'selector': 'app-sign-up'},{'name': 'SignUpSurveyComponent', 'selector': 'app-sign-up-survey'},{'name': 'WelfareCoachComponent', 'selector': 'app-welfare-coach'}];
+    var DIRECTIVES = [{'name': 'ErrorMessageApiDirective', 'selector': '[appErrorMessageApi]'},{'name': 'ErrorMsgFormsDirective', 'selector': '[appErrorMsgForms]'}];
+    var ACTUAL_COMPONENT = {'name': 'CardServiceComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'CardServiceComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

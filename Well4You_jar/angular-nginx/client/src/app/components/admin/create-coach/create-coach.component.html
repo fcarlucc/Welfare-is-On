@@ -1,0 +1,106 @@
+<div class="container">
+    <div class="section">
+        <div class="create-coach-container">
+            <div class="logo">
+                <img src="assets/home/logo-well4you.png" alt="logoImage">
+            </div>
+            <h1>Create Coach</h1>
+            <form [formGroup]="createCoachForm" class="main-form" (ngSubmit)="onSubmit()">
+                <div class="form-columns">
+                    <div class="form-group">
+                        <input type="text" id="firstName" formControlName="firstName" placeholder="First Name">
+                        <div class="error-container">
+                            <small appErrorMsgForms [formGroup]="createCoachForm" [fields]="['firstName']" class="error-message"></small>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="lastName" formControlName="lastName" placeholder="Last Name">
+                        <div class="error-container">
+                            <small appErrorMsgForms [formGroup]="createCoachForm" [fields]="['lastName']" class="error-message"></small>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" formControlName="email" placeholder="Email">
+                        <div class="error-container">
+                            <small appErrorMsgForms [formGroup]="createCoachForm" [fields]="['email']" class="error-message"></small>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="phoneNumber" formControlName="phoneNumber" placeholder="Phone Number">
+                        <div class="error-container">
+                            <small appErrorMsgForms [formGroup]="createCoachForm" [fields]="['phoneNumber']" class="error-message"></small>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <select id="specialization" formControlName="specialization">
+                            <option value="" disabled selected>Select Specialization</option>
+                            <option value="PHYSICAL">Physical</option>
+                            <option value="ECONOMIC">Economic</option>
+                            <option value="PSYCHOLOGICAL">Psicological</option>
+                            <option value="FAMILY">Family</option>
+                        </select>
+                        <div class="error-container">
+                            <small appErrorMsgForms [formGroup]="createCoachForm" [fields]="['required']" class="error-message"></small>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <select id="division" formControlName="division">
+                            <option value="" disabled selected>Division</option>
+                            <option value="CYBERSECURITY">Cybersecurity</option>
+                            <option value="ELECTRONIC">Electronic</option>
+                            <option value="CLOUD">Cloud</option>
+                            <option value="AEROSTRUCTURE">Aerostructure</option>
+                        </select>
+                        <div class="error-container">
+                            <small appErrorMsgForms [formGroup]="createCoachForm" [fields]="['required']" class="error-message"></small>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <select id="location" formControlName="location">
+                            <option value="" disabled selected>Select City</option>
+                            <option value="Roma">Roma</option>
+                            <option value="Milano">Milano</option>
+                            <option value="Firenze">Firenze</option>
+                            <option value="Napoli">Napoli</option>
+                            <option value="Torino">Torino</option>
+                            <option value="Genova">Genova</option>
+                            <option value="Venezia">Venezia</option>
+                            <option value="Trieste">Trieste</option>
+                            <option value="Bologna">Bologna</option>
+                            <option value="Ancona">Ancona</option>
+                            <option value="Perugia">Perugia</option>
+                            <option value="Palermo">Palermo</option>
+                            <option value="Bari">Bari</option>
+                            <option value="Catanzaro">Catanzaro</option>
+                            <option value="Potenza">Potenza</option>
+                        </select>
+                        <div class="error-container">
+                            <small appErrorMsgForms [formGroup]="createCoachForm" [fields]="['required']" class="error-message"></small>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" id="password" formControlName="password" placeholder="Password">
+                        <div class="error-container">
+                            <small appErrorMsgForms [formGroup]="createCoachForm" [fields]="['password']" class="error-message"></small>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" id="confirmPassword" formControlName="confirmPassword" placeholder="Confirm Password">
+                        <div class="error-container">
+                            <small appErrorMsgForms [formGroup]="createCoachForm" [fields]="['confirmPassword']" class="error-message"></small>
+                        </div>
+                    </div>
+                    <div class="choose-img">
+                        <label>Coach Image: </label>
+                        <input type="file" id="image" formControlName="image" (change)="onFileChange($event)">
+                        <div class="error-container">
+                            <small appErrorMsgForms [formGroup]="createCoachForm" [fields]="['required']" class="error-message"></small>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn-create-coach" type="submit" [disabled]="createCoachForm.invalid">Create Coach</button>
+                <button class="btn-cancel" type="button" (click)="navigateTo('dashboard')">Cancel</button>
+            </form>
+        </div>
+    </div>
+</div>

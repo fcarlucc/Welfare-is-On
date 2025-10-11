@@ -1,0 +1,95 @@
+.container {
+  height: max-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 100px 20px;
+  justify-content: center;
+  background-color: black;
+  font-family: 'Poppins', sans-serif;
+
+  .title {
+      font-size: 42px;
+      font-weight: bold;
+      color: white;
+
+      .title-red {
+          color: rgb(183, 55, 55);
+      }
+  }
+
+  .subtitle {
+      font-size: 21px;
+      font-weight: normal;
+      color: #efecfb;
+      margin: 10px 0;
+      line-height: 1.6;
+      margin-left: 20%;
+      margin-right: 20%;
+      text-align: center;
+  }
+
+  .paragraph {
+      font-size: 20px;
+      font-weight: normal;
+      color: #efecfb;
+      margin: 10px 0;
+      line-height: 1.8;
+  }
+}
+
+// .showcase-data {
+//     display: flex;
+//     flex-wrap: wrap;
+//     gap: 55px; // Spazio tra le sezioni
+//     justify-content: space-between; // Distribuisce lo spazio tra le sezioni
+//     margin: 0 auto; /* Margine automatico per centrare il contenitore */
+//   }
+  
+//   .showcase-section {
+//     flex: 1 1 calc(35% - 16px); // Ogni sezione occupa il 25% della larghezza meno lo spazio del gap
+//     box-sizing: border-box; // Assicura che padding e border siano inclusi nella larghezza totale
+//   }
+//   .page-title {
+//     font-size: 3em;
+//     font-weight: bold;
+//     text-align: center;
+//     color: #333; /* Colore del testo */
+//     margin-bottom: -30px;
+//     margin-top: -30px;
+//     position: relative;
+//     font-family: 'Roboto', sans-serif;
+//     text-transform: uppercase; /* Trasforma il testo in maiuscolo */
+//     letter-spacing: 2px; /* Spaziatura tra le lettere */
+//     background: linear-gradient(to right, #d61a1a, #eedbdb); /* Gradiente di sfondo */
+//     -webkit-background-clip: text; /* Clip del testo per il gradiente */
+//     color: transparent; /* Rende il testo trasparente per mostrare il gradiente */
+//     padding: 1em 0; /* Padding superiore e inferiore */
+  
+//     &::before,
+//     &::after {
+//       content: "";
+//       position: absolute;
+//       width: 50px;
+//       height: 4px;
+//       background-color: #007bff; /* Colore della linea */
+//       top: 50%;
+//       transform: translateY(-50%);
+//     }
+  
+//     &::before {
+//       left: 0;
+//     }
+  
+//     &::after {
+//       right: 0;
+//     }
+  
+//     .icon {
+//       margin-left: 10px;
+//       vertical-align: middle; /* Allinea l'icona al centro del testo */
+//     }
+
+
+    
+//   }

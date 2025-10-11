@@ -1,0 +1,2 @@
+DROP SCHEMA IF EXISTS commentservice CASCADE;
+CREATE SCHEMA IF NOT EXISTS commentservice;

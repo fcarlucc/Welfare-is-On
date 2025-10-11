@@ -1,0 +1,6 @@
+<div class="purchased-section">
+    <h1>{{ section.title }}</h1>
+    <div class="cards-container">
+        <app-card-service *ngFor="let card of section.infoShowCaseDto" [card]="card"></app-card-service>
+    </div>
+</div>

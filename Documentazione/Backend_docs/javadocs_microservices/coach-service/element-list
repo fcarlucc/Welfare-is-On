@@ -1,0 +1,12 @@
+com.coachservice.app
+com.coachservice.app.controller
+com.coachservice.app.dto
+com.coachservice.app.exception
+com.coachservice.app.exceptionHandler
+com.coachservice.app.Initializer
+com.coachservice.app.mapper
+com.coachservice.app.model
+com.coachservice.app.model.enumerator
+com.coachservice.app.repository
+com.coachservice.app.service
+com.servicesservice.app.config

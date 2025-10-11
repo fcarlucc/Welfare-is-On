@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"com.notificationservice.app"},{"l":"com.notificationservice.app.controller"},{"l":"com.notificationservice.app.dto"},{"l":"com.notificationservice.app.exceptionHandler"},{"l":"com.notificationservice.app.service"}];updateSearchResults();

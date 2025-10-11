@@ -1,0 +1,8 @@
+com.otpservice.app
+com.otpservice.app.controller
+com.otpservice.app.dto
+com.otpservice.app.exception
+com.otpservice.app.exceptionHandler
+com.otpservice.app.model
+com.otpservice.app.repository
+com.otpservice.app.service

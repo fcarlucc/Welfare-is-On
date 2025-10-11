@@ -1,0 +1,2 @@
+DROP SCHEMA IF EXISTS scheduleservice CASCADE;
+CREATE SCHEMA IF NOT EXISTS scheduleservice;

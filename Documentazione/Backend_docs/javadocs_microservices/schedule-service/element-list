@@ -1,0 +1,12 @@
+com.scheduleservice.app
+com.scheduleservice.app.controller
+com.scheduleservice.app.dto
+com.scheduleservice.app.exception
+com.scheduleservice.app.exceptionHandler
+com.scheduleservice.app.Initializer
+com.scheduleservice.app.mapper
+com.scheduleservice.app.model
+com.scheduleservice.app.repository
+com.scheduleservice.app.scheduler
+com.scheduleservice.app.service
+com.servicesservice.app.config

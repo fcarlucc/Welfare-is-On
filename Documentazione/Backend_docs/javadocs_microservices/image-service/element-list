@@ -1,0 +1,10 @@
+com.imageservice.app
+com.imageservice.app.controller
+com.imageservice.app.dto
+com.imageservice.app.exception
+com.imageservice.app.exceptionHandler
+com.imageservice.app.Initializer
+com.imageservice.app.model
+com.imageservice.app.repository
+com.imageservice.app.service
+com.imageservice.app.validator

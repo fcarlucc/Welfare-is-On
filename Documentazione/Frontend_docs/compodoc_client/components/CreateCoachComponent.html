@@ -1,0 +1,1140 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>client documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">client documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  CreateCoachComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/components/admin/create-coach/create-coach.component.ts</code>
+</p>
+
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Componente per creare un nuovo coach.</p>
+
+    </p>
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-create-coach</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>ReactiveFormsModule</code>
+                                <code><a href="../directives/ErrorMsgFormsDirective.html" target="_self" >ErrorMsgFormsDirective</a></code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./create-coach.component.html</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrl</td>
+                <td class="col-md-9"><code>./create-coach.component.scss</code></td>
+            </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#coordinates" >coordinates</a>
+                            </li>
+                            <li>
+                                <a href="#createCoachForm" >createCoachForm</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                <a href="#fileInput" >fileInput</a>
+                            </li>
+                            <li>
+                                <a href="#selectedFile" >selectedFile</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#navigateTo" >navigateTo</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#onFileChange" >onFileChange</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#onSubmit" >onSubmit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(fb: FormBuilder, apiService: <a href="../injectables/ApiService.html" target="_self">ApiService</a>, redirectService: <a href="../injectables/RedirectService.html" target="_self">RedirectService</a>, validatorService: <a href="../injectables/ValidatorService.html" target="_self">ValidatorService</a>, mapsService: <a href="../injectables/MapsService.html" target="_self">MapsService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">src/app/components/admin/create-coach/create-coach.component.ts:52</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Crea un&#39;istanza di CreateCoachComponent.</p>
+</div>
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>fb</td>
+                                                  
+                                                        <td>
+                                                                    <code>FormBuilder</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>apiService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ApiService.html" target="_self" >ApiService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>redirectService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/RedirectService.html" target="_self" >RedirectService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>validatorService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ValidatorService.html" target="_self" >ValidatorService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>mapsService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/MapsService.html" target="_self" >MapsService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="navigateTo"></a>
+                    <span class="name">
+                        <span ><b>navigateTo</b></span>
+                        <a href="#navigateTo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>navigateTo(route: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="148"
+                                    class="link-to-prism">src/app/components/admin/create-coach/create-coach.component.ts:148</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Naviga verso una determinata route.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>route</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="75"
+                                    class="link-to-prism">src/app/components/admin/create-coach/create-coach.component.ts:75</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Metodo iniziale chiamato al caricamento del componente.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onFileChange"></a>
+                    <span class="name">
+                        <span ><b>onFileChange</b></span>
+                        <a href="#onFileChange"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onFileChange(event: Event)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="136"
+                                    class="link-to-prism">src/app/components/admin/create-coach/create-coach.component.ts:136</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Metodo chiamato al cambiamento del file nell&#39;input.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>event</td>
+                                            <td>
+                                                        <code>Event</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onSubmit"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>onSubmit</b></span>
+                        <a href="#onSubmit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>onSubmit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="95"
+                                    class="link-to-prism">src/app/components/admin/create-coach/create-coach.component.ts:95</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Metodo chiamato alla sottomissione del form.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="coordinates"></a>
+                    <span class="name">
+                        <span ><b>coordinates</b></span>
+                        <a href="#coordinates"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>literal type | null</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">src/app/components/admin/create-coach/create-coach.component.ts:52</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Coordinate geografiche.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createCoachForm"></a>
+                    <span class="name">
+                        <span ><b>createCoachForm</b></span>
+                        <a href="#createCoachForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>FormGroup</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/components/admin/create-coach/create-coach.component.ts:38</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Form per creare un nuovo coach.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="fileInput"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                        <span ><b>fileInput</b></span>
+                        <a href="#fileInput"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>ElementRef</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ViewChild(&#x27;fileInput&#x27;, {static: false})<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/components/admin/create-coach/create-coach.component.ts:31</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Input per il file.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectedFile"></a>
+                    <span class="name">
+                        <span ><b>selectedFile</b></span>
+                        <a href="#selectedFile"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>File | null</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/app/components/admin/create-coach/create-coach.component.ts:45</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>File selezionato dall&#39;input file.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, ElementRef, OnInit, ViewChild } from &#x27;@angular/core&#x27;;
+import { FormBuilder, FormGroup, ReactiveFormsModule } from &#x27;@angular/forms&#x27;;
+import { HttpHeaders } from &#x27;@angular/common/http&#x27;;
+
+import { ValidatorService } from &#x27;../../../services/validator/validator.service&#x27;;
+import { RedirectService } from &#x27;../../../services/redirect/redirect.service&#x27;;
+import { ApiService } from &#x27;../../../services/api/api.service&#x27;;
+
+import { ErrorMsgFormsDirective } from &#x27;../../../directives/error-msg-forms/error-msg-forms.directive&#x27;;
+import { MapsService } from &#x27;../../../services/maps/maps.service&#x27;;
+
+/**
+ * Componente per creare un nuovo coach.
+ * @export
+ * @class CreateCoachComponent
+ * @implements {OnInit}
+ */
+@Component({
+  selector: &#x27;app-create-coach&#x27;,
+  standalone: true,
+  imports: [ReactiveFormsModule, ErrorMsgFormsDirective],
+  templateUrl: &#x27;./create-coach.component.html&#x27;,
+  styleUrl: &#x27;./create-coach.component.scss&#x27;
+})
+export class CreateCoachComponent implements OnInit {
+  /**
+   * Input per il file.
+   * @type {ElementRef}
+   * @memberof CreateCoachComponent
+   */
+  @ViewChild(&#x27;fileInput&#x27;, { static: false }) fileInput!: ElementRef;
+
+  /**
+   * Form per creare un nuovo coach.
+   * @type {FormGroup}
+   * @memberof CreateCoachComponent
+   */
+  createCoachForm!: FormGroup;
+
+  /**
+   * File selezionato dall&#x27;input file.
+   * @type {(File | null)}
+   * @memberof CreateCoachComponent
+   */
+  selectedFile: File | null &#x3D; null;
+
+  /**
+   * Coordinate geografiche.
+   * @type {({ lat: number; lng: number } | null)}
+   * @memberof CreateCoachComponent
+   */
+  coordinates: { lat: number; lng: number } | null &#x3D; null;
+
+  /**
+   * Crea un&#x27;istanza di CreateCoachComponent.
+   * @param {FormBuilder} fb
+   * @param {ApiService} apiService
+   * @param {RedirectService} redirectService
+   * @param {ValidatorService} validatorService
+   * @param {MapsService} mapsService
+   * @memberof CreateCoachComponent
+   */
+  constructor(
+    private fb: FormBuilder,
+    private apiService: ApiService,
+    private redirectService: RedirectService,
+    private validatorService: ValidatorService,
+    private mapsService: MapsService
+  ) {}
+
+  /**
+   * Metodo iniziale chiamato al caricamento del componente.
+   * @memberof CreateCoachComponent
+   */
+  ngOnInit(): void {
+    this.createCoachForm &#x3D; this.fb.group({
+      firstName: [&#x27;&#x27;, [this.validatorService.validateFirstName()]],
+      lastName: [&#x27;&#x27;, [this.validatorService.validateLastName()]],
+      email: [&#x27;&#x27;, [this.validatorService.validateEmail()]],
+      password: [&#x27;&#x27;, [this.validatorService.validatePassword()]],
+      confirmPassword: [&#x27;&#x27;, [this.validatorService.validateConfirmPassword(&#x27;password&#x27;)]],
+      phoneNumber: [&#x27;&#x27;, [this.validatorService.validatePhoneNumber()]],
+      location: [&#x27;&#x27;, [this.validatorService.requiredField()]],
+      specialization: [&#x27;&#x27;, [this.validatorService.requiredField()]],
+      division: [&#x27;&#x27;, [this.validatorService.requiredField()]],
+      image: [null, [this.validatorService.requiredField()]]
+    });
+  }
+
+  /**
+   * Metodo chiamato alla sottomissione del form.
+   * @returns {Promise&lt;void&gt;}
+   * @memberof CreateCoachComponent
+   */
+  async onSubmit(): Promise&lt;void&gt; {
+    if (this.createCoachForm.valid) {
+      this.coordinates &#x3D; await this.mapsService.getLatLong(this.createCoachForm.value.location);
+      const coachDto &#x3D; {
+        firstName: this.createCoachForm.value.firstName,
+        lastName: this.createCoachForm.value.lastName,
+        email: this.createCoachForm.value.email,
+        password: this.createCoachForm.value.password,
+        phoneNumber: this.createCoachForm.value.phoneNumber.toString(),
+        longitude: this.coordinates?.lng,
+        latitude: this.coordinates?.lat,
+        specialization: this.createCoachForm.value.specialization,
+        division: this.createCoachForm.value.division
+      };
+
+      if (this.selectedFile) {
+        const formData: FormData &#x3D; new FormData();
+        formData.append(&#x27;coach&#x27;, new Blob([JSON.stringify(coachDto)], { type: &#x27;application/json&#x27; }));
+        formData.append(&#x27;file&#x27;, this.selectedFile);
+        const headers &#x3D; new HttpHeaders({
+          &#x27;Accept&#x27;: &#x27;application/json&#x27;
+        });
+        try {
+          await this.apiService.post3(&#x27;secure/api/auth/create-coach&#x27;, formData, headers).toPromise();
+          this.navigateTo(&#x27;&#x27;);
+        } catch (error) {
+          console.error(&#x27;Create coach error&#x27;, error);
+        }
+      } else {
+        console.error(&#x27;File input is required&#x27;);
+      }
+    } else {
+      this.createCoachForm.markAllAsTouched();
+    }
+  }
+
+  /**
+   * Metodo chiamato al cambiamento del file nell&#x27;input.
+   * @param {Event} event
+   * @memberof CreateCoachComponent
+   */
+  onFileChange(event: Event): void {
+    const input &#x3D; event.target as HTMLInputElement;
+    if (input.files &amp;&amp; input.files.length &gt; 0) {
+      this.selectedFile &#x3D; input.files[0];
+    }
+  }
+
+  /**
+   * Naviga verso una determinata route.
+   * @param {string} route
+   * @memberof CreateCoachComponent
+   */
+  navigateTo(route: string): void {
+    this.redirectService.setRedirect(route);
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;container&quot;&gt;
+    &lt;div class&#x3D;&quot;section&quot;&gt;
+        &lt;div class&#x3D;&quot;create-coach-container&quot;&gt;
+            &lt;div class&#x3D;&quot;logo&quot;&gt;
+                &lt;img src&#x3D;&quot;assets/home/logo-well4you.png&quot; alt&#x3D;&quot;logoImage&quot;&gt;
+            &lt;/div&gt;
+            &lt;h1&gt;Create Coach&lt;/h1&gt;
+            &lt;form [formGroup]&#x3D;&quot;createCoachForm&quot; class&#x3D;&quot;main-form&quot; (ngSubmit)&#x3D;&quot;onSubmit()&quot;&gt;
+                &lt;div class&#x3D;&quot;form-columns&quot;&gt;
+                    &lt;div class&#x3D;&quot;form-row&quot;&gt;
+                        &lt;div class&#x3D;&quot;form-group&quot;&gt;
+                            &lt;input type&#x3D;&quot;text&quot; id&#x3D;&quot;firstName&quot; formControlName&#x3D;&quot;firstName&quot; placeholder&#x3D;&quot;First Name&quot;&gt;
+                            &lt;div class&#x3D;&quot;error-container&quot;&gt;
+                                &lt;small appErrorMsgForms [formGroup]&#x3D;&quot;createCoachForm&quot; [fields]&#x3D;&quot;[&#x27;firstName&#x27;]&quot; class&#x3D;&quot;error-message&quot;&gt;&lt;/small&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;div class&#x3D;&quot;form-group&quot;&gt;
+                            &lt;input type&#x3D;&quot;text&quot; id&#x3D;&quot;lastName&quot; formControlName&#x3D;&quot;lastName&quot; placeholder&#x3D;&quot;Last Name&quot;&gt;
+                            &lt;div class&#x3D;&quot;error-container&quot;&gt;
+                                &lt;small appErrorMsgForms [formGroup]&#x3D;&quot;createCoachForm&quot; [fields]&#x3D;&quot;[&#x27;lastName&#x27;]&quot; class&#x3D;&quot;error-message&quot;&gt;&lt;/small&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;div class&#x3D;&quot;form-group&quot;&gt;
+                            &lt;input type&#x3D;&quot;email&quot; id&#x3D;&quot;email&quot; formControlName&#x3D;&quot;email&quot; placeholder&#x3D;&quot;Email&quot;&gt;
+                            &lt;div class&#x3D;&quot;error-container&quot;&gt;
+                                &lt;small appErrorMsgForms [formGroup]&#x3D;&quot;createCoachForm&quot; [fields]&#x3D;&quot;[&#x27;email&#x27;]&quot; class&#x3D;&quot;error-message&quot;&gt;&lt;/small&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class&#x3D;&quot;form-row&quot;&gt;
+                        &lt;div class&#x3D;&quot;form-group&quot;&gt;
+                            &lt;input type&#x3D;&quot;text&quot; id&#x3D;&quot;phoneNumber&quot; formControlName&#x3D;&quot;phoneNumber&quot; placeholder&#x3D;&quot;Phone Number&quot;&gt;
+                            &lt;div class&#x3D;&quot;error-container&quot;&gt;
+                                &lt;small appErrorMsgForms [formGroup]&#x3D;&quot;createCoachForm&quot; [fields]&#x3D;&quot;[&#x27;phoneNumber&#x27;]&quot; class&#x3D;&quot;error-message&quot;&gt;&lt;/small&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;div class&#x3D;&quot;form-group&quot;&gt;
+                            &lt;select id&#x3D;&quot;specialization&quot; formControlName&#x3D;&quot;specialization&quot;&gt;
+                                &lt;option value&#x3D;&quot;&quot; disabled selected&gt;Select Specialization&lt;/option&gt;
+                                &lt;option value&#x3D;&quot;PHYSICAL&quot;&gt;Physical&lt;/option&gt;
+                                &lt;option value&#x3D;&quot;ECONOMIC&quot;&gt;Economic&lt;/option&gt;
+                                &lt;option value&#x3D;&quot;PSYCHOLOGICAL&quot;&gt;Psicological&lt;/option&gt;
+                                &lt;option value&#x3D;&quot;FAMILY&quot;&gt;Family&lt;/option&gt;
+                            &lt;/select&gt;
+                            &lt;div class&#x3D;&quot;error-container&quot;&gt;
+                                &lt;small appErrorMsgForms [formGroup]&#x3D;&quot;createCoachForm&quot; [fields]&#x3D;&quot;[&#x27;required&#x27;]&quot; class&#x3D;&quot;error-message&quot;&gt;&lt;/small&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;div class&#x3D;&quot;form-group&quot;&gt;
+                            &lt;select id&#x3D;&quot;division&quot; formControlName&#x3D;&quot;division&quot;&gt;
+                                &lt;option value&#x3D;&quot;&quot; disabled selected&gt;Division&lt;/option&gt;
+                                &lt;option value&#x3D;&quot;CYBERSECURITY&quot;&gt;Cybersecurity&lt;/option&gt;
+                                &lt;option value&#x3D;&quot;ELECTRONIC&quot;&gt;Electronic&lt;/option&gt;
+                                &lt;option value&#x3D;&quot;CLOUD&quot;&gt;Cloud&lt;/option&gt;
+                                &lt;option value&#x3D;&quot;AEROSTRUCTURE&quot;&gt;Aerostructure&lt;/option&gt;
+                            &lt;/select&gt;
+                            &lt;div class&#x3D;&quot;error-container&quot;&gt;
+                                &lt;small appErrorMsgForms [formGroup]&#x3D;&quot;createCoachForm&quot; [fields]&#x3D;&quot;[&#x27;required&#x27;]&quot; class&#x3D;&quot;error-message&quot;&gt;&lt;/small&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class&#x3D;&quot;form-row&quot;&gt;
+                        &lt;div class&#x3D;&quot;form-group&quot;&gt;
+                            &lt;select id&#x3D;&quot;location&quot; formControlName&#x3D;&quot;location&quot;&gt;
+                                &lt;option value&#x3D;&quot;&quot; disabled selected&gt;Select City&lt;/option&gt;
+                                &lt;option value&#x3D;&quot;Roma&quot;&gt;Roma&lt;/option&gt;
+                                &lt;option value&#x3D;&quot;Milano&quot;&gt;Milano&lt;/option&gt;
+                                &lt;option value&#x3D;&quot;Firenze&quot;&gt;Firenze&lt;/option&gt;
+                                &lt;option value&#x3D;&quot;Napoli&quot;&gt;Napoli&lt;/option&gt;
+                                &lt;option value&#x3D;&quot;Torino&quot;&gt;Torino&lt;/option&gt;
+                                &lt;option value&#x3D;&quot;Genova&quot;&gt;Genova&lt;/option&gt;
+                                &lt;option value&#x3D;&quot;Venezia&quot;&gt;Venezia&lt;/option&gt;
+                                &lt;option value&#x3D;&quot;Trieste&quot;&gt;Trieste&lt;/option&gt;
+                                &lt;option value&#x3D;&quot;Bologna&quot;&gt;Bologna&lt;/option&gt;
+                                &lt;option value&#x3D;&quot;Ancona&quot;&gt;Ancona&lt;/option&gt;
+                                &lt;option value&#x3D;&quot;Perugia&quot;&gt;Perugia&lt;/option&gt;
+                                &lt;option value&#x3D;&quot;Palermo&quot;&gt;Palermo&lt;/option&gt;
+                                &lt;option value&#x3D;&quot;Bari&quot;&gt;Bari&lt;/option&gt;
+                                &lt;option value&#x3D;&quot;Catanzaro&quot;&gt;Catanzaro&lt;/option&gt;
+                                &lt;option value&#x3D;&quot;Potenza&quot;&gt;Potenza&lt;/option&gt;
+                            &lt;/select&gt;
+                            &lt;div class&#x3D;&quot;error-container&quot;&gt;
+                                &lt;small appErrorMsgForms [formGroup]&#x3D;&quot;createCoachForm&quot; [fields]&#x3D;&quot;[&#x27;required&#x27;]&quot; class&#x3D;&quot;error-message&quot;&gt;&lt;/small&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;div class&#x3D;&quot;form-group&quot;&gt;
+                            &lt;input type&#x3D;&quot;password&quot; id&#x3D;&quot;password&quot; formControlName&#x3D;&quot;password&quot; placeholder&#x3D;&quot;Password&quot;&gt;
+                            &lt;div class&#x3D;&quot;error-container&quot;&gt;
+                                &lt;small appErrorMsgForms [formGroup]&#x3D;&quot;createCoachForm&quot; [fields]&#x3D;&quot;[&#x27;password&#x27;]&quot; class&#x3D;&quot;error-message&quot;&gt;&lt;/small&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;div class&#x3D;&quot;form-group&quot;&gt;
+                            &lt;input type&#x3D;&quot;password&quot; id&#x3D;&quot;confirmPassword&quot; formControlName&#x3D;&quot;confirmPassword&quot; placeholder&#x3D;&quot;Confirm Password&quot;&gt;
+                            &lt;div class&#x3D;&quot;error-container&quot;&gt;
+                                &lt;small appErrorMsgForms [formGroup]&#x3D;&quot;createCoachForm&quot; [fields]&#x3D;&quot;[&#x27;confirmPassword&#x27;]&quot; class&#x3D;&quot;error-message&quot;&gt;&lt;/small&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class&#x3D;&quot;form-row&quot;&gt;
+                        &lt;div class&#x3D;&quot;choose-img&quot;&gt;
+                            &lt;label&gt;Coach Image: &lt;/label&gt;
+                            &lt;input type&#x3D;&quot;file&quot; id&#x3D;&quot;image&quot; formControlName&#x3D;&quot;image&quot; (change)&#x3D;&quot;onFileChange($event)&quot;&gt;
+                            &lt;div class&#x3D;&quot;error-container&quot;&gt;
+                                &lt;small appErrorMsgForms [formGroup]&#x3D;&quot;createCoachForm&quot; [fields]&#x3D;&quot;[&#x27;required&#x27;]&quot; class&#x3D;&quot;error-message&quot;&gt;&lt;/small&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;button class&#x3D;&quot;btn-create-coach&quot; type&#x3D;&quot;submit&quot; [disabled]&#x3D;&quot;createCoachForm.invalid&quot;&gt;Create Coach&lt;/button&gt;
+                &lt;button class&#x3D;&quot;btn-cancel&quot; type&#x3D;&quot;button&quot; (click)&#x3D;&quot;navigateTo(&#x27;dashboard&#x27;)&quot;&gt;Cancel&lt;/button&gt;
+            &lt;/form&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="container">    <div class="section">        <div class="create-coach-container">            <div class="logo">                <img src="assets/home/logo-well4you.png" alt="logoImage">            </div>            <h1>Create Coach</h1>            <form [formGroup]="createCoachForm" class="main-form" (ngSubmit)="onSubmit()">                <div class="form-columns">                    <div class="form-row">                        <div class="form-group">                            <input type="text" id="firstName" formControlName="firstName" placeholder="First Name">                            <div class="error-container">                                <small appErrorMsgForms [formGroup]="createCoachForm" [fields]="[\'firstName\']" class="error-message"></small>                            </div>                        </div>                        <div class="form-group">                            <input type="text" id="lastName" formControlName="lastName" placeholder="Last Name">                            <div class="error-container">                                <small appErrorMsgForms [formGroup]="createCoachForm" [fields]="[\'lastName\']" class="error-message"></small>                            </div>                        </div>                        <div class="form-group">                            <input type="email" id="email" formControlName="email" placeholder="Email">                            <div class="error-container">                                <small appErrorMsgForms [formGroup]="createCoachForm" [fields]="[\'email\']" class="error-message"></small>                            </div>                        </div>                    </div>                    <div class="form-row">                        <div class="form-group">                            <input type="text" id="phoneNumber" formControlName="phoneNumber" placeholder="Phone Number">                            <div class="error-container">                                <small appErrorMsgForms [formGroup]="createCoachForm" [fields]="[\'phoneNumber\']" class="error-message"></small>                            </div>                        </div>                        <div class="form-group">                            <select id="specialization" formControlName="specialization">                                <option value="" disabled selected>Select Specialization</option>                                <option value="PHYSICAL">Physical</option>                                <option value="ECONOMIC">Economic</option>                                <option value="PSYCHOLOGICAL">Psicological</option>                                <option value="FAMILY">Family</option>                            </select>                            <div class="error-container">                                <small appErrorMsgForms [formGroup]="createCoachForm" [fields]="[\'required\']" class="error-message"></small>                            </div>                        </div>                        <div class="form-group">                            <select id="division" formControlName="division">                                <option value="" disabled selected>Division</option>                                <option value="CYBERSECURITY">Cybersecurity</option>                                <option value="ELECTRONIC">Electronic</option>                                <option value="CLOUD">Cloud</option>                                <option value="AEROSTRUCTURE">Aerostructure</option>                            </select>                            <div class="error-container">                                <small appErrorMsgForms [formGroup]="createCoachForm" [fields]="[\'required\']" class="error-message"></small>                            </div>                        </div>                    </div>                    <div class="form-row">                        <div class="form-group">                            <select id="location" formControlName="location">                                <option value="" disabled selected>Select City</option>                                <option value="Roma">Roma</option>                                <option value="Milano">Milano</option>                                <option value="Firenze">Firenze</option>                                <option value="Napoli">Napoli</option>                                <option value="Torino">Torino</option>                                <option value="Genova">Genova</option>                                <option value="Venezia">Venezia</option>                                <option value="Trieste">Trieste</option>                                <option value="Bologna">Bologna</option>                                <option value="Ancona">Ancona</option>                                <option value="Perugia">Perugia</option>                                <option value="Palermo">Palermo</option>                                <option value="Bari">Bari</option>                                <option value="Catanzaro">Catanzaro</option>                                <option value="Potenza">Potenza</option>                            </select>                            <div class="error-container">                                <small appErrorMsgForms [formGroup]="createCoachForm" [fields]="[\'required\']" class="error-message"></small>                            </div>                        </div>                        <div class="form-group">                            <input type="password" id="password" formControlName="password" placeholder="Password">                            <div class="error-container">                                <small appErrorMsgForms [formGroup]="createCoachForm" [fields]="[\'password\']" class="error-message"></small>                            </div>                        </div>                        <div class="form-group">                            <input type="password" id="confirmPassword" formControlName="confirmPassword" placeholder="Confirm Password">                            <div class="error-container">                                <small appErrorMsgForms [formGroup]="createCoachForm" [fields]="[\'confirmPassword\']" class="error-message"></small>                            </div>                        </div>                    </div>                    <div class="form-row">                        <div class="choose-img">                            <label>Coach Image: </label>                            <input type="file" id="image" formControlName="image" (change)="onFileChange($event)">                            <div class="error-container">                                <small appErrorMsgForms [formGroup]="createCoachForm" [fields]="[\'required\']" class="error-message"></small>                            </div>                        </div>                    </div>                </div>                <button class="btn-create-coach" type="submit" [disabled]="createCoachForm.invalid">Create Coach</button>                <button class="btn-cancel" type="button" (click)="navigateTo(\'dashboard\')">Cancel</button>            </form>        </div>    </div></div></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BookCallComponent', 'selector': 'app-book-call'},{'name': 'BookingBoardComponent', 'selector': 'app-booking-board'},{'name': 'CardCoachComponent', 'selector': 'app-card-coach'},{'name': 'CardSectionComponent', 'selector': 'app-card-section'},{'name': 'CardServiceComponent', 'selector': 'app-card-service'},{'name': 'CoachSectionComponent', 'selector': 'app-coach-section'},{'name': 'CreateCoachComponent', 'selector': 'app-create-coach'},{'name': 'CreateServiceComponent', 'selector': 'app-create-service'},{'name': 'DailyAvailabilityComponent', 'selector': 'app-daily-availability'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'EconomicComponent', 'selector': 'app-economic'},{'name': 'FamilyComponent', 'selector': 'app-family'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgotPasswordComponent', 'selector': 'app-reset-password'},{'name': 'HeaderAdminComponent', 'selector': 'app-header-admin'},{'name': 'HeaderCoachComponent', 'selector': 'app-header-coach'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'MapComponent', 'selector': 'app-map'},{'name': 'MeetingBoardComponent', 'selector': 'app-meeting-board'},{'name': 'ModifyProfileComponent', 'selector': 'app-modify-profile'},{'name': 'NearMeComponent', 'selector': 'app-near-me'},{'name': 'NotFoundComponent', 'selector': 'app-not-found'},{'name': 'OtpVerificationComponent', 'selector': 'app-otp-verification'},{'name': 'PhysicalComponent', 'selector': 'app-physical'},{'name': 'PreHeaderComponent', 'selector': 'app-pre-header'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'PsychologicalComponent', 'selector': 'app-psychological'},{'name': 'PurchasedDataComponent', 'selector': 'app-purchased-data'},{'name': 'PurchasedSectionComponent', 'selector': 'app-purchased-section'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'SectionsComponent', 'selector': 'app-sections'},{'name': 'ShowCaseDataComponent', 'selector': 'app-showcase-data'},{'name': 'ShowCaseSectionComponent', 'selector': 'app-show-case-section'},{'name': 'SidebarComponent', 'selector': 'app-sidebar-coach'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'SignInComponent', 'selector': 'app-sign-in'},{'name': 'SignUpComponent', 'selector': 'app-sign-up'},{'name': 'SignUpSurveyComponent', 'selector': 'app-sign-up-survey'},{'name': 'WelfareCoachComponent', 'selector': 'app-welfare-coach'}];
+    var DIRECTIVES = [{'name': 'ErrorMessageApiDirective', 'selector': '[appErrorMessageApi]'},{'name': 'ErrorMsgFormsDirective', 'selector': '[appErrorMsgForms]'}];
+    var ACTUAL_COMPONENT = {'name': 'CreateCoachComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'CreateCoachComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

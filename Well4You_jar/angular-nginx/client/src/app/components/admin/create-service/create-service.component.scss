@@ -1,0 +1,220 @@
+$primary-color: black;
+$secondary-color: white;
+$button-showMap-color: blue;
+$button-createEvent-color: green;
+$button-cancel-color: gray;
+$input-border-color: blue;
+$input-focus-border-color: red;
+
+@mixin color-scheme($primary-color, $secondary-color) {
+    color: $primary-color;
+    background-color: $secondary-color;
+}
+
+@mixin button-colors($background-color, $hover-color) {
+    background-color: $background-color;
+
+    &:hover {
+        background-color: darken($hover-color, 10%);
+    }
+}
+
+@mixin input-colors($border-color, $focus-border-color) {
+    border: 1px solid $border-color;
+
+    &:focus {
+        border-color: $focus-border-color;
+        outline: none;
+    }
+}
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $secondary-color;
+}
+
+.container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 90vh;
+    background: linear-gradient(90deg,darken(#c10f1e, 10%), #a00b16);
+
+    .background-images {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 1;
+        z-index: -1;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    .section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex: 1;
+        padding: 20px;
+
+        .create-event-container {
+            @include color-scheme($primary-color, $secondary-color);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            max-width: 700px;
+            box-shadow: 0 4px 8px black;
+            transition: transform 0.2s ease;
+
+            &:hover {
+                transform: scale(1.04);
+            }
+
+            img {
+                max-width: 150px;
+                margin-bottom: 1rem;
+            }
+
+            h1 {
+                margin-bottom: 1rem;
+                font-family: 'Poppins';
+                color: $primary-color;
+            }
+
+            .main-form {
+                display: flex;
+                flex-direction: column;
+
+                .form-columns {
+                    display: grid;
+                    grid-template-columns: repeat(3, 1fr);
+                    gap: 1rem;
+
+                    @media (max-width: 768px) {
+                        grid-template-columns: 1fr;
+                    }
+
+                    .form-group {
+                        display: flex;
+                        flex-direction: column;
+
+                        input,
+                        select {
+                            padding: 0.75rem;
+                            margin-bottom: 1rem;
+                            @include input-colors($input-border-color, $input-focus-border-color);
+                            border-radius: 4px;
+                            font-size: 1rem;
+
+                            &:focus {
+                                border-color: $input-focus-border-color;
+                                outline: none;
+                            }
+                        }
+
+                        textarea {
+                            padding: 0.75rem;
+                            margin-bottom: 1rem;
+                            min-width: 200px;
+                            max-width: 200px;
+                            min-height: 60px;
+                            max-height: 80px;
+                            @include input-colors($input-border-color, $input-focus-border-color);
+                            border-radius: 4px;
+                            font-size: 1rem;
+
+                            &:focus {
+                                border-color: $input-focus-border-color;
+                                outline: none;
+                            }
+                        }
+
+                        .error-container {
+                            margin-bottom: 10px;
+                        }
+
+                        .error-message {
+                            color: red;
+                            font-size: 0.9rem;
+                        }
+
+                        .choose-img {
+                            label {
+                                display: block;
+                                margin-bottom: 0.5rem;
+                                font-weight: bold;
+                                font-size: 2.5rem;
+                                color: #333;
+                                cursor: pointer;
+
+                                &:hover {
+                                    color: #007bff;
+                                }
+                            }
+                        }
+                    }
+
+                    .btn-map {
+                        padding: 0.75rem;
+                        border: none;
+                        border-radius: 4px;
+                        font-size: 1rem;
+                        cursor: pointer;
+                        width: 100%;
+                        max-width: 300px;
+                        margin: 10px auto 0;
+                        color: lightskyblue;
+                        background-color: blue;
+                        margin-top: 30px;
+                        margin-right: 230px;
+
+                        &:hover {
+                            @include button-colors($button-showMap-color, $button-showMap-color);
+                        }
+                    }
+                }
+
+                button {
+                    padding: 0.75rem;
+                    border: none;
+                    border-radius: 4px;
+                    font-size: 1rem;
+                    cursor: pointer;
+                    width: 100%;
+                    max-width: 300px;
+                    margin: 10px auto 0;
+
+                    &.btn-create-event {
+                        @include button-colors($button-createEvent-color, $button-createEvent-color);
+                    }
+
+                    &.btn-cancel {
+                        @include button-colors($button-cancel-color, $button-cancel-color);
+                    }
+                }
+            }
+        }
+    }
+}

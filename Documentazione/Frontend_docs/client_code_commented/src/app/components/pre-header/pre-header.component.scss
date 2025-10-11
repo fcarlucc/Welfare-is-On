@@ -1,0 +1,177 @@
+$background-color: black;
+$active-color: #c10f1e;
+$hover-color: #a00b16;
+$text-color: white;
+
+@mixin interactive-element {
+  padding: 12px;
+  font-size: 18px;
+  text-align: center;
+  border-radius: 4px;
+  color: $text-color;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background-color: $background-color;
+  z-index: 1000;
+  padding: 10px 0;
+  display: flex;
+  justify-content: center;
+  
+  .nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0 20px;
+    
+    .logo {
+      img {
+        width: 60%;
+        height: 100%;
+      }
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      a {
+        @include interactive-element;
+        line-height: 25px;
+
+        &:hover,
+        &.active {
+          background-color: $active-color;
+        }
+      }
+    }
+
+    .sign-in-button {
+      @include interactive-element;
+      background-color: $active-color;
+      border: none;
+      width: 10%;
+      margin-right: 2%;
+
+      &:hover {
+        background-color: $hover-color;
+      }
+    }
+  }
+}
+
+.intro {
+  background-color: $background-color;
+
+  .container {
+    height: max-content;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 100px 20px;
+    justify-content: center;
+
+    .left-column, .right-column {
+      margin: 10px;
+      font-family: 'Poppins';
+    }
+
+    .left-column {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: left;
+      margin-left: 5%;
+
+      .title {
+        font-size: 42px;
+        font-weight: bold;
+        color: white;
+
+        .title-red {
+          color: rgb(183, 55, 55);
+        }
+      }
+
+      .subtitle {
+        font-size: 18px;
+        font-weight: normal;
+        color: #efecfb;
+        margin: 10px 0;
+        line-height: 1.6;
+        margin-right: 10%;
+      }
+
+      .join-now-button {
+        @include interactive-element;
+        background-color: $active-color;
+        border: none;
+        width: 130px;
+        margin-top: 2%;
+
+    
+        &:hover {
+          background-color: $hover-color;
+        }
+      }
+    }
+
+    .image {
+      margin-left: -10%;
+      max-width: 400px;
+      max-height: 400px;
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .nav-container {
+    flex-direction: column;
+
+    nav {
+      flex-direction: column;
+
+      a {
+        display: block;
+        padding: 10px;
+      }
+    }
+
+    .sign-in-button {
+      display: block;
+      margin: 10px auto;
+    }
+  }
+
+  .intro .container {
+    padding: 50px 10px;
+  }
+
+  .intro .left-column .title {
+    font-size: 36px;
+  }
+
+  .intro .subtitle {
+    font-size: 18px;
+  }
+
+  .intro .join-now-button {
+    padding: 10px;
+    font-size: 16px;
+  }
+
+  .intro .right-column .image {
+    max-width: 80%;
+  }
+}

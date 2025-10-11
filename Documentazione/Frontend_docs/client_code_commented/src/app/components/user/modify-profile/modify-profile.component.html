@@ -1,0 +1,62 @@
+<div class="container">
+    <div class="section">
+        <div class="modify-profile-container">
+            <div class="logo">
+                <img src="assets/home/logo-well4you.png" alt="logoImage">
+            </div>
+            <h1>Update profiling</h1>
+            <form [formGroup]="modifyProfileForm" class="main-form" (ngSubmit)="onSubmit()">
+                <div class="form-columns">
+                    <div class="form-column">
+                        <div>
+                            <label for="maritalStatusName">Marital Status: </label>
+                            <input type="radio" id="married" formControlName="maritalStatusName" value="MARRIED"> Married
+                            <input type="radio" id="unmarried" formControlName="maritalStatusName" value="SINGLE"> Single
+                        </div>
+                        <!-- @if (modifyProfileForm.get('maritalStatusName')?.value === 'married') { -->
+                        <div>
+                            <label for="children">Children: </label>
+                            <input type="radio" id="yes" formControlName="children" value=true> Yes
+                            <input type="radio" id="no" formControlName="children" value=false> No
+                        </div>
+                        <div>
+                            <label for="elderlyParents">Elderly Parents: </label>
+                            <input type="radio" id="yes" formControlName="elderlyParents" value=true> Yes
+                            <input type="radio" id="no" formControlName="elderlyParents" value=false> No
+                        </div>
+                    </div>
+                    <div class="form-column">
+                        <div>
+                            <label>Interests: </label>
+                            <div class="interest-buttons">
+                                <button type="button" class="interest-button" [class.selected]="selectedInterests.includes('TRAVEL')" (click)="toggleInterest('TRAVEL')">Travel</button>
+                                <button type="button" class="interest-button" [class.selected]="selectedInterests.includes('SPORT')" (click)="toggleInterest('SPORT')">Sport</button>
+                                <button type="button" class="interest-button" [class.selected]="selectedInterests.includes('READING')" (click)="toggleInterest('READING')">Reading</button>
+                                <button type="button" class="interest-button" [class.selected]="selectedInterests.includes('LEISURE')" (click)="toggleInterest('LEISURE')">Leisure</button>
+                                <button type="button" class="interest-button" [class.selected]="selectedInterests.includes('PREVENTION')" (click)="toggleInterest('PREVENTION')">Prevention</button>
+                                <button type="button" class="interest-button" [class.selected]="selectedInterests.includes('HEALTH_AND_WELLNESS')" (click)="toggleInterest('HEALTH_AND_WELLNESS')">Health and Wellness</button>
+                                <button type="button" class="interest-button" [class.selected]="selectedInterests.includes('TECHNOLOGY')" (click)="toggleInterest('TECHNOLOGY')">Technology</button>
+                                <button type="button" class="interest-button" [class.selected]="selectedInterests.includes('FOOD_AND_COOKING')" (click)="toggleInterest('FOOD_AND_COOKING')">Food and Cooking</button>
+                                <button type="button" class="interest-button" [class.selected]="selectedInterests.includes('ARTS_AND_CULTURE')" (click)="toggleInterest('ARTS_AND_CULTURE')">Arts and Culture</button>
+                                <button type="button" class="interest-button" [class.selected]="selectedInterests.includes('FITNESS')" (click)="toggleInterest('FITNESS')">Fitness</button>
+                                <button type="button" class="interest-button" [class.selected]="selectedInterests.includes('MUSIC')" (click)="toggleInterest('MUSIC')">Music</button>
+                                <button type="button" class="interest-button" [class.selected]="selectedInterests.includes('VOLUNTEERING')" (click)="toggleInterest('VOLUNTEERING')">Volunteering</button>
+                                <button type="button" class="interest-button" [class.selected]="selectedInterests.includes('EDUCATION_AND_LEARNING')" (click)="toggleInterest('EDUCATION_AND_LEARNING')">Education and Learning</button>
+                                <button type="button" class="interest-button" [class.selected]="selectedInterests.includes('FINANCIAL_PLANNING')" (click)="toggleInterest('FINANCIAL_PLANNING')">Financial Planning</button>
+                                <button type="button" class="interest-button" [class.selected]="selectedInterests.includes('FAMILY_AND_PARENTING')" (click)="toggleInterest('FAMILY_AND_PARENTING')">Family and Parenting</button>
+                                <button type="button" class="interest-button" [class.selected]="selectedInterests.includes('GARDENING')" (click)="toggleInterest('GARDENING')">Gardening</button>
+                                <button type="button" class="interest-button" [class.selected]="selectedInterests.includes('PETS')" (click)="toggleInterest('PETS')">Pets</button>
+                                <button type="button" class="interest-button" [class.selected]="selectedInterests.includes('DIY_AND_CRAFTS')" (click)="toggleInterest('DIY_AND_CRAFTS')">DIY and Crafts</button>
+                                <button type="button" class="interest-button" [class.selected]="selectedInterests.includes('MOVIES_AND_ENTERTAINMENT')" (click)="toggleInterest('MOVIES_AND_ENTERTAINMENT')">Movies and Entertainment</button>   
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="button-wrapper">
+                    <button class="btn-send" type="submit" [disabled]="modifyProfileForm.invalid">Complete</button>
+                    <button class="btn-cancel" type="button" (click)="navigateTo('profile')">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

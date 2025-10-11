@@ -1,0 +1,838 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>client documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">client documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  DashboardComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/components/dashboard/dashboard.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-dashboard</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./dashboard.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./dashboard.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#typeDynamicText" >typeDynamicText</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+
+    <section data-compodoc="block-methods">
+
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="13"
+                                    class="link-to-prism">src/app/components/dashboard/dashboard.component.ts:13</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="typeDynamicText"></a>
+                    <span class="name">
+                        <span ><b>typeDynamicText</b></span>
+                        <a href="#typeDynamicText"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>typeDynamicText()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="16"
+                                    class="link-to-prism">src/app/components/dashboard/dashboard.component.ts:16</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+
+
+@Component({
+  selector: &#x27;app-dashboard&#x27;,
+  standalone: true,
+  imports: [],
+  templateUrl: &#x27;./dashboard.component.html&#x27;,
+  styleUrls: [&#x27;./dashboard.component.scss&#x27;]
+})
+export class DashboardComponent implements OnInit {
+
+  ngOnInit(): void {
+  }
+
+  typeDynamicText(): void {
+    const textElement &#x3D; document.getElementById(&#x27;dynamic-text&#x27;)
+    const text &#x3D; &quot;Benvenuti nel Portale del Welfare Aziendale&quot;
+    let index &#x3D; 0
+
+    if (textElement) {
+      function typeText() {
+        if (index &lt; text.length) {
+          textElement!.innerHTML +&#x3D; text.charAt(index)
+          index++
+          setTimeout(typeText, 100)
+        }
+      }
+      typeText()
+    }
+  }
+}
+
+
+
+  // @ViewChild(&#x27;mapContainer&#x27;, { static: false }) mapContainer?: ElementRef;
+
+  // map?: google.maps.Map;
+
+  // constructor() { }
+
+  // ngOnInit(): void {
+  //   this.loadGoogleMapsScript().then(() &#x3D;&gt; {
+  //     this.initMap();
+  //   });
+  // }
+
+  // loadGoogleMapsScript(): Promise&lt;void&gt; {
+  //   return new Promise((resolve, reject) &#x3D;&gt; {
+  //     if (document.getElementById(&#x27;google-maps-script&#x27;)) {
+  //       resolve();
+  //       return;
+  //     }
+
+  //     const script &#x3D; document.createElement(&#x27;script&#x27;);
+  //     script.id &#x3D; &#x27;google-maps-script&#x27;;
+  //     script.src &#x3D; &#x27;https://maps.googleapis.com/maps/api/js?key&#x3D;AIzaSyCvVL7YIs_8tSfnVfpFUiv64XPZ1GE8ADg&amp;libraries&#x3D;places&#x27;;
+  //     script.onload &#x3D; () &#x3D;&gt; resolve();
+  //     script.onerror &#x3D; (error: any) &#x3D;&gt; reject(error);
+  //     document.body.appendChild(script);
+  //   });
+  // }
+
+  // async initMap(): Promise&lt;void&gt; {
+  //   const position &#x3D; { lat: -25.344, lng: 131.031 };
+
+  //   // Richiesta delle librerie necessarie.
+  //   const { Map } &#x3D; (await google.maps.importLibrary(&#x27;maps&#x27;)) as google.maps.MapsLibrary;
+  //   const { AdvancedMarkerElement } &#x3D; (await google.maps.importLibrary(&#x27;marker&#x27;)) as google.maps.MarkerLibrary;
+
+  //   // Creazione della mappa centrata su Uluru
+  //   this.map &#x3D; new Map(this.mapContainer?.nativeElement, {
+  //     zoom: 4,
+  //     center: position,
+  //     mapId: &#x27;DEMO_MAP_ID&#x27;,
+  //   });
+
+  //   // Creazione del marker posizionato su Uluru
+  //   new AdvancedMarkerElement({
+  //     map: this.map,
+  //     position: position,
+  //     title: &#x27;Uluru&#x27;
+  //   });
+  // }
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;section id&#x3D;&quot;intro&quot; class&#x3D;&quot;intro&quot;&gt;
+    &lt;div class&#x3D;&quot;container&quot;&gt;
+      &lt;div class&#x3D;&quot;title&quot;&gt;
+          Benvenuto nel &lt;span class&#x3D;&quot;title-red&quot;&gt;Portale&lt;/span&gt; del &lt;span class&#x3D;&quot;title-red&quot;&gt;Welfare aziendale&lt;/span&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;subtitle&quot;&gt;
+        Scopri tutti i servizi e i benefici pensati per il tuo benessere e la tua crescita professionale a tua completa disposizione.
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class&#x3D;&quot;container-service&quot;&gt;
+        &lt;div class&#x3D;&quot;content&quot;&gt;
+            &lt;h1&gt;Vantaggi con il nostro &lt;span&gt;Welfare Aziendale&lt;/span&gt;&lt;/h1&gt;
+            &lt;p&gt;Il nostro programma di welfare aziendale è progettato per migliorare il benessere dei dipendenti, offrendo una vasta gamma di servizi e benefici che supportano la salute fisica, mentale e finanziaria.&lt;/p&gt;
+            &lt;div class&#x3D;&quot;statistics&quot;&gt;
+                &lt;div class&#x3D;&quot;stat&quot;&gt;
+                    &lt;h2&gt;100%&lt;/h2&gt;
+                    &lt;p&gt;Soddisfazione dei dipendenti&lt;/p&gt;
+                &lt;/div&gt;
+                &lt;div class&#x3D;&quot;stat&quot;&gt;
+                    &lt;h2&gt;50+&lt;/h2&gt;
+                    &lt;p&gt;Attività di benessere offerte&lt;/p&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;!-- &lt;button (click)&#x3D;&quot;navigateTo(&#x27;book-call&#x27;)&quot;&gt;Prenota un appuntamento&lt;/button&gt; --&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;image&quot;&gt;
+            &lt;img src&#x3D;&quot;path_to_your_image.png&quot; alt&#x3D;&quot;Employee enjoying benefits&quot;&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;!-- &lt;div class&#x3D;&quot;map-container&quot;&gt;
+    &lt;gmp-map
+      center&#x3D;&quot;41.901610,12.503200&quot;
+      zoom&#x3D;&quot;15&quot;
+      map-id&#x3D;&quot;DEMO_MAP_ID&quot;
+    &gt;&lt;/gmp-map&gt;
+    &lt;div id&#x3D;&quot;map&quot;&gt;&lt;/div&gt;
+    &lt;script&gt;
+      (g&#x3D;&gt;{var h,a,k,p&#x3D;&quot;The Google Maps JavaScript API&quot;,c&#x3D;&quot;google&quot;,l&#x3D;&quot;importLibrary&quot;,q&#x3D;&quot;__ib__&quot;,m&#x3D;document,b&#x3D;window;b&#x3D;b[c]||(b[c]&#x3D;{});var d&#x3D;b.maps||(b.maps&#x3D;{}),r&#x3D;new Set,e&#x3D;new URLSearchParams,u&#x3D;()&#x3D;&gt;h||(h&#x3D;new Promise(async(f,n)&#x3D;&gt;{await (a&#x3D;m.createElement(&quot;script&quot;));e.set(&quot;libraries&quot;,[...r]+&quot;&quot;);for(k in g)e.set(k.replace(/[A-Z]/g,t&#x3D;&gt;&quot;_&quot;+t[0].toLowerCase()),g[k]);e.set(&quot;callback&quot;,c+&quot;.maps.&quot;+q);a.src&#x3D;&#x60;https://maps.${c}apis.com/maps/api/js?&#x60;+e;d[q]&#x3D;f;a.onerror&#x3D;()&#x3D;&gt;h&#x3D;n(Error(p+&quot; could not load.&quot;));a.nonce&#x3D;m.querySelector(&quot;script[nonce]&quot;)?.nonce||&quot;&quot;;m.head.append(a)}));d[l]?console.warn(p+&quot; only loads once. Ignoring:&quot;,g):d[l]&#x3D;(f,...n)&#x3D;&gt;r.add(f)&amp;&amp;u().then(()&#x3D;&gt;d[l](f,...n))})({
+        key: &quot;AIzaSyCvVL7YIs_8tSfnVfpFUiv64XPZ1GE8ADg&quot;,
+        v: &quot;weekly&quot;,
+        // Use the &#x27;v&#x27; parameter to indicate the version to use (weekly, beta, alpha, etc.).
+        // Add other bootstrap parameters as needed, using camel case.
+      });
+    &lt;/script&gt;
+&lt;/div&gt; --&gt;
+
+&lt;!-- dashboard.component.html --&gt;
+&lt;!-- &lt;div #mapContainer id&#x3D;&quot;map&quot; style&#x3D;&quot;height: 500px; width: 100%;&quot;&gt;&lt;/div&gt; --&gt;
+
+
+
+
+
+      &lt;!-- &lt;script type&#x3D;&quot;module&quot;&gt;
+        &quot;use strict&quot;;
+
+        // This loads helper components from the Extended Component Library,
+        // https://github.com/googlemaps/extended-component-library.
+        // Please note unpkg.com is unaffiliated with Google Maps Platform.
+        import {APILoader} from &#x27;https://unpkg.com/@googlemaps/extended-component-library@0.6&#x27;;
+
+        const CONFIGURATION &#x3D; {
+          &quot;ctaTitle&quot;: &quot;submit&quot;,
+          &quot;mapOptions&quot;: {&quot;center&quot;:{&quot;lat&quot;:37.4221,&quot;lng&quot;:-122.0841},&quot;fullscreenControl&quot;:true,&quot;mapTypeControl&quot;:false,&quot;streetViewControl&quot;:true,&quot;zoom&quot;:11,&quot;zoomControl&quot;:true,&quot;maxZoom&quot;:22,&quot;mapId&quot;:&quot;&quot;},
+          &quot;mapsApiKey&quot;: &quot;AIzaSyBVMxz99JUdnGLDTgUQ9H3ZJCRWGI9uAGg&quot;,
+          &quot;capabilities&quot;: {&quot;addressAutocompleteControl&quot;:true,&quot;mapDisplayControl&quot;:true,&quot;ctaControl&quot;:true}
+        };
+
+        const SHORT_NAME_ADDRESS_COMPONENT_TYPES &#x3D;
+            new Set([&#x27;street_number&#x27;, &#x27;administrative_area_level_1&#x27;, &#x27;postal_code&#x27;]);
+
+        const ADDRESS_COMPONENT_TYPES_IN_FORM &#x3D; [
+          &#x27;location&#x27;,
+          &#x27;locality&#x27;,
+          &#x27;administrative_area_level_1&#x27;,
+          &#x27;postal_code&#x27;,
+          &#x27;country&#x27;,
+        ];
+
+        function getFormInputElement(componentType) {
+          return document.getElementById(&#x60;${componentType}-input&#x60;);
+        }
+
+        function fillInAddress(place) {
+          function getComponentName(componentType) {
+            for (const component of place.address_components || []) {
+              if (component.types[0] &#x3D;&#x3D;&#x3D; componentType) {
+                return SHORT_NAME_ADDRESS_COMPONENT_TYPES.has(componentType) ?
+                    component.short_name :
+                    component.long_name;
+              }
+            }
+            return &#x27;&#x27;;
+          }
+
+          function getComponentText(componentType) {
+            return (componentType &#x3D;&#x3D;&#x3D; &#x27;location&#x27;) ?
+                &#x60;${getComponentName(&#x27;street_number&#x27;)} ${getComponentName(&#x27;route&#x27;)}&#x60; :
+                getComponentName(componentType);
+          }
+
+          for (const componentType of ADDRESS_COMPONENT_TYPES_IN_FORM) {
+            getFormInputElement(componentType).value &#x3D; getComponentText(componentType);
+          }
+        }
+
+        function renderAddress(place) {
+          const mapEl &#x3D; document.querySelector(&#x27;gmp-map&#x27;);
+          const markerEl &#x3D; document.querySelector(&#x27;gmp-advanced-marker&#x27;);
+
+          if (place.geometry &amp;&amp; place.geometry.location) {
+            mapEl.center &#x3D; place.geometry.location;
+            markerEl.position &#x3D; place.geometry.location;
+          } else {
+            markerEl.position &#x3D; null;
+          }
+        }
+
+        async function initMap() {
+          const {Autocomplete} &#x3D; await APILoader.importLibrary(&#x27;places&#x27;);
+
+          const mapOptions &#x3D; CONFIGURATION.mapOptions;
+          mapOptions.mapId &#x3D; mapOptions.mapId || &#x27;DEMO_MAP_ID&#x27;;
+          mapOptions.center &#x3D; mapOptions.center || {lat: 37.4221, lng: -122.0841};
+
+          await customElements.whenDefined(&#x27;gmp-map&#x27;);
+          document.querySelector(&#x27;gmp-map&#x27;).innerMap.setOptions(mapOptions);
+          const autocomplete &#x3D; new Autocomplete(getFormInputElement(&#x27;location&#x27;), {
+            fields: [&#x27;address_components&#x27;, &#x27;geometry&#x27;, &#x27;name&#x27;],
+            types: [&#x27;address&#x27;],
+          });
+
+          autocomplete.addListener(&#x27;place_changed&#x27;, () &#x3D;&gt; {
+            const place &#x3D; autocomplete.getPlace();
+            if (!place.geometry) {
+              // User entered the name of a Place that was not suggested and
+              // pressed the Enter key, or the Place Details request failed.
+              window.alert(&#x60;No details available for input: &#x27;${place.name}&#x27;&#x60;);
+              return;
+            }
+            renderAddress(place);
+            fillInAddress(place);
+          });
+        }
+
+        initMap();
+      &lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body&gt; --&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./dashboard.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">$background-color: black;
+$active-color: #c10f1e;
+$hover-color: #a00b16;
+$text-color: white;
+
+@mixin interactive-element {
+  padding: 12px;
+  font-size: 18px;
+  text-align: center;
+  border-radius: 4px;
+  color: $text-color;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.container {
+    height: max-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 100px 20px;
+    justify-content: center;
+    background-color: $background-color;
+    font-family: &#x27;Poppins&#x27;, sans-serif;
+
+    .title {
+        font-size: 42px;
+        font-weight: bold;
+        color: white;
+
+        .title-red {
+            color: rgb(183, 55, 55);
+        }
+    }
+
+    .subtitle {
+        font-size: 21px;
+        font-weight: normal;
+        color: #efecfb;
+        margin: 10px 0;
+        line-height: 1.6;
+        margin-left: 20%;
+        margin-right: 20%;
+        text-align: center;
+    }
+
+    .paragraph {
+        font-size: 20px;
+        font-weight: normal;
+        color: #efecfb;
+        margin: 10px 0;
+        line-height: 1.8;
+    }
+}
+
+.container-service {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px;
+    margin-left: 5%;
+    font-family: &#x27;Poppins&#x27;, sans-serif;
+}
+
+.content {
+    max-width: 45%;
+}
+
+h1 {
+    font-size: 36px;
+    font-weight: 700;
+    color: #1a1a1a;
+}
+
+h1 span {
+    color: #f75440;
+}
+
+p {
+    font-size: 16px;
+    color: #4a4a4a;
+    margin: 20px 0;
+    font-weight: 400;
+}
+
+.statistics {
+    display: flex;
+    gap: 40px;
+    margin: 20px 0;
+}
+
+.stat h2 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #f75440;
+    margin: 0;
+}
+
+.stat p {
+    font-size: 14px;
+    color: #4a4a4a;
+}
+
+button {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #333;
+}
+
+.image img {
+    max-width: 100%;
+    height: auto;
+}
+
+@media screen and (max-width: 500px) {
+  .nav-container {
+    flex-direction: column;
+
+    nav {
+      flex-direction: column;
+
+      a {
+        display: block;
+        padding: 10px;
+      }
+    }
+
+    .sign-in-button {
+      display: block;
+      margin: 10px auto;
+    }
+  }
+
+  .intro .container {
+    padding: 50px 10px;
+  }
+
+  .intro .left-column .title {
+    font-size: 36px;
+  }
+
+  .intro .subtitle {
+    font-size: 18px;
+  }
+
+  .intro .join-now-button {
+    padding: 10px;
+    font-size: 16px;
+  }
+
+  .intro .right-column .image {
+    max-width: 80%;
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><section id="intro" class="intro">    <div class="container">      <div class="title">          Benvenuto nel <span class="title-red">Portale</span> del <span class="title-red">Welfare aziendale</span>      </div>      <div class="subtitle">        Scopri tutti i servizi e i benefici pensati per il tuo benessere e la tua crescita professionale a tua completa disposizione.      </div>    </div>    <div class="container-service">        <div class="content">            <h1>Vantaggi con il nostro <span>Welfare Aziendale</span></h1>            <p>Il nostro programma di welfare aziendale è progettato per migliorare il benessere dei dipendenti, offrendo una vasta gamma di servizi e benefici che supportano la salute fisica, mentale e finanziaria.</p>            <div class="statistics">                <div class="stat">                    <h2>100%</h2>                    <p>Soddisfazione dei dipendenti</p>                </div>                <div class="stat">                    <h2>50+</h2>                    <p>Attività di benessere offerte</p>                </div>            </div>            <!-- <button (click)="navigateTo(\'book-call\')">Prenota un appuntamento</button> -->        </div>        <div class="image">            <img src="path_to_your_image.png" alt="Employee enjoying benefits">        </div>    </div></section><!-- <div class="map-container">    <gmp-map      center="41.901610,12.503200"      zoom="15"      map-id="DEMO_MAP_ID"    ></gmp-map>    <div id="map"></div>    <script>      (g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})({        key: "AIzaSyCvVL7YIs_8tSfnVfpFUiv64XPZ1GE8ADg",        v: "weekly",        // Use the \'v\' parameter to indicate the version to use (weekly, beta, alpha, etc.).        // Add other bootstrap parameters as needed, using camel case.      });    </script></div> --><!-- dashboard.component.html --><!-- <div #mapContainer id="map" style="height: 500px; width: 100%;"></div> -->      <!-- <script type="module">        "use strict";          // This loads helper components from the Extended Component Library,        // https://github.com/googlemaps/extended-component-library.        // Please note unpkg.com is unaffiliated with Google Maps Platform.        import {APILoader} from \'https://unpkg.com/@googlemaps/extended-component-library@0.6\';          const CONFIGURATION = {          "ctaTitle": "submit",          "mapOptions": {"center":{"lat":37.4221,"lng":-122.0841},"fullscreenControl":true,"mapTypeControl":false,"streetViewControl":true,"zoom":11,"zoomControl":true,"maxZoom":22,"mapId":""},          "mapsApiKey": "AIzaSyBVMxz99JUdnGLDTgUQ9H3ZJCRWGI9uAGg",          "capabilities": {"addressAutocompleteControl":true,"mapDisplayControl":true,"ctaControl":true}        };          const SHORT_NAME_ADDRESS_COMPONENT_TYPES =            new Set([\'street_number\', \'administrative_area_level_1\', \'postal_code\']);          const ADDRESS_COMPONENT_TYPES_IN_FORM = [          \'location\',          \'locality\',          \'administrative_area_level_1\',          \'postal_code\',          \'country\',        ];          function getFormInputElement(componentType) {          return document.getElementById(`${componentType}-input`);        }          function fillInAddress(place) {          function getComponentName(componentType) {            for (const component of place.address_components || []) {              if (component.types[0] === componentType) {                return SHORT_NAME_ADDRESS_COMPONENT_TYPES.has(componentType) ?                    component.short_name :                    component.long_name;              }            }            return \'\';          }            function getComponentText(componentType) {            return (componentType === \'location\') ?                `${getComponentName(\'street_number\')} ${getComponentName(\'route\')}` :                getComponentName(componentType);          }            for (const componentType of ADDRESS_COMPONENT_TYPES_IN_FORM) {            getFormInputElement(componentType).value = getComponentText(componentType);          }        }          function renderAddress(place) {          const mapEl = document.querySelector(\'gmp-map\');          const markerEl = document.querySelector(\'gmp-advanced-marker\');            if (place.geometry && place.geometry.location) {            mapEl.center = place.geometry.location;            markerEl.position = place.geometry.location;          } else {            markerEl.position = null;          }        }          async function initMap() {          const {Autocomplete} = await APILoader.importLibrary(\'places\');            const mapOptions = CONFIGURATION.mapOptions;          mapOptions.mapId = mapOptions.mapId || \'DEMO_MAP_ID\';          mapOptions.center = mapOptions.center || {lat: 37.4221, lng: -122.0841};            await customElements.whenDefined(\'gmp-map\');          document.querySelector(\'gmp-map\').innerMap.setOptions(mapOptions);          const autocomplete = new Autocomplete(getFormInputElement(\'location\'), {            fields: [\'address_components\', \'geometry\', \'name\'],            types: [\'address\'],          });            autocomplete.addListener(\'place_changed\', () => {            const place = autocomplete.getPlace();            if (!place.geometry) {              // User entered the name of a Place that was not suggested and              // pressed the Enter key, or the Place Details request failed.              window.alert(`No details available for input: \'${place.name}\'`);              return;            }            renderAddress(place);            fillInAddress(place);          });        }          initMap();      </script>    </head>    <body> --></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BookCallComponent', 'selector': 'app-book-call'},{'name': 'BookingBoardComponent', 'selector': 'app-booking-board'},{'name': 'CardCoachComponent', 'selector': 'app-card-coach'},{'name': 'CardSectionComponent', 'selector': 'app-card-section'},{'name': 'CardServiceComponent', 'selector': 'app-card-service'},{'name': 'CoachSectionComponent', 'selector': 'app-coach-section'},{'name': 'CreateCoachComponent', 'selector': 'app-create-coach'},{'name': 'CreateServiceComponent', 'selector': 'app-create-service'},{'name': 'DailyAvailabilityComponent', 'selector': 'app-daily-availability'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'EconomicComponent', 'selector': 'app-economic'},{'name': 'FamilyComponent', 'selector': 'app-family'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgotPasswordComponent', 'selector': 'app-reset-password'},{'name': 'HeaderAdminComponent', 'selector': 'app-header-admin'},{'name': 'HeaderCoachComponent', 'selector': 'app-header-coach'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'MapComponent', 'selector': 'app-map'},{'name': 'MeetingBoardComponent', 'selector': 'app-meeting-board'},{'name': 'ModifyProfileComponent', 'selector': 'app-modify-profile'},{'name': 'NearMeComponent', 'selector': 'app-near-me'},{'name': 'NotFoundComponent', 'selector': 'app-not-found'},{'name': 'OtpVerificationComponent', 'selector': 'app-otp-verification'},{'name': 'PhysicalComponent', 'selector': 'app-physical'},{'name': 'PreHeaderComponent', 'selector': 'app-pre-header'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'PsychologicalComponent', 'selector': 'app-psychological'},{'name': 'PurchasedDataComponent', 'selector': 'app-purchased-data'},{'name': 'PurchasedSectionComponent', 'selector': 'app-purchased-section'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'SectionsComponent', 'selector': 'app-sections'},{'name': 'ShowCaseDataComponent', 'selector': 'app-showcase-data'},{'name': 'ShowCaseSectionComponent', 'selector': 'app-show-case-section'},{'name': 'SidebarComponent', 'selector': 'app-sidebar-coach'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'SignInComponent', 'selector': 'app-sign-in'},{'name': 'SignUpComponent', 'selector': 'app-sign-up'},{'name': 'SignUpSurveyComponent', 'selector': 'app-sign-up-survey'},{'name': 'WelfareCoachComponent', 'selector': 'app-welfare-coach'}];
+    var DIRECTIVES = [{'name': 'ErrorMessageApiDirective', 'selector': '[appErrorMessageApi]'},{'name': 'ErrorMsgFormsDirective', 'selector': '[appErrorMsgForms]'}];
+    var ACTUAL_COMPONENT = {'name': 'DashboardComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'DashboardComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

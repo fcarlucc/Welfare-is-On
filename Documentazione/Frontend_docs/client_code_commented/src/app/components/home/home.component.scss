@@ -1,0 +1,164 @@
+$background-color: black;
+$active-color: #c10f1e;
+$hover-color: #a00b16;
+$text-color: white;
+
+@mixin interactive-element {
+  padding: 12px;
+  font-size: 18px;
+  text-align: center;
+  border-radius: 4px;
+  color: $text-color;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.container {
+    height: max-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 100px 20px;
+    justify-content: center;
+    background-color: $background-color;
+    font-family: 'Poppins', sans-serif;
+
+    .title {
+        font-size: 42px;
+        font-weight: bold;
+        color: white;
+
+        .title-red {
+            color: rgb(183, 55, 55);
+        }
+    }
+
+    .subtitle {
+        font-size: 21px;
+        font-weight: normal;
+        color: #efecfb;
+        margin: 10px 0;
+        line-height: 1.6;
+        margin-left: 20%;
+        margin-right: 20%;
+        text-align: center;
+    }
+
+    .paragraph {
+        font-size: 20px;
+        font-weight: normal;
+        color: #efecfb;
+        margin: 10px 0;
+        line-height: 1.8;
+    }
+}
+
+.container-service {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px;
+    margin-left: 5%;
+    font-family: 'Poppins', sans-serif;
+}
+
+.content {
+    max-width: 45%;
+}
+
+h1 {
+    font-size: 36px;
+    font-weight: 700;
+    color: #1a1a1a;
+}
+
+h1 span {
+    color: #f75440;
+}
+
+p {
+    font-size: 16px;
+    color: #4a4a4a;
+    margin: 20px 0;
+    font-weight: 400;
+}
+
+.statistics {
+    display: flex;
+    gap: 40px;
+    margin: 20px 0;
+}
+
+.stat h2 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #f75440;
+    margin: 0;
+}
+
+.stat p {
+    font-size: 14px;
+    color: #4a4a4a;
+}
+
+button {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #333;
+}
+
+.image svg {
+    width: 60%;
+    height: 60%;
+    margin-left: 25%;
+}
+
+@media screen and (max-width: 500px) {
+  .nav-container {
+    flex-direction: column;
+
+    nav {
+      flex-direction: column;
+
+      a {
+        display: block;
+        padding: 10px;
+      }
+    }
+
+    .sign-in-button {
+      display: block;
+      margin: 10px auto;
+    }
+  }
+
+  .intro .container {
+    padding: 50px 10px;
+  }
+
+  .intro .left-column .title {
+    font-size: 36px;
+  }
+
+  .intro .subtitle {
+    font-size: 18px;
+  }
+
+  .intro .join-now-button {
+    padding: 10px;
+    font-size: 16px;
+  }
+
+  .intro .right-column .image {
+    max-width: 80%;
+  }
+}

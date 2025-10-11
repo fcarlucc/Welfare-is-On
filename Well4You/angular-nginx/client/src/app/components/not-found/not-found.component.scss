@@ -1,0 +1,72 @@
+$primary-color: #ff4757;
+$secondary-color: #2f3542;
+$font-stack: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+body {
+    font-family: $font-stack;
+    background-color: #f1f2f6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding-bottom: 200px;
+    
+    .background-images {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 40;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 1;
+        z-index: -1;
+        
+        img {
+            width: 100%;
+            height: 150vh;
+            object-fit: cover;
+        }
+    }
+    img {
+        width: 300px;
+    }
+
+    h1 {
+        font-size: 3rem;
+        font-family: 'Poppins';
+        color: $secondary-color;
+    }
+
+    p {
+        font-size: 1.2rem;
+        color: $secondary-color;
+        font-family: 'Poppins';
+    }
+
+    .back-button {
+        margin-top: 20px;
+        padding: 10px 20px;
+        font-size: 1rem;
+        color: white;
+        background-color: $primary-color;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+
+        &:hover {
+            background-color: darken($primary-color, 10%);
+        }
+    }
+}

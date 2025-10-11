@@ -1,0 +1,175 @@
+$primary-color: black;
+$secondary-color: white;
+$button-createCoach-color: purple;
+$button-cancel-color: grey;
+$input-border-color: blue;
+$input-focus-border-color: red;
+
+@mixin color-scheme($primary-color, $secondary-color) {
+    color: $primary-color;
+    background-color: $secondary-color;
+}
+
+@mixin button-colors($background-color, $hover-color) {
+    background-color: $background-color;
+
+    &:hover {
+        background-color: darken($hover-color, 10%);
+    }
+}
+
+@mixin input-colors($border-color, $focus-border-color) {
+    border: 1px solid $border-color;
+
+    &:focus {
+        border-color: $focus-border-color;
+        outline: none;
+    }
+}
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $secondary-color;
+}
+
+.container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 90vh;
+    background: linear-gradient(90deg,darken(#c10f1e, 10%), #a00b16);
+
+    .background-images {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 1;
+        z-index: -1;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    .section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex: 1;
+        padding: 20px;
+
+        .create-coach-container {
+            @include color-scheme($primary-color, $secondary-color);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 4px 8px black;
+            transition: transform 0.2s ease;
+
+            &:hover {
+                transform: scale(1.04);
+            }
+
+            img {
+                max-width: 150px;
+                margin-bottom: 1rem;
+            }
+
+            h1 {
+                margin-bottom: 1rem;
+                font-family: 'Poppins';
+                color: $primary-color;
+            }
+
+            .main-form {
+                display: flex;
+                flex-direction: column;
+
+                .form-columns {
+                    display: flex;
+                    flex-direction: column;
+
+                    @media (min-width: 768px) {
+                        flex-direction: row;
+                        flex-wrap: wrap;
+                    }
+                }
+
+                .form-group {
+                    display: flex;
+                    flex-direction: column;
+                    width: 100%;
+
+                    @media (min-width: 768px) {
+                        width: 48%;
+                        margin: 0 1%;
+
+                    }
+
+                    input,
+                    select {
+                        padding: 0.75rem;
+                        margin-bottom: 1rem;
+                        @include input-colors($input-border-color, $input-focus-border-color);
+                        border-radius: 4px;
+                        font-size: 1rem;
+
+                        &:focus {
+                            border-color: $input-focus-border-color;
+                            outline: none;
+                        }
+                    }
+
+                    .error-container {
+                        margin-bottom: 10px;
+                    }
+
+                    .error-message {
+                        color: red;
+                        font-size: 0.9rem;
+                    }
+                }
+
+                button {
+                    padding: 0.75rem;
+                    border: none;
+                    border-radius: 4px;
+                    font-size: 1rem;
+                    cursor: pointer;
+                    width: 100%;
+
+                    &.btn-create-coach {
+                        @include button-colors($button-createCoach-color, $button-createCoach-color);
+                        margin-top: 10px;
+                    }
+
+                    &.btn-cancel {
+                        @include button-colors($button-cancel-color, $button-cancel-color);
+                        margin-top: 10px;
+                    }
+                }
+            }
+        }
+    }
+}

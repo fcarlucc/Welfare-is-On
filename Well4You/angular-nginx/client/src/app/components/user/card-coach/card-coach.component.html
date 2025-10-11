@@ -1,0 +1,27 @@
+<div class="overlay" *ngIf="expanded" (click)="toggleExpand($event)"></div>
+<div class="coach-card" [class.expanded]="expanded" (click)="toggleExpand($event)">
+  @if (!expanded) {
+    <div>
+      <h4 [class.expanded]="expanded">{{ card.division }}</h4>
+      <img [src]="card.imgUrl" alt="{{ card.firstName }} {{ card.lastName }}" class="coach-card-image" [class.expanded]="expanded">
+      <h3 [class.expanded]="expanded">{{ card.firstName }} {{ card.lastName }}</h3><br>
+      <h4 [class.expanded]="expanded">{{ card.location }}</h4>
+    </div>
+  } @else {
+    <div>
+      <img [src]="card.imgUrl" alt="{{ card.firstName }} {{ card.lastName }}" class="coach-card-image" [class.expanded]="expanded">
+      <div class="button-container">
+        <button (click)="reservation($event)">
+          <h4>Book a call</h4>
+        </button>
+      </div>
+    </div>
+    <div>
+      <h2 [class.expanded]="expanded">Welfare Coach</h2>
+      <h3 [class.expanded]="expanded"><span>{{ card.firstName }} {{ card.lastName }}</span></h3>
+      <h3 [class.expanded]="expanded"><span>Specialization: </span>{{ card.full?.specialization }}</h3>
+      <h3 [class.expanded]="expanded" (click)="stopPropagation($event)"><span> Division: </span> {{ card.division }}</h3>
+      <h3 [class.expanded]="expanded" (click)="stopPropagation($event)"><span> Location: </span> {{ card.location }}</h3>
+    </div>
+  }
+</div>

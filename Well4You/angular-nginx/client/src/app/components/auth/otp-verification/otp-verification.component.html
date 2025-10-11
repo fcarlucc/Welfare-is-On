@@ -1,0 +1,21 @@
+<div class="container"> 
+    <div class="section">
+        <div class="verify-email-container">
+            <div class="logo">
+                <img src="assets/home/logo-well4you.png" alt="logoImage">
+            </div>
+            <h1>Two Factors Auth</h1>
+            <form [formGroup]="otpVerificationForm" class="main-form" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                    <input type="text" id="otp" formControlName="otp" placeholder="OTP code">
+                    <div class="error-container">
+                        <small appErrorMsgForms [formGroup]="otpVerificationForm" [fields]="['otp']" class="error-message"></small>
+                        <small appErrorMessageApi class="error-message"></small>
+                    </div>
+                </div>
+                <a href="sign-up/2FA" (click)="resendOtp()">resend new OTP code?</a>
+                <button class="btn-send" type="submit" [disabled]="otpVerificationForm.invalid">Send</button>
+            </form>
+        </div>
+    </div>
+</div>

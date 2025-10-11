@@ -1,0 +1,12 @@
+com.servicesservice.app
+com.servicesservice.app.config
+com.servicesservice.app.controller
+com.servicesservice.app.dto
+com.servicesservice.app.exception
+com.servicesservice.app.exceptionHandler
+com.servicesservice.app.Initializer
+com.servicesservice.app.mapper
+com.servicesservice.app.model
+com.servicesservice.app.model.enumerator
+com.servicesservice.app.repository
+com.servicesservice.app.service

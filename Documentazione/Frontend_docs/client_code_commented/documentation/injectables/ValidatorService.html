@@ -1,0 +1,1456 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>client documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">client documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >ValidatorService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/services/validator/validator.service.ts</code>
+        </p>
+
+
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Servizio per la gestione delle validazioni dei moduli.
+Fornisce diversi validatori che possono essere utilizzati per convalidare
+campi come email, password, e altro ancora.</p>
+
+            </p>
+
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#requiredField" >requiredField</a>
+                            </li>
+                            <li>
+                                <a href="#validateAddress" >validateAddress</a>
+                            </li>
+                            <li>
+                                <a href="#validateAge" >validateAge</a>
+                            </li>
+                            <li>
+                                <a href="#validateConfirmPassword" >validateConfirmPassword</a>
+                            </li>
+                            <li>
+                                <a href="#validateDate" >validateDate</a>
+                            </li>
+                            <li>
+                                <a href="#validateDescription" >validateDescription</a>
+                            </li>
+                            <li>
+                                <a href="#validateDiscount" >validateDiscount</a>
+                            </li>
+                            <li>
+                                <a href="#validateEmail" >validateEmail</a>
+                            </li>
+                            <li>
+                                <a href="#validateFirstName" >validateFirstName</a>
+                            </li>
+                            <li>
+                                <a href="#validateLastName" >validateLastName</a>
+                            </li>
+                            <li>
+                                <a href="#validateOtp" >validateOtp</a>
+                            </li>
+                            <li>
+                                <a href="#validatePassword" >validatePassword</a>
+                            </li>
+                            <li>
+                                <a href="#validatePhoneNumber" >validatePhoneNumber</a>
+                            </li>
+                            <li>
+                                <a href="#validatePrice" >validatePrice</a>
+                            </li>
+                            <li>
+                                <a href="#validateTitle" >validateTitle</a>
+                            </li>
+                            <li>
+                                <a href="#validateUrl" >validateUrl</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor()</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/services/validator/validator.service.ts:12</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Crea un&#39;istanza del servizio <code>ValidatorService</code>.</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="requiredField"></a>
+                    <span class="name">
+                        <span ><b>requiredField</b></span>
+                        <a href="#requiredField"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>requiredField()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="24"
+                                    class="link-to-prism">src/app/services/validator/validator.service.ts:24</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Restituisce un validatore per i campi obbligatori.
+         se il valore del controllo è nullo, indefinito o una stringa vuota.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>ValidatorFn</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Una funzione <code>ValidatorFn</code> che restituisce un errore di validazione
+se il valore del controllo è nullo, indefinito o una stringa vuota.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="validateAddress"></a>
+                    <span class="name">
+                        <span ><b>validateAddress</b></span>
+                        <a href="#validateAddress"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>validateAddress()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="224"
+                                    class="link-to-prism">src/app/services/validator/validator.service.ts:224</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Restituisce un validatore per l&#39;indirizzo.
+Verifica che l&#39;indirizzo sia valido secondo un formato predefinito.
+         se l&#39;indirizzo non soddisfa il formato specificato.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>ValidatorFn</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Una funzione <code>ValidatorFn</code> che restituisce un errore di validazione
+se l&#39;indirizzo non soddisfa il formato specificato.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="validateAge"></a>
+                    <span class="name">
+                        <span ><b>validateAge</b></span>
+                        <a href="#validateAge"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>validateAge()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="150"
+                                    class="link-to-prism">src/app/services/validator/validator.service.ts:150</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Restituisce un validatore per l&#39;età.
+Verifica che la data di nascita inserita indichi un&#39;età compresa tra 18 e 80 anni.
+         se l&#39;età non è valida.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>ValidatorFn</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Una funzione <code>ValidatorFn</code> che restituisce un errore di validazione
+se l&#39;età non è valida.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="validateConfirmPassword"></a>
+                    <span class="name">
+                        <span ><b>validateConfirmPassword</b></span>
+                        <a href="#validateConfirmPassword"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>validateConfirmPassword(passwordControlName: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="130"
+                                    class="link-to-prism">src/app/services/validator/validator.service.ts:130</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Restituisce un validatore per confermare la password.
+Verifica che la password di conferma corrisponda alla password originale.
+         se la password di conferma non corrisponde alla password originale.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>passwordControlName</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>Il nome del controllo della password originale.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>ValidatorFn</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Una funzione <code>ValidatorFn</code> che restituisce un errore di validazione
+se la password di conferma non corrisponde alla password originale.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="validateDate"></a>
+                    <span class="name">
+                        <span ><b>validateDate</b></span>
+                        <a href="#validateDate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>validateDate()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="317"
+                                    class="link-to-prism">src/app/services/validator/validator.service.ts:317</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Restituisce un validatore per la data.
+Verifica che la data sia valida e non sia una data passata.
+         se la data non è valida o è nel passato.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>ValidatorFn</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Una funzione <code>ValidatorFn</code> che restituisce un errore di validazione
+se la data non è valida o è nel passato.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="validateDescription"></a>
+                    <span class="name">
+                        <span ><b>validateDescription</b></span>
+                        <a href="#validateDescription"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>validateDescription()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="200"
+                                    class="link-to-prism">src/app/services/validator/validator.service.ts:200</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Restituisce un validatore per la descrizione.
+Verifica che la descrizione contenga solo caratteri validi e abbia una lunghezza
+compresa tra 10 e 100 caratteri.
+         se la descrizione non soddisfa i criteri specificati.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>ValidatorFn</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Una funzione <code>ValidatorFn</code> che restituisce un errore di validazione
+se la descrizione non soddisfa i criteri specificati.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="validateDiscount"></a>
+                    <span class="name">
+                        <span ><b>validateDiscount</b></span>
+                        <a href="#validateDiscount"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>validateDiscount()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="269"
+                                    class="link-to-prism">src/app/services/validator/validator.service.ts:269</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Restituisce un validatore per lo sconto.
+Verifica che lo sconto sia un numero compreso tra 5 e 95.
+         se lo sconto non è valido.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>ValidatorFn</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Una funzione <code>ValidatorFn</code> che restituisce un errore di validazione
+se lo sconto non è valido.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="validateEmail"></a>
+                    <span class="name">
+                        <span ><b>validateEmail</b></span>
+                        <a href="#validateEmail"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>validateEmail()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="67"
+                                    class="link-to-prism">src/app/services/validator/validator.service.ts:67</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Restituisce un validatore per l&#39;email.
+Verifica che l&#39;email sia valida, abbia una lunghezza compresa tra 6 e 75 caratteri
+e non superi le specifiche del formato email.
+         se l&#39;email non soddisfa i criteri specificati.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>ValidatorFn</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Una funzione <code>ValidatorFn</code> che restituisce un errore di validazione
+se l&#39;email non soddisfa i criteri specificati.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="validateFirstName"></a>
+                    <span class="name">
+                        <span ><b>validateFirstName</b></span>
+                        <a href="#validateFirstName"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>validateFirstName()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="40"
+                                    class="link-to-prism">src/app/services/validator/validator.service.ts:40</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Restituisce un validatore per il nome.
+Verifica che il nome contenga solo lettere e spazi e abbia una lunghezza compresa tra 2 e 30 caratteri.
+         se il nome non soddisfa i criteri specificati.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>ValidatorFn</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Una funzione <code>ValidatorFn</code> che restituisce un errore di validazione
+se il nome non soddisfa i criteri specificati.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="validateLastName"></a>
+                    <span class="name">
+                        <span ><b>validateLastName</b></span>
+                        <a href="#validateLastName"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>validateLastName()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="56"
+                                    class="link-to-prism">src/app/services/validator/validator.service.ts:56</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Restituisce un validatore per il cognome.
+Riutilizza il validatore <code>validateFirstName</code>.
+         se il cognome non soddisfa i criteri specificati.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>ValidatorFn</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Una funzione <code>ValidatorFn</code> che restituisce un errore di validazione
+se il cognome non soddisfa i criteri specificati.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="validateOtp"></a>
+                    <span class="name">
+                        <span ><b>validateOtp</b></span>
+                        <a href="#validateOtp"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>validateOtp()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="176"
+                                    class="link-to-prism">src/app/services/validator/validator.service.ts:176</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Restituisce un validatore per il codice OTP.
+Verifica che il codice OTP sia composto da esattamente 6 cifre.
+         se il codice OTP non è valido.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>ValidatorFn</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Una funzione <code>ValidatorFn</code> che restituisce un errore di validazione
+se il codice OTP non è valido.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="validatePassword"></a>
+                    <span class="name">
+                        <span ><b>validatePassword</b></span>
+                        <a href="#validatePassword"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>validatePassword()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="91"
+                                    class="link-to-prism">src/app/services/validator/validator.service.ts:91</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Restituisce un validatore per la password.
+Verifica che la password soddisfi vari requisiti di complessità,
+inclusi la lunghezza, la presenza di maiuscole, minuscole, numeri e caratteri speciali.
+         se la password non soddisfa i requisiti specificati.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>ValidatorFn</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Una funzione <code>ValidatorFn</code> che restituisce un errore di validazione
+se la password non soddisfa i requisiti specificati.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="validatePhoneNumber"></a>
+                    <span class="name">
+                        <span ><b>validatePhoneNumber</b></span>
+                        <a href="#validatePhoneNumber"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>validatePhoneNumber()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="292"
+                                    class="link-to-prism">src/app/services/validator/validator.service.ts:292</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Restituisce un validatore per il numero di telefono.
+Verifica che il numero di telefono soddisfi un formato internazionale valido
+e che la lunghezza sia compresa tra 10 e 14 caratteri.
+         se il numero di telefono non soddisfa i criteri specificati.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>ValidatorFn</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Una funzione <code>ValidatorFn</code> che restituisce un errore di validazione
+se il numero di telefono non soddisfa i criteri specificati.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="validatePrice"></a>
+                    <span class="name">
+                        <span ><b>validatePrice</b></span>
+                        <a href="#validatePrice"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>validatePrice()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="245"
+                                    class="link-to-prism">src/app/services/validator/validator.service.ts:245</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Restituisce un validatore per il prezzo.
+Verifica che il prezzo sia un numero positivo e non superiore a 10.000.
+         se il prezzo non è valido.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>ValidatorFn</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Una funzione <code>ValidatorFn</code> che restituisce un errore di validazione
+se il prezzo non è valido.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="validateTitle"></a>
+                    <span class="name">
+                        <span ><b>validateTitle</b></span>
+                        <a href="#validateTitle"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>validateTitle()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="189"
+                                    class="link-to-prism">src/app/services/validator/validator.service.ts:189</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Restituisce un validatore per il titolo.
+Riutilizza il validatore <code>validateFirstName</code>.
+         se il titolo non soddisfa i criteri specificati.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>ValidatorFn</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Una funzione <code>ValidatorFn</code> che restituisce un errore di validazione
+se il titolo non soddisfa i criteri specificati.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="validateUrl"></a>
+                    <span class="name">
+                        <span ><b>validateUrl</b></span>
+                        <a href="#validateUrl"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>validateUrl()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="338"
+                                    class="link-to-prism">src/app/services/validator/validator.service.ts:338</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Restituisce un validatore per l&#39;URL.
+Verifica che l&#39;URL sia valido secondo un formato predefinito.
+         se l&#39;URL non soddisfa il formato specificato.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>ValidatorFn</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Una funzione <code>ValidatorFn</code> che restituisce un errore di validazione
+se l&#39;URL non soddisfa il formato specificato.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
+import { AbstractControl, ValidationErrors, ValidatorFn } from &#x27;@angular/forms&#x27;;
+
+/**
+ * Servizio per la gestione delle validazioni dei moduli.
+ * Fornisce diversi validatori che possono essere utilizzati per convalidare
+ * campi come email, password, e altro ancora.
+ */
+@Injectable({
+  providedIn: &#x27;root&#x27;
+})
+export class ValidatorService {
+
+  /**
+   * Crea un&#x27;istanza del servizio &#x60;ValidatorService&#x60;.
+   */
+  constructor() {}
+
+  /**
+   * Restituisce un validatore per i campi obbligatori.
+   * @returns Una funzione &#x60;ValidatorFn&#x60; che restituisce un errore di validazione
+   *          se il valore del controllo è nullo, indefinito o una stringa vuota.
+   */
+  requiredField(): ValidatorFn {
+    return (control: AbstractControl): ValidationErrors | null &#x3D;&gt; {
+      const value &#x3D; control.value;
+      if (value &#x3D;&#x3D;&#x3D; null || value &#x3D;&#x3D;&#x3D; undefined || value &#x3D;&#x3D;&#x3D; &#x27;&#x27;) {
+        return { required: true };
+      }
+      return null;
+    };
+  }
+
+  /**
+   * Restituisce un validatore per il nome.
+   * Verifica che il nome contenga solo lettere e spazi e abbia una lunghezza compresa tra 2 e 30 caratteri.
+   * @returns Una funzione &#x60;ValidatorFn&#x60; che restituisce un errore di validazione
+   *          se il nome non soddisfa i criteri specificati.
+   */
+  validateFirstName(): ValidatorFn {
+    return (control: AbstractControl): ValidationErrors | null &#x3D;&gt; {
+      const name &#x3D; control.value;
+      if (!name) return null;
+      return /^[a-zA-Z\s]{2,30}$/.test(name)
+        ? null
+        : { invalidName: true };
+    };
+  }
+
+  /**
+   * Restituisce un validatore per il cognome.
+   * Riutilizza il validatore &#x60;validateFirstName&#x60;.
+   * @returns Una funzione &#x60;ValidatorFn&#x60; che restituisce un errore di validazione
+   *          se il cognome non soddisfa i criteri specificati.
+   */
+  validateLastName(): ValidatorFn {
+    return this.validateFirstName(); // Riutilizza il validatore validateFirstName
+  }
+
+  /**
+   * Restituisce un validatore per l&#x27;email.
+   * Verifica che l&#x27;email sia valida, abbia una lunghezza compresa tra 6 e 75 caratteri
+   * e non superi le specifiche del formato email.
+   * @returns Una funzione &#x60;ValidatorFn&#x60; che restituisce un errore di validazione
+   *          se l&#x27;email non soddisfa i criteri specificati.
+   */
+  validateEmail(): ValidatorFn {
+    return (control: AbstractControl): ValidationErrors | null &#x3D;&gt; {
+      const email &#x3D; control.value;
+      const emailRegex &#x3D; /^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+      if (!email) {
+        return { required: true };
+      } else if (email.length &gt; 75) {
+        return { maxLength: true };
+      } else if (email.length &lt; 6) {
+        return { minLength: true };
+      } else if (!emailRegex.test(email)) {
+        return { invalidEmail: true };
+      }
+      return null;
+    };
+  }
+
+  /**
+   * Restituisce un validatore per la password.
+   * Verifica che la password soddisfi vari requisiti di complessità,
+   * inclusi la lunghezza, la presenza di maiuscole, minuscole, numeri e caratteri speciali.
+   * @returns Una funzione &#x60;ValidatorFn&#x60; che restituisce un errore di validazione
+   *          se la password non soddisfa i requisiti specificati.
+   */
+  validatePassword(): ValidatorFn {
+    return (control: AbstractControl): ValidationErrors | null &#x3D;&gt; {
+      const password &#x3D; control.value;
+      const minLength &#x3D; 8;
+      const maxLength &#x3D; 128;
+      const hasUpperCase &#x3D; /[A-Z]/.test(password);
+      const hasLowerCase &#x3D; /[a-z]/.test(password);
+      const hasNumber &#x3D; /[0-9]/.test(password);
+      const hasSpecialChar &#x3D; /[!@#$%^&amp;*]/.test(password);
+      const disallowedSpecialChars &#x3D; /[&lt;&gt;{}[\]\\/]/.test(password);
+
+      if (!password) {
+        return { required: true };
+      } else if (password.length &lt; minLength) {
+        return { minLength: true };
+      } else if (password.length &gt; maxLength) {
+        return { maxLength: true };
+      } else if (!hasUpperCase) {
+        return { missingUpperCase: true };
+      } else if (!hasLowerCase) {
+        return { missingLowerCase: true };
+      } else if (!hasNumber) {
+        return { missingNumber: true };
+      } else if (!hasSpecialChar) {
+        return { missingSpecialChar: true };
+      } else if (disallowedSpecialChars) {
+        return { disallowedSpecialChar: true };
+      }
+      return null;
+    };
+  }
+
+  /**
+   * Restituisce un validatore per confermare la password.
+   * Verifica che la password di conferma corrisponda alla password originale.
+   * @param passwordControlName - Il nome del controllo della password originale.
+   * @returns Una funzione &#x60;ValidatorFn&#x60; che restituisce un errore di validazione
+   *          se la password di conferma non corrisponde alla password originale.
+   */
+  validateConfirmPassword(passwordControlName: string): ValidatorFn {
+    return (control: AbstractControl): ValidationErrors | null &#x3D;&gt; {
+      const passwordControl &#x3D; control.parent?.get(passwordControlName);
+      const confirmPassword &#x3D; control.value;
+
+      if (!confirmPassword) {
+        return { required: true };
+      } else if (passwordControl &amp;&amp; passwordControl.value !&#x3D;&#x3D; confirmPassword) {
+        return { passwordsMismatch: true };
+      }
+      return null;
+    };
+  }
+
+  /**
+   * Restituisce un validatore per l&#x27;età.
+   * Verifica che la data di nascita inserita indichi un&#x27;età compresa tra 18 e 80 anni.
+   * @returns Una funzione &#x60;ValidatorFn&#x60; che restituisce un errore di validazione
+   *          se l&#x27;età non è valida.
+   */
+  validateAge(): ValidatorFn {
+    return (control: AbstractControl): ValidationErrors | null &#x3D;&gt; {
+      const dobString &#x3D; control.value;
+
+      if (!dobString) {
+        return { required: true };
+      }
+
+      const dob &#x3D; new Date(dobString);
+      const today &#x3D; new Date();
+      let age &#x3D; today.getFullYear() - dob.getFullYear();
+
+      if (today &lt; new Date(today.getFullYear(), dob.getMonth(), dob.getDate())) {
+        age--;
+      }
+
+      return age &gt;&#x3D; 18 &amp;&amp; age &lt;&#x3D; 80 ? null : { invalidAge: true };
+    };
+  }
+
+  /**
+   * Restituisce un validatore per il codice OTP.
+   * Verifica che il codice OTP sia composto da esattamente 6 cifre.
+   * @returns Una funzione &#x60;ValidatorFn&#x60; che restituisce un errore di validazione
+   *          se il codice OTP non è valido.
+   */
+  validateOtp(): ValidatorFn {
+    return (control: AbstractControl): ValidationErrors | null &#x3D;&gt; {
+      const otpRegex &#x3D; /^[0-9]{6}$/;
+      return otpRegex.test(control.value) ? null : { invalidOtpCode: true };
+    };
+  }
+
+  /**
+   * Restituisce un validatore per il titolo.
+   * Riutilizza il validatore &#x60;validateFirstName&#x60;.
+   * @returns Una funzione &#x60;ValidatorFn&#x60; che restituisce un errore di validazione
+   *          se il titolo non soddisfa i criteri specificati.
+   */
+  validateTitle(): ValidatorFn {
+    return this.validateFirstName(); // Riutilizza il validatore validateFirstName
+  }
+
+  /**
+   * Restituisce un validatore per la descrizione.
+   * Verifica che la descrizione contenga solo caratteri validi e abbia una lunghezza
+   * compresa tra 10 e 100 caratteri.
+   * @returns Una funzione &#x60;ValidatorFn&#x60; che restituisce un errore di validazione
+   *          se la descrizione non soddisfa i criteri specificati.
+   */
+  validateDescription(): ValidatorFn {
+    return (control: AbstractControl): ValidationErrors | null &#x3D;&gt; {
+      const description &#x3D; control.value;
+      
+      if (!description) {
+        return { required: true };
+      } else if (description.length &lt; 10) {
+        return { minLength: true };
+      } else if (description.length &gt; 100) {
+        return { maxLength: true };
+      } else if (!/^[a-zA-Z0-9\s.,;:?!()&amp;&#x27;&quot;\-]+$/.test(description)) {
+        return { invalidCharacters: true };
+      }
+      
+      return null;
+    };
+  }
+
+  /**
+   * Restituisce un validatore per l&#x27;indirizzo.
+   * Verifica che l&#x27;indirizzo sia valido secondo un formato predefinito.
+   * @returns Una funzione &#x60;ValidatorFn&#x60; che restituisce un errore di validazione
+   *          se l&#x27;indirizzo non soddisfa il formato specificato.
+   */
+  validateAddress(): ValidatorFn {
+    return (control: AbstractControl): ValidationErrors | null &#x3D;&gt; {
+      const address &#x3D; control.value;
+      const addressRegex &#x3D; /^(\s*|(\b[a-zA-Z\s]+\b\s*\d+,\s*\b[a-zA-Z\s]+\b,\s*\b[a-zA-Z\s]+\b))$/;
+
+      if (!address) {
+        return null;
+      } else if (!addressRegex.test(address)) {
+        return { invalidAddress: true };
+      }
+
+      return null;
+    };
+  }
+  
+  /**
+   * Restituisce un validatore per il prezzo.
+   * Verifica che il prezzo sia un numero positivo e non superiore a 10.000.
+   * @returns Una funzione &#x60;ValidatorFn&#x60; che restituisce un errore di validazione
+   *          se il prezzo non è valido.
+   */
+  validatePrice(): ValidatorFn {
+    return (control: AbstractControl): ValidationErrors | null &#x3D;&gt; {
+      const price &#x3D; control.value;
+      
+      if (price &#x3D;&#x3D;&#x3D; null || price &#x3D;&#x3D;&#x3D; undefined) {
+        return { required: true };
+      } else if (typeof price !&#x3D;&#x3D; &#x27;number&#x27;) {
+        return { invalidType: true };
+      } else if (price &lt;&#x3D; 0) {
+        return { minPrice: true };
+      } else if (price &gt; 10000) {
+        return { maxPrice: true };
+      }
+      
+      return null;
+    };
+  }
+
+  /**
+   * Restituisce un validatore per lo sconto.
+   * Verifica che lo sconto sia un numero compreso tra 5 e 95.
+   * @returns Una funzione &#x60;ValidatorFn&#x60; che restituisce un errore di validazione
+   *          se lo sconto non è valido.
+   */
+  validateDiscount(): ValidatorFn {
+    return (control: AbstractControl): ValidationErrors | null &#x3D;&gt; {
+      const discount &#x3D; control.value;
+      
+      if (discount &#x3D;&#x3D;&#x3D; null || discount &#x3D;&#x3D;&#x3D; undefined) {
+        return { required: true };
+      } else if (typeof discount !&#x3D;&#x3D; &#x27;number&#x27;) {
+        return { invalidType: true };
+      } else if (discount &lt; 5 || discount &gt; 95) {
+        return { invalidDiscount: true };
+      }
+      
+      return null;
+    };
+  }
+
+  /**
+   * Restituisce un validatore per il numero di telefono.
+   * Verifica che il numero di telefono soddisfi un formato internazionale valido
+   * e che la lunghezza sia compresa tra 10 e 14 caratteri.
+   * @returns Una funzione &#x60;ValidatorFn&#x60; che restituisce un errore di validazione
+   *          se il numero di telefono non soddisfa i criteri specificati.
+   */
+  validatePhoneNumber(): ValidatorFn {
+    return (control: AbstractControl): ValidationErrors | null &#x3D;&gt; {
+      const phoneNumber &#x3D; control.value;
+      const phoneNumberRegex &#x3D; /^\+?[1-9]\d{1,14}$/;
+
+      if (!phoneNumber) {
+        return { required: true };
+      } else if (!phoneNumberRegex.test(phoneNumber)) {
+        return { invalidPhoneNumber: true };
+      } else if (phoneNumber.length &lt; 10) {
+        return { minLength: { requiredLength: 10, actualLength: phoneNumber.length } };
+      } else if (phoneNumber.length &gt; 14) {
+        return { maxLength: { requiredLength: 14, actualLength: phoneNumber.length } };
+      }
+      
+      return null;
+    };
+  }
+
+  /**
+   * Restituisce un validatore per la data.
+   * Verifica che la data sia valida e non sia una data passata.
+   * @returns Una funzione &#x60;ValidatorFn&#x60; che restituisce un errore di validazione
+   *          se la data non è valida o è nel passato.
+   */
+  validateDate(): ValidatorFn {
+    return (control: AbstractControl): ValidationErrors | null &#x3D;&gt; {
+      const selectedDate &#x3D; new Date(control.value);
+
+      if (!selectedDate || isNaN(selectedDate.getTime())) {
+        return { invalidDate: true };
+      }
+
+      const today &#x3D; new Date();
+      today.setHours(0, 0, 0, 0);
+
+      return selectedDate &gt;&#x3D; today ? null : { pastDate: true };
+    };
+  }
+
+  /**
+   * Restituisce un validatore per l&#x27;URL.
+   * Verifica che l&#x27;URL sia valido secondo un formato predefinito.
+   * @returns Una funzione &#x60;ValidatorFn&#x60; che restituisce un errore di validazione
+   *          se l&#x27;URL non soddisfa il formato specificato.
+   */
+  validateUrl(): ValidatorFn {
+    return (control: AbstractControl): ValidationErrors | null &#x3D;&gt; {
+      const url &#x3D; control.value;
+      const urlRegex &#x3D; /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/;
+
+      if (!url) {
+        return { required: true };
+      } else if (!urlRegex.test(url)) {
+        return { invalidUrl: true };
+      }
+
+      return null;
+    };
+  }
+}
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'ValidatorService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

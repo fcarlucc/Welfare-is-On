@@ -1,0 +1,23 @@
+package com.apigateway.app.model.enumerator;
+
+public enum InterestName {
+    TRAVEL,
+    SPORT,
+    READING,
+    LEISURE,
+    PREVENTION,
+    HEALTH_AND_WELLNESS,
+    TECHNOLOGY,
+    FOOD_AND_COOKING,
+    ARTS_AND_CULTURE,
+    FITNESS,
+    MUSIC,
+    VOLUNTEERING,
+    EDUCATION_AND_LEARNING,
+    FINANCIAL_PLANNING,
+    FAMILY_AND_PARENTING,
+    GARDENING,
+    PETS,
+    DIY_AND_CRAFTS,
+    MOVIES_AND_ENTERTAINMENT
+}

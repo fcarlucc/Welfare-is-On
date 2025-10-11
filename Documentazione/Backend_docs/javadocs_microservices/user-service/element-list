@@ -1,0 +1,11 @@
+com.userservice.app
+com.userservice.app.controller
+com.userservice.app.dto
+com.userservice.app.exception
+com.userservice.app.exceptionHandler
+com.userservice.app.Initializer
+com.userservice.app.mapper
+com.userservice.app.model
+com.userservice.app.model.enumerator
+com.userservice.app.repository
+com.userservice.app.service

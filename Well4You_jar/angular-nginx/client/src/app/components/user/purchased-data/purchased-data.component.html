@@ -1,0 +1,11 @@
+<div>
+    <div class="container">
+        <div class="title">
+            <span class="title-red">PURCHASED</span>
+        </div>
+        <div class="subtitle">
+            Qui potrai visualizzari tutti i servizi di cuihai gia usufruito o stai usufruendo
+        </div>
+      </div>
+    <app-purchased-section *ngFor="let section of purchased.sections" [section]="section"></app-purchased-section>
+</div>

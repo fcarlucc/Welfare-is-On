@@ -1,0 +1,11 @@
+com.shopservice.app
+com.shopservice.app.config
+com.shopservice.app.controller
+com.shopservice.app.dto
+com.shopservice.app.exception
+com.shopservice.app.exceptionHandler
+com.shopservice.app.Initializer
+com.shopservice.app.mapper
+com.shopservice.app.model
+com.shopservice.app.repository
+com.shopservice.app.service

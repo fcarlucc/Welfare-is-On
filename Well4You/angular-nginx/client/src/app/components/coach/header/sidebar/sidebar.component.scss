@@ -1,0 +1,149 @@
+$background-color: black;
+$active-color: #c10f1e;
+$hover-color: #a00b16;
+$text-color: white;
+
+@mixin interactive-element {
+  padding: 12px;
+  font-size: 18px;
+  text-align: center;
+  border-radius: 4px;
+  color: $text-color;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+.sidebar {
+  width: 190px;
+  height: 100vh;
+  position: fixed;
+  margin-top: -60px;
+  margin-left: -12px;
+  z-index: 999;
+  background: $background-color;
+  color: $text-color;
+  transition: all 0.3s;
+  box-shadow: 3px 3px 3px rgba(51, 51, 51, 0.5);
+  text-align: left;
+
+  &.active {
+    left: 0;
+  }
+
+  .logo {
+    
+    img {
+      width: 100%;
+      height: 100%;
+    }
+
+    h3 {
+      margin-top: 5px;
+      font-style: oblique;
+      font-size: larger;
+      color: $text-color;
+      text-align: center;
+
+      &:hover {
+        color: #c10f1e;
+      }
+    }
+  }
+
+  .menu-elements {
+    border-bottom: 1px solid lighten($background-color, 10%);
+    
+    .menu-item {
+      width: 160px;
+      margin-left: 5px;
+      border-radius: 6px;
+      padding: 10px;
+      max-height: 40px;
+      text-align: center;
+      color: $text-color;
+      cursor: pointer;
+      transition: all 0.3s;
+
+      h2 {
+        display: inline-block;
+        margin-top: 3px;
+        margin-bottom: 10px;
+        line-height: 40px;
+      }
+
+      &:hover,
+      &:focus {
+        background: $hover-color;
+      }
+
+      &.active {
+        background: darken($background-color, 10%);
+      }
+
+      .sidebar-section {
+
+        .sidebar-img {
+          width: 24px;
+          height: 24px;
+          margin-right: 10px;
+        }
+
+        h2 {
+          display: inline-block;
+          line-height: 44px;
+        }
+      }
+
+      .submenu {
+        background: darken($background-color, 10%);
+        padding-left: 20px;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
+
+        &.expand {
+          max-height: 500px;
+        }
+
+        .submenu-item {
+          padding: 10px 0;
+          font-size: 14px;
+          display: block;
+          cursor: pointer;
+
+          .submenu-section {
+            border-radius: 10px;
+            padding: 10px;
+            
+            .sidebar-img {
+              width: 24px;
+              height: 24px;
+              margin-right: 10px;
+            }
+    
+            h3 {
+              display: inline-block;
+              margin-top: 8px;
+              margin-bottom: 5px;
+              line-height: 30px;
+            }
+
+            &:hover,
+            &:focus {
+              background: $hover-color;
+            }
+          }
+        }
+
+        &.active {
+          background: lighten($background-color, 20%);
+        }
+      }
+    }
+  }
+}

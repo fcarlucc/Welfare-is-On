@@ -1,0 +1,5 @@
+com.notificationservice.app
+com.notificationservice.app.controller
+com.notificationservice.app.dto
+com.notificationservice.app.exceptionHandler
+com.notificationservice.app.service

@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="section">
+        <div class="book-call-container">
+            <div class="logo">
+                <img src="assets/home/logo-well4you.png" alt="logoImage">
+            </div>
+            <h1>Book a Call</h1>
+            <form [formGroup]="bookCallForm" class="main-form" (ngSubmit)="onSubmit()">
+                <div class="form-columns">
+                    <div class="form-group">
+                        <div class="date-buttons">
+                          <button type="button" class="date-btn" *ngFor="let day of this.days" [class.selected]="isSelected(day)" (click)="toggleDay(day)">{{getDayMonth(day.toString())}}</button>
+                        </div>
+                        @if (showSelect) {
+                          <select id="duration" formControlName="slot">
+                            <option value="" disabled selected>Select Slot</option>
+                            <option *ngFor="let slot of this.slots" [ngValue]="slot" (click)="toggleSlot(slot)">{{ slot.startTime.toString().substring(0, 5) }} - {{ slot.endTime.toString().substring(0, 5) }}</option>
+                          </select>
+                        }
+                    </div>
+                    <div class="form-group">
+                        <textarea id="notes" formControlName="notes" placeholder="Additional Notes (optional)"></textarea>
+                    </div>
+                </div>
+                <button class="btn-book-call" type="submit" [disabled]="bookCallForm.invalid">Book Call</button>
+                <button class="btn-cancel" type="button" (click)="navigateTo('')">Cancel</button>
+            </form>
+        </div>
+    </div>
+</div>

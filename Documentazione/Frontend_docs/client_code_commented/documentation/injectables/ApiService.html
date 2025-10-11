@@ -1,0 +1,1981 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>client documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">client documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >ApiService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/services/api/api.service.ts</code>
+        </p>
+
+
+
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#serverUrl" >serverUrl</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#delete" >delete</a>
+                            </li>
+                            <li>
+                                <a href="#get" >get</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#get2" >get2</a>
+                            </li>
+                            <li>
+                                <a href="#getImage" >getImage</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#getImageAsPromise" >getImageAsPromise</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#handleError" >handleError</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#handleFetchResponse" >handleFetchResponse</a>
+                            </li>
+                            <li>
+                                <a href="#patch" >patch</a>
+                            </li>
+                            <li>
+                                <a href="#post" >post</a>
+                            </li>
+                            <li>
+                                <a href="#post2" >post2</a>
+                            </li>
+                            <li>
+                                <a href="#post3" >post3</a>
+                            </li>
+                            <li>
+                                <a href="#put" >put</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(http: HttpClient, errorHandler: <a href="../injectables/ErrorApiHandlerService.html" target="_self">ErrorApiHandlerService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/services/api/api.service.ts:12</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>http</td>
+                                                  
+                                                        <td>
+                                                                    <code>HttpClient</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>errorHandler</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ErrorApiHandlerService.html" target="_self" >ErrorApiHandlerService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="delete"></a>
+                    <span class="name">
+                        <span ><b>delete</b></span>
+                        <a href="#delete"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>delete(endpoint: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, body: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, params?: HttpParams, headers?: HttpHeaders)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="215"
+                                    class="link-to-prism">src/app/services/api/api.service.ts:215</a></div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Type parameters :</b>
+                            <ul class="type-parameters">
+                                    <li>T</li>
+                            </ul>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Effettua una richiesta DELETE e ritorna un Observable di tipo generico.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>endpoint</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>Il percorso dell&#39;endpoint API.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>body</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>(Opzionale) Il corpo della richiesta.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>params</td>
+                                            <td>
+                                                        <code>HttpParams</code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>(Opzionale) I parametri della query.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>headers</td>
+                                            <td>
+                                                        <code>HttpHeaders</code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>(Opzionale) Le intestazioni HTTP.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Observable&lt;T&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <ul>
+<li>Un Observable con i dati della risposta.</li>
+</ul>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="get"></a>
+                    <span class="name">
+                        <span ><b>get</b></span>
+                        <a href="#get"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>get(endpoint: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, params?: HttpParams, headers?: HttpHeaders)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="67"
+                                    class="link-to-prism">src/app/services/api/api.service.ts:67</a></div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Type parameters :</b>
+                            <ul class="type-parameters">
+                                    <li>T</li>
+                            </ul>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Effettua una richiesta GET e ritorna un Observable di tipo generico.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>endpoint</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>Il percorso dell&#39;endpoint API.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>params</td>
+                                            <td>
+                                                        <code>HttpParams</code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>(Opzionale) I parametri della query.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>headers</td>
+                                            <td>
+                                                        <code>HttpHeaders</code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>(Opzionale) Le intestazioni HTTP.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Observable&lt;T&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <ul>
+<li>Un Observable con i dati della risposta.</li>
+</ul>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="get2"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>get2</b></span>
+                        <a href="#get2"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>get2(url: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="81"
+                                    class="link-to-prism">src/app/services/api/api.service.ts:81</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Effettua una richiesta GET usando fetch e ritorna una Promise.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>url</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>L&#39;URL della richiesta.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;any&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <ul>
+<li>Una Promise con i dati JSON della risposta.</li>
+</ul>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getImage"></a>
+                    <span class="name">
+                        <span ><b>getImage</b></span>
+                        <a href="#getImage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getImage(imageId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="98"
+                                    class="link-to-prism">src/app/services/api/api.service.ts:98</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Recupera un&#39;immagine come Blob.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>imageId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>L&#39;ID dell&#39;immagine.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Observable&lt;Blob&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <ul>
+<li>Un Observable con il Blob dell&#39;immagine.</li>
+</ul>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getImageAsPromise"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>getImageAsPromise</b></span>
+                        <a href="#getImageAsPromise"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getImageAsPromise(imageId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="111"
+                                    class="link-to-prism">src/app/services/api/api.service.ts:111</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Recupera un&#39;immagine come Blob e ritorna una Promise.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>imageId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>L&#39;ID dell&#39;immagine.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;Blob&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <ul>
+<li>Il Blob dell&#39;immagine.</li>
+</ul>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleError"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>handleError</b></span>
+                        <a href="#handleError"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>handleError(error: HttpErrorResponse)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="24"
+                                    class="link-to-prism">src/app/services/api/api.service.ts:24</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Gestisce gli errori HTTP.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>error</td>
+                                            <td>
+                                                        <code>HttpErrorResponse</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>L&#39;errore HTTP da gestire.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Observable&lt;never&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <ul>
+<li>Un Observable che emette un errore.</li>
+</ul>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleFetchResponse"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Async</span>
+                        <span ><b>handleFetchResponse</b></span>
+                        <a href="#handleFetchResponse"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>handleFetchResponse(response: Response)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="51"
+                                    class="link-to-prism">src/app/services/api/api.service.ts:51</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Gestisce la risposta fetch e lancia un errore se la risposta non è ok.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>response</td>
+                                            <td>
+                                                        <code>Response</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>La risposta fetch da gestire.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;any&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <ul>
+<li>I dati JSON della risposta.</li>
+</ul>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="patch"></a>
+                    <span class="name">
+                        <span ><b>patch</b></span>
+                        <a href="#patch"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>patch(endpoint: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, body: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, params?: HttpParams, headers?: HttpHeaders)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="199"
+                                    class="link-to-prism">src/app/services/api/api.service.ts:199</a></div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Type parameters :</b>
+                            <ul class="type-parameters">
+                                    <li>T</li>
+                            </ul>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Effettua una richiesta PATCH e ritorna un Observable di tipo generico.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>endpoint</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>Il percorso dell&#39;endpoint API.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>body</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>Il corpo della richiesta.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>params</td>
+                                            <td>
+                                                        <code>HttpParams</code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>(Opzionale) I parametri della query.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>headers</td>
+                                            <td>
+                                                        <code>HttpHeaders</code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>(Opzionale) Le intestazioni HTTP.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Observable&lt;T&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <ul>
+<li>Un Observable con i dati della risposta.</li>
+</ul>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="post"></a>
+                    <span class="name">
+                        <span ><b>post</b></span>
+                        <a href="#post"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>post(endpoint: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, body: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, params?: HttpParams, headers?: HttpHeaders)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="127"
+                                    class="link-to-prism">src/app/services/api/api.service.ts:127</a></div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Type parameters :</b>
+                            <ul class="type-parameters">
+                                    <li>T</li>
+                            </ul>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Effettua una richiesta POST e ritorna un Observable di tipo generico.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>endpoint</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>Il percorso dell&#39;endpoint API.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>body</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>Il corpo della richiesta.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>params</td>
+                                            <td>
+                                                        <code>HttpParams</code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>(Opzionale) I parametri della query.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>headers</td>
+                                            <td>
+                                                        <code>HttpHeaders</code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>(Opzionale) Le intestazioni HTTP.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Observable&lt;T&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <ul>
+<li>Un Observable con i dati della risposta.</li>
+</ul>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="post2"></a>
+                    <span class="name">
+                        <span ><b>post2</b></span>
+                        <a href="#post2"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>post2(endpoint: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, body: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, params?: HttpParams, headers?: HttpHeaders)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="146"
+                                    class="link-to-prism">src/app/services/api/api.service.ts:146</a></div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Type parameters :</b>
+                            <ul class="type-parameters">
+                                    <li>T</li>
+                            </ul>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Effettua una richiesta POST e ritorna l&#39;intera risposta HTTP.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>endpoint</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>Il percorso dell&#39;endpoint API.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>body</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>Il corpo della richiesta.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>params</td>
+                                            <td>
+                                                        <code>HttpParams</code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>(Opzionale) I parametri della query.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>headers</td>
+                                            <td>
+                                                        <code>HttpHeaders</code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>(Opzionale) Le intestazioni HTTP.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Observable&lt;HttpResponse&lt;T&gt;&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <ul>
+<li>Un Observable con la risposta HTTP.</li>
+</ul>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="post3"></a>
+                    <span class="name">
+                        <span ><b>post3</b></span>
+                        <a href="#post3"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>post3(endpoint: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, body: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, headers?: HttpHeaders)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="164"
+                                    class="link-to-prism">src/app/services/api/api.service.ts:164</a></div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Type parameters :</b>
+                            <ul class="type-parameters">
+                                    <li>T</li>
+                            </ul>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Effettua una richiesta POST senza parametri e ritorna un Observable di tipo generico.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>endpoint</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>Il percorso dell&#39;endpoint API.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>body</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>Il corpo della richiesta.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>headers</td>
+                                            <td>
+                                                        <code>HttpHeaders</code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>(Opzionale) Le intestazioni HTTP.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Observable&lt;T&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <ul>
+<li>Un Observable con i dati della risposta.</li>
+</ul>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="put"></a>
+                    <span class="name">
+                        <span ><b>put</b></span>
+                        <a href="#put"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>put(endpoint: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, body: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, params?: HttpParams, headers?: HttpHeaders)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="183"
+                                    class="link-to-prism">src/app/services/api/api.service.ts:183</a></div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Type parameters :</b>
+                            <ul class="type-parameters">
+                                    <li>T</li>
+                            </ul>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Effettua una richiesta PUT e ritorna un Observable di tipo generico.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>endpoint</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>Il percorso dell&#39;endpoint API.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>body</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>Il corpo della richiesta.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>params</td>
+                                            <td>
+                                                        <code>HttpParams</code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>(Opzionale) I parametri della query.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>headers</td>
+                                            <td>
+                                                        <code>HttpHeaders</code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>(Opzionale) Le intestazioni HTTP.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Observable&lt;T&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <ul>
+<li>Un Observable con i dati della risposta.</li>
+</ul>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+            <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="serverUrl"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>serverUrl</b></span>
+                        <a href="#serverUrl"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;https://localhost:8443&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/services/api/api.service.ts:12</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
+import { HttpClient, HttpErrorResponse, HttpHeaders, HttpParams, HttpResponse } from &#x27;@angular/common/http&#x27;;
+import { Observable, throwError } from &#x27;rxjs&#x27;;
+import { catchError, tap } from &#x27;rxjs/operators&#x27;;
+import { ErrorApiHandlerService } from &#x27;../error-api-handler/error-api-handler.service&#x27;;
+
+@Injectable({
+  providedIn: &#x27;root&#x27;
+})
+export class ApiService {
+
+  private serverUrl &#x3D; &#x27;https://localhost:8443&#x27;;  // URL del server
+
+  constructor(
+    private http: HttpClient,
+    private errorHandler: ErrorApiHandlerService  // Servizio per gestire gli errori
+  ) {}
+
+  /**
+   * Gestisce gli errori HTTP.
+   * @param error - L&#x27;errore HTTP da gestire.
+   * @returns - Un Observable che emette un errore.
+   */
+  private handleError(error: HttpErrorResponse): Observable&lt;never&gt; {
+    let errorMessage &#x3D; &#x27;Unknown error occurred&#x27;;
+
+    if (error.error instanceof ErrorEvent) {
+      // Errore lato client
+      console.error(&#x27;An error occurred:&#x27;, error.error.message);
+      errorMessage &#x3D; error.error.message;
+    } else {
+      // Errore lato server
+      console.error(&#x60;Backend returned code ${error.status}, body was: ${error.error}&#x60;);
+      if (error.error &amp;&amp; error.error.error) {
+        errorMessage &#x3D; error.error.error;
+      } else {
+        errorMessage &#x3D; &#x60;Error code: ${error.status}, message: ${error.message}&#x60;;
+      }
+    }
+
+    this.errorHandler.handleError(errorMessage); // Usa il servizio per gestire l&#x27;errore
+    return throwError(() &#x3D;&gt; new Error(errorMessage));
+  }
+
+  /**
+   * Gestisce la risposta fetch e lancia un errore se la risposta non è ok.
+   * @param response - La risposta fetch da gestire.
+   * @returns - I dati JSON della risposta.
+   * @throws {Error} - Se la risposta non è ok.
+   */
+  private async handleFetchResponse(response: Response): Promise&lt;any&gt; {
+    if (!response.ok) {
+      const errorData &#x3D; await response.json();
+      const errorMessage &#x3D; errorData.error || response.statusText;
+      throw new Error(errorMessage);
+    }
+    return response.json();
+  }
+
+  /**
+   * Effettua una richiesta GET e ritorna un Observable di tipo generico.
+   * @param endpoint - Il percorso dell&#x27;endpoint API.
+   * @param params - (Opzionale) I parametri della query.
+   * @param headers - (Opzionale) Le intestazioni HTTP.
+   * @returns - Un Observable con i dati della risposta.
+   */
+  get&lt;T&gt;(endpoint: string, params?: HttpParams, headers?: HttpHeaders): Observable&lt;T&gt; {
+    const options &#x3D; { params, headers, withCredentials: true };
+    return this.http.get&lt;T&gt;(&#x60;${this.serverUrl}/${endpoint}&#x60;, options)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  /**
+   * Effettua una richiesta GET usando fetch e ritorna una Promise.
+   * @param url - L&#x27;URL della richiesta.
+   * @returns - Una Promise con i dati JSON della risposta.
+   * @throws {Error} - Se la richiesta fallisce o la risposta non è ok.
+   */
+  async get2(url: string): Promise&lt;any&gt; {
+    try {
+      const response &#x3D; await fetch(url, {
+        credentials: &#x27;omit&#x27;
+      });
+      return this.handleFetchResponse(response);
+    } catch (error) {
+      console.error(&#x27;Error in ApiService GET:&#x27;, error);
+      throw error;
+    }
+  }
+
+  /**
+   * Recupera un&#x27;immagine come Blob.
+   * @param imageId - L&#x27;ID dell&#x27;immagine.
+   * @returns - Un Observable con il Blob dell&#x27;immagine.
+   */
+  getImage(imageId: string): Observable&lt;Blob&gt; {
+    const headers &#x3D; new HttpHeaders({
+      &#x27;Content-Type&#x27;: &#x27;application/json&#x27;
+    });
+    return this.http.get(&#x60;${this.serverUrl}/api/image/${imageId}&#x60;, { headers, responseType: &#x27;blob&#x27;, withCredentials: true });
+  }
+
+  /**
+   * Recupera un&#x27;immagine come Blob e ritorna una Promise.
+   * @param imageId - L&#x27;ID dell&#x27;immagine.
+   * @returns - Il Blob dell&#x27;immagine.
+   * @throws {Error} - Se la richiesta fallisce o l&#x27;immagine non viene recuperata.
+   */
+  async getImageAsPromise(imageId: string): Promise&lt;Blob&gt; {
+    const imageBlob &#x3D; await this.getImage(imageId).toPromise();
+    if (!imageBlob) {
+      throw new Error(&#x27;Failed to fetch image&#x27;);
+    }
+    return imageBlob;
+  }
+
+  /**
+   * Effettua una richiesta POST e ritorna un Observable di tipo generico.
+   * @param endpoint - Il percorso dell&#x27;endpoint API.
+   * @param body - Il corpo della richiesta.
+   * @param params - (Opzionale) I parametri della query.
+   * @param headers - (Opzionale) Le intestazioni HTTP.
+   * @returns - Un Observable con i dati della risposta.
+   */
+  post&lt;T&gt;(endpoint: string, body: any, params?: HttpParams, headers?: HttpHeaders): Observable&lt;T&gt; {
+    const options &#x3D; { params, headers, withCredentials: true };
+    return this.http.post&lt;T&gt;(&#x60;${this.serverUrl}/${endpoint}&#x60;, body, options)
+      .pipe(
+        tap(response &#x3D;&gt; {
+          console.log(&#x27;Response from server:&#x27;, response);
+        }),
+        catchError(this.handleError)
+      );
+  }
+
+  /**
+   * Effettua una richiesta POST e ritorna l&#x27;intera risposta HTTP.
+   * @param endpoint - Il percorso dell&#x27;endpoint API.
+   * @param body - Il corpo della richiesta.
+   * @param params - (Opzionale) I parametri della query.
+   * @param headers - (Opzionale) Le intestazioni HTTP.
+   * @returns - Un Observable con la risposta HTTP.
+   */
+  post2&lt;T extends HttpResponse&lt;T&gt;&gt;(endpoint: string, body: any, params?: HttpParams, headers?: HttpHeaders): Observable&lt;HttpResponse&lt;T&gt;&gt; {
+    const options &#x3D; { params, headers, observe: &#x27;response&#x27; as &#x27;body&#x27;, withCredentials: true };
+    return this.http.post&lt;T&gt;(&#x60;${this.serverUrl}/${endpoint}&#x60;, body, options)
+      .pipe(
+        tap(response &#x3D;&gt; {
+          console.log(&#x27;Full Response from server:&#x27;, response);
+        }),
+        catchError(this.handleError)
+      );
+  }
+
+  /**
+   * Effettua una richiesta POST senza parametri e ritorna un Observable di tipo generico.
+   * @param endpoint - Il percorso dell&#x27;endpoint API.
+   * @param body - Il corpo della richiesta.
+   * @param headers - (Opzionale) Le intestazioni HTTP.
+   * @returns - Un Observable con i dati della risposta.
+   */
+  post3&lt;T&gt;(endpoint: string, body: any, headers?: HttpHeaders): Observable&lt;T&gt; {
+    const options &#x3D; { headers, withCredentials: true };
+    return this.http.post&lt;T&gt;(&#x60;${this.serverUrl}/${endpoint}&#x60;, body, options)
+      .pipe(
+        tap(response &#x3D;&gt; {
+          console.log(&#x27;Response from server:&#x27;, response);
+        }),
+        catchError(this.handleError)
+      );
+  }
+
+  /**
+   * Effettua una richiesta PUT e ritorna un Observable di tipo generico.
+   * @param endpoint - Il percorso dell&#x27;endpoint API.
+   * @param body - Il corpo della richiesta.
+   * @param params - (Opzionale) I parametri della query.
+   * @param headers - (Opzionale) Le intestazioni HTTP.
+   * @returns - Un Observable con i dati della risposta.
+   */
+  put&lt;T&gt;(endpoint: string, body: any, params?: HttpParams, headers?: HttpHeaders): Observable&lt;T&gt; {
+    const options &#x3D; { params, headers, withCredentials: true };
+    return this.http.put&lt;T&gt;(&#x60;${this.serverUrl}/${endpoint}&#x60;, body, options)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  /**
+   * Effettua una richiesta PATCH e ritorna un Observable di tipo generico.
+   * @param endpoint - Il percorso dell&#x27;endpoint API.
+   * @param body - Il corpo della richiesta.
+   * @param params - (Opzionale) I parametri della query.
+   * @param headers - (Opzionale) Le intestazioni HTTP.
+   * @returns - Un Observable con i dati della risposta.
+   */
+  patch&lt;T&gt;(endpoint: string, body: any, params?: HttpParams, headers?: HttpHeaders): Observable&lt;T&gt; {
+    const options &#x3D; { params, headers, withCredentials: true };
+    return this.http.patch&lt;T&gt;(&#x60;${this.serverUrl}/${endpoint}&#x60;, body, options)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  /**
+   * Effettua una richiesta DELETE e ritorna un Observable di tipo generico.
+   * @param endpoint - Il percorso dell&#x27;endpoint API.
+   * @param body - (Opzionale) Il corpo della richiesta.
+   * @param params - (Opzionale) I parametri della query.
+   * @param headers - (Opzionale) Le intestazioni HTTP.
+   * @returns - Un Observable con i dati della risposta.
+   */
+  delete&lt;T&gt;(endpoint: string, body: any, params?: HttpParams, headers?: HttpHeaders): Observable&lt;T&gt; {
+    const options &#x3D; { params, headers, withCredentials: true };
+    return this.http.delete&lt;T&gt;(&#x60;${this.serverUrl}/${endpoint}&#x60;, options)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+}
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'ApiService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

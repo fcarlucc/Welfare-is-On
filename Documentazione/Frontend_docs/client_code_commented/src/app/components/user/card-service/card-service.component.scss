@@ -1,0 +1,663 @@
+$primary-color: black;
+$secondary-color: white;
+$card-background-color-family:linear-gradient(1042deg, #CF9C00, #d4a50c);
+$card-background-color-economic:linear-gradient(1042deg, #ce7b28, #d4950c);
+$card-background-color-physical: linear-gradient(1042deg, #490460, #ae0db6);
+$card-background-color-psychological: linear-gradient(1042deg, #075e5b, #11a9b4);
+$card-hover-color-family: linear-gradient(1042deg, lighten(#CF9C00, 5%), lighten(#d4a50c, 5%));
+$card-hover-color-economic: linear-gradient(1042deg, lighten(#ce7b28, 5%), lighten(#d4950c, 5%));
+$card-hover-color-physical: linear-gradient(1042deg, lighten(#490460, 5%), lighten(#ae0db6, 5%));
+$card-hover-color-psychological: linear-gradient(1042deg, lighten(#075e5b, 5%), lighten(#11a9b4, 5%));
+$overlay-background: rgb(90, 78, 78);
+
+$comment-bg-color: #f0f0f0;
+$comment-border-color: #ccc;
+$comment-username-color: #007bff;
+$comment-textarea-bg-color: #fff;
+$comment-button-bg-color: #007bff;
+$comment-button-hover-bg-color: darken($comment-button-bg-color, 10%);
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #FFFFFF44;
+  backdrop-filter: blur(8px);
+  z-index: 999;
+}
+
+.service-card {
+  color: $primary-color;
+  padding: 20px;
+  text-align: center;
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 170px;
+  max-height: 220px;
+  box-shadow: 0 4px 8px rgba(2, 2, 2, 0.333);
+  transition: transform 0.2s ease;
+  border-radius: 20px;
+  width: 100%;
+
+  &:hover {
+    transform: scale(1.04);
+  }
+
+  &.family {
+    background: $card-background-color-family;
+    color: $card-background-color-family;
+
+    &:hover {
+      background: $card-hover-color-family;
+    }
+  }
+
+  &.economic {
+    background: $card-background-color-economic;
+    color: $card-background-color-economic;
+
+    &:hover {
+      background: $card-hover-color-economic;
+    }
+  }
+
+  &.physical {
+    background: $card-background-color-physical;
+    color: $card-background-color-physical;
+
+    &:hover {
+      background: $card-hover-color-physical;
+    }
+  }
+
+  &.psychological {
+    background: $card-background-color-psychological;
+    color: $card-background-color-psychological;
+
+    &:hover {
+      background: $card-hover-color-psychological;
+    }
+  }
+
+  .service-card-image {
+    width: 80%;
+    border-radius: 9px;
+    margin-top: -10px;
+
+    &.expanded {
+      max-width: 280px;
+      max-height: 280px;
+      border-radius: 30px;
+      margin-top: -35px;
+      margin-bottom: 15px;
+    }
+  }
+
+  h4 {
+    color: $primary-color;
+    margin-top: 15px;
+    font-family: 'Poppins';
+    color: $secondary-color;
+
+    &.expanded {
+      font-size: 24px;
+      margin-top: -5px;
+    }
+  }
+
+  h3 {
+    padding: 5px;
+    display: inline-block;
+    margin-top: -10px;
+    font-family: 'Poppins';
+    color: $secondary-color;
+
+    &.expanded {
+      font-size: 32px;
+      margin-bottom: 40px;
+    }
+  }
+
+  .description {
+    color: $secondary-color;
+    font-weight: bold;
+    margin-top: -35px;
+    padding: 10px;
+  }
+
+  .price-section {
+    display: flex;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+    .original-price-box {
+      background-color: black;
+      color: white;
+      text-decoration: line-through;
+      padding: 8px 15px;
+      border-radius: 8px;
+      display: flex;
+      left: 50px;
+      align-items: center;
+      position: relative;
+
+      .discount-box {
+        background-color: red;
+        color: white;
+        padding: 8px 15px;
+        border-radius: 8px;
+        position: absolute;
+        top: 0;
+        right: -45px;
+        display: flex;
+        align-items: center;
+      }
+    }
+
+    .our-price-box {
+      background-color: blue;
+      color: white;
+      text-align: center;
+      font-weight: bold;
+      padding: 8px 15px;
+      border-radius: 8px;
+      margin-left: 200px;
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  .portal-button {
+    background-color: $primary-color;
+    color: $secondary-color;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    margin: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    justify-content: center;
+    transition: background-color 0.3s, transform 0.2s;
+
+    &:hover {
+      background-color: darken($primary-color, 10%);
+      transform: scale(1.05);
+    }
+
+    &:active {
+      transform: scale(1);
+    }
+  }
+
+  .button-container {
+    display: flex;
+    justify-content: space-around;
+
+    button {
+      background-color: $primary-color;
+      color: $secondary-color;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 10px;
+      margin: 10px;
+      cursor: pointer;
+      font-size: 16px;
+      max-width: 100px;
+      max-height: 50px;
+      display: flex;
+      align-items: center;
+      transition: background-color 0.3s, transform 0.2s;
+
+      svg {
+        max-width: 70px;
+        max-height: 30px;
+      }
+
+      h4 {
+        color: $secondary-color;
+      }
+
+      a {
+        color: $secondary-color;
+      }
+
+      &:hover {
+        background-color: darken($primary-color, 10%);
+        transform: scale(1.05);
+      }
+
+      &:active {
+        transform: scale(1);
+      }
+    }
+  }
+
+  &.expanded {
+    position: fixed;
+    top: 55%;
+    left: 50%;
+    max-width: 400px;
+    max-height: 600px;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    border-radius: 30px;
+    
+  }
+
+  .comments-section {
+    position: absolute;
+    top: 2%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 20;
+    background-color: $secondary-color;
+    border: 3px solid $primary-color;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 4px 8px $primary-color;
+    height: 80%;
+    max-height: 500px;
+    width: 90%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  
+    .comments-list {
+      overflow-y: auto;
+      padding-bottom: 10px;
+  
+      .comment {
+        background-color: $comment-bg-color;
+        border: 1px solid $comment-border-color;
+        border-radius: 5px;
+        padding: 5px;
+        margin-bottom: 10px;
+  
+        .username {
+          color: $comment-username-color;
+          font-weight: bold;
+        }
+  
+        .content {
+          margin-top: 5px;
+        }
+      }
+    }
+  
+    .comment-input {
+      display: flex;
+      flex-direction: row;
+      background-color: $secondary-color;
+      padding: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+  
+      textarea {
+        flex: 1;
+        background-color: $comment-textarea-bg-color;
+        border: 1px solid $comment-border-color;
+        border-radius: 5px;
+        padding: 10px;
+        margin-right: 10px;
+        resize: none;
+      }
+  
+      button {
+        background-color: $comment-button-bg-color;
+        color: $secondary-color;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s;
+  
+        &:hover {
+          background-color: $comment-button-hover-bg-color;
+        }
+      }
+    }
+  }
+}
+
+
+
+
+// $primary-color: black;
+// $secondary-color: white;
+// $card-background-color-family:linear-gradient(1042deg, #CF9C00, #d4a50c);
+// $card-background-color-economic:linear-gradient(1042deg, #ce7b28, #d4950c);
+// $card-background-color-physical: linear-gradient(1042deg, #490460, #ae0db6);
+// $card-background-color-psychological: linear-gradient(1042deg, #075e5b, #11a9b4);
+// $card-hover-color-family: linear-gradient(1042deg, lighten(#CF9C00, 5%), lighten(#d4a50c, 5%));
+// $card-hover-color-economic: linear-gradient(1042deg, lighten(#ce7b28, 5%), lighten(#d4950c, 5%));
+// $card-hover-color-physical: linear-gradient(1042deg, lighten(#490460, 5%), lighten(#ae0db6, 5%));
+// $card-hover-color-psychological: linear-gradient(1042deg, lighten(#075e5b, 5%), lighten(#11a9b4, 5%));
+// $overlay-background: rgb(90, 78, 78);
+
+// $comment-bg-color: #f0f0f0;
+// $comment-border-color: #ccc;
+// $comment-username-color: #007bff;
+// $comment-textarea-bg-color: #fff;
+// $comment-button-bg-color: #007bff;
+// $comment-button-hover-bg-color: darken($comment-button-bg-color, 10%);
+
+// .overlay {
+//   position: fixed;
+//   top: 0;
+//   left: 0;
+//   width: 100%;
+//   height: 100%;
+//   background-color: #FFFFFF44;
+//   backdrop-filter: blur(8px);
+//   z-index: 999;
+// }
+
+// .service-card {
+//   color: $primary-color;
+//   padding: 20px;
+//   text-align: center;
+//   position: relative;
+//   z-index: 10;
+//   width: 100%;
+//   max-width: 170px;
+//   max-height: 220px;
+//   box-shadow: 0 4px 8px $primary-color;
+//   transition: transform 0.2s ease;
+//   border-radius: 20px;
+//   border: 3px solid $primary-color;
+//   width: 100%;
+
+//   &:hover {
+//     transform: scale(1.04);
+//   }
+
+//   &.family {
+//     background: $card-background-color-family;
+//     color: $card-background-color-family;
+
+//     &:hover {
+//       background: $card-hover-color-family;
+//     }
+//   }
+
+//   &.economic {
+//     background: $card-background-color-economic;
+//     color: $card-background-color-economic;
+
+//     &:hover {
+//       background: $card-hover-color-economic;
+//     }
+//   }
+
+//   &.physical {
+//     background: $card-background-color-physical;
+//     color: $card-background-color-physical;
+
+//     &:hover {
+//       background: $card-hover-color-physical;
+//     }
+//   }
+
+//   &.psychological {
+//     background: $card-background-color-psychological;
+//     color: $card-background-color-psychological;
+
+//     &:hover {
+//       background: $card-hover-color-psychological;
+//     }
+//   }
+
+//   .service-card-image {
+//     width: 80%;
+//     border-radius: 9px;
+//     border: 3px solid $primary-color;
+//     margin-top: -10px;
+
+//     &.expanded {
+//       max-width: 80%;
+//       max-height: 300px;
+//       margin: 5px auto;
+//       border-radius: 30px;
+//       margin-top: -15px;
+//       border: 6px solid $primary-color;
+//     }
+//   }
+
+//   h4 {
+//     color: $primary-color;
+//     border-radius: 9px;
+//     border: 3px solid $primary-color;
+//     margin-top: 5px;
+
+//     &.expanded {
+//       font-size: 24px;
+//       margin-top: -5px;
+//     }
+//   }
+
+//   h3 {
+//     background-color: $primary-color;
+//     padding: 5px;
+//     border-radius: 9px;
+//     border: 3px solid $primary-color;
+//     display: inline-block;
+//     margin-top: -5px;
+
+//     &.expanded {
+//       font-size: 24px;
+//       margin-top: -15px;
+//     }
+//   }
+
+//   .description {
+//     color: $primary-color;
+//     font-weight: bold;
+//     margin-top: -10px;
+//   }
+
+//   .price-section {
+//     display: flex;
+//     margin-top: 10px;
+//     margin-bottom: 10px;
+
+//     .original-price-box {
+//       background-color: black;
+//       color: white;
+//       text-decoration: line-through;
+//       padding: 8px 15px;
+//       border-radius: 8px;
+//       display: flex;
+//       left: 50px;
+//       align-items: center;
+//       position: relative;
+
+//       .discount-box {
+//         background-color: red;
+//         color: white;
+//         padding: 8px 15px;
+//         border-radius: 8px;
+//         position: absolute;
+//         top: 0;
+//         right: -45px;
+//         display: flex;
+//         align-items: center;
+//       }
+//     }
+
+//     .our-price-box {
+//       background-color: blue;
+//       color: white;
+//       text-align: center;
+//       font-weight: bold;
+//       padding: 8px 15px;
+//       border-radius: 8px;
+//       margin-left: 200px;
+//       display: flex;
+//       align-items: center;
+//     }
+//   }
+
+//   .portal-button {
+//     background-color: $primary-color;
+//     color: $secondary-color;
+//     border: none;
+//     padding: 10px 20px;
+//     border-radius: 10px;
+//     margin: 10px;
+//     cursor: pointer;
+//     font-size: 16px;
+//     display: flex;
+//     align-items: center;
+//     text-decoration: none;
+//     justify-content: center;
+//     transition: background-color 0.3s, transform 0.2s;
+
+//     &:hover {
+//       background-color: darken($primary-color, 10%);
+//       transform: scale(1.05);
+//     }
+
+//     &:active {
+//       transform: scale(1);
+//     }
+//   }
+
+//   .button-container {
+//     display: flex;
+//     justify-content: space-around;
+
+//     button {
+//       background-color: $primary-color;
+//       color: $secondary-color;
+//       border: none;
+//       padding: 10px 20px;
+//       border-radius: 10px;
+//       margin: 10px;
+//       cursor: pointer;
+//       font-size: 16px;
+//       max-width: 100px;
+//       max-height: 50px;
+//       display: flex;
+//       align-items: center;
+//       transition: background-color 0.3s, transform 0.2s;
+
+//       svg {
+//         max-width: 70px;
+//         max-height: 30px;
+//       }
+
+//       h4 {
+//         color: $secondary-color;
+//       }
+
+//       a {
+//         color: $secondary-color;
+//       }
+
+//       &:hover {
+//         background-color: darken($primary-color, 10%);
+//         transform: scale(1.05);
+//       }
+
+//       &:active {
+//         transform: scale(1);
+//       }
+//     }
+//   }
+
+//   &.expanded {
+//     position: fixed;
+//     top: 50%;
+//     left: 50%;
+//     max-width: 400px;
+//     max-height: 800px;
+//     transform: translate(-50%, -50%);
+//     z-index: 1000;
+//     border-radius: 30px;
+//     border: 6px solid $primary-color;
+//   }
+
+//   .comments-section {
+//     position: absolute;
+//     top: 2%;
+//     left: 50%;
+//     transform: translateX(-50%);
+//     z-index: 20;
+//     background-color: $secondary-color;
+//     border: 3px solid $primary-color;
+//     border-radius: 10px;
+//     padding: 10px;
+//     box-shadow: 0 4px 8px $primary-color;
+//     height: 80%;
+//     max-height: 500px;
+//     width: 90%;
+//     max-width: 400px;
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: space-between;
+  
+//     .comments-list {
+//       overflow-y: auto;
+//       padding-bottom: 10px;
+  
+//       .comment {
+//         background-color: $comment-bg-color;
+//         border: 1px solid $comment-border-color;
+//         border-radius: 5px;
+//         padding: 5px;
+//         margin-bottom: 10px;
+  
+//         .username {
+//           color: $comment-username-color;
+//           font-weight: bold;
+//         }
+  
+//         .content {
+//           margin-top: 5px;
+//         }
+//       }
+//     }
+  
+//     .comment-input {
+//       display: flex;
+//       flex-direction: row;
+//       background-color: $secondary-color;
+//       padding: 10px;
+//       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+//       border-radius: 10px;
+  
+//       textarea {
+//         flex: 1;
+//         background-color: $comment-textarea-bg-color;
+//         border: 1px solid $comment-border-color;
+//         border-radius: 5px;
+//         padding: 10px;
+//         margin-right: 10px;
+//         resize: none;
+//       }
+  
+//       button {
+//         background-color: $comment-button-bg-color;
+//         color: $secondary-color;
+//         border: none;
+//         padding: 10px 20px;
+//         border-radius: 5px;
+//         cursor: pointer;
+//         font-size: 16px;
+//         transition: background-color 0.3s;
+  
+//         &:hover {
+//           background-color: $comment-button-hover-bg-color;
+//         }
+//       }
+//     }
+//   }
+// }
