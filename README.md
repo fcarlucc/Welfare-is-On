@@ -3,7 +3,7 @@
 WellfareIsOn is a challenge that aims to innovate the Wellfare website of Leonardo, and this is our creation: **Well4You**.
 
 📸 Project images and mockups can be found in:
-/Documentazione/immagini/*
+/Documentazione/Manuali/*
 
 ## Project Overview
 
